@@ -1,9 +1,11 @@
 let result = document.getElementById("resultado");
 
-let precio = prompt("ingrese el precio");
-let descuento = prompt("ingrese el descuento");
+let precio = parseInt(prompt("ingrese el precio"));
+let descuento = parseFloat(prompt("ingrese el descuento"));
 
 let total = parseInt(precio*(descuento/100));
+
+// 
 
 // aqui usamos el alert para mostrar mediante la pestaña superior en la pagina
 alert(`El precio es : ${precio} el descuento es de : ${descuento} y el total seria de : ${total}`);
