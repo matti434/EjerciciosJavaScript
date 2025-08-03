@@ -1,0 +1,151 @@
+/* Estilos generales */
+body {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  padding-bottom: 50px;
+}
+
+/* Header del challenge */
+.challenge-header {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Navegación entre ejercicios */
+.exercise-nav .nav-link {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.exercise-nav .nav-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-nav .nav-link.active {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Tarjetas de ejercicios */
+.exercise-card {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-card.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.instruction {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs y botones */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+.input-group-text {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Resultados */
+.result-container {
+  min-height: 50px;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.result-text {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #4CAF50;
+}
+
+/* Footer */
+.footer {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exercise-nav .nav-link {
+    margin: 5px 0;
+    width: 100%;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group-text {
+    width: 100%;
+    justify-content: center;
+    margin: 10px 0;
+  }
+}
