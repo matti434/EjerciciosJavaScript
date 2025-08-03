@@ -153,10 +153,32 @@ function descuento() {
 
   if (monto > 100) {
     total = monto * 0.1; // Cálculo del 10%
-    respuesta.textContent = `El monto es $${monto}, aplica 10% de total descuento de: $${total.toFixed(
+    respuesta.textContent = `El monto es ${monto}, aplica 10% de total descuento de: ${total.toFixed(
       2
     )}`;
   } else {
-    respuesta.textContent = `El monto es $${monto}, no aplica descuento.`;
+    respuesta.textContent = `El monto es ${monto}, no aplica descuento.`;
+  }
+}
+
+function verificarAcceso() {
+  const usuarioGuardado = "Matias123Laz";
+  const contraseñaGuardada = "RollingCode1234";
+  const usuario = document.getElementById("nombreUsuario").value;
+  const contraseña = document.getElementById("contraseña2").value;
+  let respuesta = document.getElementById("res10");
+
+  console.log("Usuario ingresado:", usuario);
+  console.log("Contraseña ingresada:", contraseña);
+  console.log(
+    "Comparación:",
+    usuario === usuarioGuardado,
+    contraseña === contraseñaGuardada
+  );
+
+  if (usuario === usuarioGuardado && contraseña === contraseñaGuardada) {
+    respuesta.textContent = "Acceso concedido: Usuario y contraseña coinciden";
+  } else {
+    respuesta.textContent = "Acceso denegado: Usuario o contraseña incorrectos";
   }
 }
