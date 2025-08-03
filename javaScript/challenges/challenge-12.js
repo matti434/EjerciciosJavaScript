@@ -127,8 +127,36 @@ function calcularAnioBisiesto() {
     respuesta.textContent = `El año: ${anio} es bisiesto`;
   } else if (anio % 100 == 0 && anio % 400 == 0) {
     respuesta.textContent = `El año: ${anio} es bisiesto`;
-  }
-  else{
+  } else {
     respuesta.textContent = `El año: ${anio} no es bisiesto`;
+  }
+}
+
+function calificacion() {
+  let nota = parseInt(document.getElementById("nota").value);
+  let respuesta = document.getElementById("res8");
+
+  if (nota >= 6 && nota <= 7) {
+    respuesta.textContent = `La nota es: ${nota} esta aprobado`;
+  } else if (nota >= 8 && nota <= 10) {
+    respuesta.textContent = `La nota es: ${nota} una calificacion excelente`;
+  } else if (nota <= 5 && nota >= 0) {
+    respuesta.textContent = `La nota es: ${nota} esta desaprobado`;
+  } else {
+    respuesta.textContent = "El valor ingresado es incorrecto";
+  }
+}
+
+function descuento() {
+  let monto = parseFloat(document.getElementById("monto").value);
+  let respuesta = document.getElementById("res9");
+
+  if (monto > 100) {
+    total = monto * 0.1; // Cálculo del 10%
+    respuesta.textContent = `El monto es $${monto}, aplica 10% de total descuento de: $${total.toFixed(
+      2
+    )}`;
+  } else {
+    respuesta.textContent = `El monto es $${monto}, no aplica descuento.`;
   }
 }

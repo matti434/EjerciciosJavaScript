@@ -162,7 +162,7 @@
                         <label for="numero2" class="form-label">Segundo número:</label>
                         <input type="number" id="numero2" class="form-control" placeholder="Escribe un número">
                     </div>
-              
+
                     <button class="btn btn-warning w-100" onclick="calcularOperacion()">
                         <i class="fa-solid fa-calculator me-2"></i>Calcular
                     </button>
@@ -177,7 +177,7 @@
             <!-- Ejercicio 7 -->
             <div id="ejercicio-7" class="exercise-card">
                 <div class="card-header">
-                    <h2><i class="fas fa-user text-warning me-2"></i>Año bisiesto</h2>
+                    <h2><i class="fa-solid fa-calendar-days text-warning me-2"></i>Año bisiesto</h2>
                 </div>
                 <div class="card-body">
                     <p class="instruction">Solicitar un año y comprobar si es bisiesto.</p>
@@ -189,6 +189,71 @@
                     </div>
                     <div class="result-container">
                         <p id="res7" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 8 -->
+            <div id="ejercicio-8" class="exercise-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-check text-warning me-2"></i>Clasificación de calificaciones</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Pedir una calificación numérica (0-10) y mostrar la nota correspondiente
+                        (Aprobado, Reprobado, Excelente).
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="number" id="nota" class="form-control" placeholder="Escribe la calificacion">
+                        <button class="btn btn-warning" onclick="calificacion()">
+                            <i class="fas fa-eye me-2"></i>validar
+                        </button>
+                    </div>
+                    <div class="result-container">
+                        <p id="res8" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 9 -->
+            <div id="ejercicio-9" class="exercise-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-check text-warning me-2"></i>Precio con descuento</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Si el monto de la compra supera $100, aplicar un 10% de descuento.
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="number" id="monto" class="form-control" placeholder="Escribe la calificacion">
+                        <button class="btn btn-warning" onclick="descuento()">
+                            <i class="fas fa-eye me-2"></i>validar
+                        </button>
+                    </div>
+                    <div class="result-container">
+                        <p id="res9" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 10 -->
+            <div id="ejercicio-10" class="exercise-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-certificate text-danger me-2"></i>Verificar acceso</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Solicitar nombre de usuario y contraseña. Verificar si ambos coinciden con
+                        valores predefinidos.
+                    </p>
+                    <div class="input-group mb-3">
+                        <label for="usuario"></label>
+                        <input type="usuario" id="nombreUsuario" class="form-control" placeholder="Escribe el nombre de usuario">
+                        <label for="contraseña"></label>
+                        <input type="password" id="contraseña" class="form-control" placeholder="Escribe la contraseña">
+                        <button class="btn btn-warning" onclick="verificarAcceso()">
+                            <i class="fas fa-eye me-2"></i>verificar
+                        </button>
+                    </div>
+                    <div class="result-container">
+                        <p id="res10" class="result-text"></p>
                     </div>
                 </div>
             </div>
