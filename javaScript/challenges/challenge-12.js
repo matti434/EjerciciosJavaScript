@@ -518,3 +518,45 @@ function adivinarNumero() {
     return false;
   } while (true);
 }
+
+let sumaTotal = 0;
+
+function agregarNumero() {
+    const input = document.getElementById("numeroSumar");
+    const resultado = document.getElementById("resbucle6");
+    const sumaDisplay = document.getElementById("sumaActual");
+    const numero = parseInt(input.value);
+    
+    // Validación
+    if (isNaN(numero)) {
+        resultado.textContent = "Por favor ingresa un número válido";
+        resultado.className = "result-text text-danger";
+        return;
+    }
+    
+    // Sumar el número
+    sumaTotal += numero;
+    sumaDisplay.textContent = `Suma actual: ${sumaTotal}`;
+    input.value = "";
+    input.focus();
+    
+    // Verificar si alcanzó 100
+    if (sumaTotal >= 100) {
+        resultado.textContent = `<span class="text-success">¡Meta alcanzada!</span> Suma total: ${sumaTotal}`;
+        resultado.className = "result-text text-success";
+        
+        // Deshabilitar el botón temporalmente
+        document.querySelector("#numeroSumar").nextElementSibling.disabled = true;
+        
+        // Reiniciar después de 3 segundos
+        setTimeout(() => {
+            sumaTotal = 0;
+            sumaDisplay.textContent = "Suma actual: 0";
+            resultado.textContent = "";
+            document.querySelector("#numeroSumar").nextElementSibling.disabled = false;
+        }, 3000);
+    } else {
+        resultado.textContent = `Necesitas ${100 - sumaTotal} más para llegar a 100`;
+        resultado.className = "result-text";
+    }
+}

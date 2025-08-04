@@ -639,7 +639,7 @@
                 </div>
             </div>
 
-             <!-- Ejercicio 4 bucles -->
+            <!-- Ejercicio 4 bucles -->
             <div id="ejercicio-4" class="exercise-card mb-5">
                 <div class="card-header">
                     <h2><i class="fa-solid fa-graduation-cap  text-warning me-2">Numeros pares entre 1 y 100</i></h2>
@@ -702,25 +702,49 @@
             </div>
 
             <!-- Ejercicio 6 bucles -->
-                <div id="ejercicio-6" class="exercise-card mb-5">
-                    <div class="card-header">
-                        <h2><i class="fas fa-dice text-warning me-2"></i>Número aleatorio hasta acertar</h2>
-                    </div>
-                    <div class="card-body">
-                        <p class="instruction">El programa genera un número aleatorio (entre 1 y 10) y el usuario debe adivinarlo</p>
+            <div id="ejercicio-6" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fas fa-dice text-warning me-2"></i>Número aleatorio hasta acertar</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">El programa genera un número aleatorio (entre 1 y 10) y el usuario debe
+                        adivinarlo</p>
 
-                        <div class="input-group mb-3">
-                            <input type="number" id="numeroBucleAleatorio" class="form-control"
-                                placeholder="Ingresa un número (1-10)" min="1" max="10">
-                            <button class="btn btn-success" onclick="adivinarNumero()">
-                                <i class="fas fa-check me-2"></i> Verificar
-                            </button>
-                        </div>
-                        <div class="result-container">
-                            <p id="resBucle6" class="result-text"></p>
-                        </div>
+                    <div class="input-group mb-3">
+                        <input type="number" id="numeroBucleAleatorio" class="form-control"
+                            placeholder="Ingresa un número (1-10)" min="1" max="10">
+                        <button class="btn btn-success" onclick="adivinarNumero()">
+                            <i class="fas fa-check me-2"></i> Verificar
+                        </button>
+                    </div>
+                    <div class="result-container">
+                        <p id="resBucle6" class="result-text"></p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Ejercicio 7 bucles -->
+            <div id="ejercicio-7" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fas fa-calculator text-primary me-2"></i>Sumar hasta 100</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Ingresa números hasta que la suma alcance o supere 100</p>
+
+                    <div class="input-group mb-3">
+                        <input type="number" id="numeroSumar" class="form-control" placeholder="Ingresa un número"
+                            min="1">
+                        <button class="btn btn-primary" onclick="agregarNumero()">
+                            <i class="fas fa-plus me-2"></i> Sumar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="sumaActual" class="result-text">Suma actual: 0</p>
+                        <p id="resbucle7" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
