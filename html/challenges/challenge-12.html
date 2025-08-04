@@ -7,7 +7,7 @@
     <title>Challenge 12 - Ejercicios de Lógica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 </head>
 
 <body>
@@ -570,26 +570,154 @@
 
         <section class="container mt-5 pt-2">
             <hr>
-            <h1 class="display-2 text-center mt-5" style="font-family: 'Courier New', Courier, monospace;">Ejercicios con bucles</h1>
+            <h1 class="display-2 text-center mt-5" style="font-family: 'Courier New', Courier, monospace;">Ejercicios
+                con bucles</h1>
             <hr>
 
-             <!-- Ejercicio 1 bucles -->
-                <div id="ejercicio-20" class="exercise-card mb-5">
+            <!-- Ejercicio 1 bucles -->
+            <div id="ejercicio-1" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fas fa-traffic-light text-danger me-2">Contar del 1 al 10</i></h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Mostrar los números del 1 al 10 en consola.
+                    </p>
+
+                    <div class="input-group mb-3">
+                        <button class="btn btn-primary" onclick="contar()">
+                            <i class="fas fa-play me-2"></i>mostrar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="resBucle1" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2 bucles -->
+            <div id="ejercicio-2" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-graduation-cap me-2">Sumatoria simple</i></h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Calcular la suma de los primeros 50 números naturales.
+                    </p>
+
+                    <div class="input-group mb-3">
+                        <button class="btn btn-primary" onclick="sumar50()">
+                            <i class="fas fa-play me-2"></i>mostrar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="resBucle2" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 3 bucles -->
+            <div id="ejercicio-3" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-graduation-cap  text-warning me-2">Tabla de multiplicar</i></h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Solicitar un número y mostrar su tabla del 1 al 10.
+                    </p>
+
+                    <div class="input-group mb-3">
+                        <input type="number" id="numeroTablaMultiplicar" class="form-control"
+                            placeholder="Escriba un numero">
+                        <button class="btn btn-warning" onclick="tablaDeMultiplicar()">
+                            <i class="fas fa-play me-2"></i>mostrar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="resBucle3" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Ejercicio 4 bucles -->
+            <div id="ejercicio-4" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-graduation-cap  text-warning me-2">Numeros pares entre 1 y 100</i></h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Mostrar todos los pares entre 1 y 100.
+                    </p>
+
+                    <div class="input-group mb-3">
+                        <button class="btn btn-warning" onclick="mostrarPares()">
+                            <i class="fas fa-play me-2"></i>mostrar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="resBucle4" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 5 bucles -->
+            <div id="ejercicio-5" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-rocket text-danger me-2"></i>Cuenta regresiva</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Contar del 10 al 0.
+                    </p>
+
+                    <div class="input-group mb-3">
+                        <button class="btn btn-primary" onclick="cuentaRegresiva()">
+                            <i class="fa-solid fa-rocket me-2"></i>mostrar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="resBucle5" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 5 bucles -->
+            <div id="ejercicio-5" class="exercise-card mb-5">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-rocket fa-rotate-90 text-danger me-2"></i>Cuenta regresiva</h2>
+                </div>
+                <div class="card-body">
+                    <p class="instruction">Contar del 10 al 0.
+                    </p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-primary" onclick="cuentaRegresiva()">
+                            <i class="fa-solid fa-rocket me-2"></i>mostrar
+                        </button>
+                    </div>
+
+                    <div class="result-container">
+                        <p id="resBucle5" class="result-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 6 bucles -->
+                <div id="ejercicio-6" class="exercise-card mb-5">
                     <div class="card-header">
-                        <h2><i class="fas fa-traffic-light text-danger me-2">Contar del 1 al 10</i></h2>
+                        <h2><i class="fas fa-dice text-warning me-2"></i>Número aleatorio hasta acertar</h2>
                     </div>
                     <div class="card-body">
-                        <p class="instruction">Mostrar los números del 1 al 10 en consola.
-                        </p>
+                        <p class="instruction">El programa genera un número aleatorio (entre 1 y 10) y el usuario debe adivinarlo</p>
 
                         <div class="input-group mb-3">
-                            <button class="btn btn-primary" onclick="contar()">
-                                <i class="fas fa-play me-2"></i>mostrar
+                            <input type="number" id="numeroBucleAleatorio" class="form-control"
+                                placeholder="Ingresa un número (1-10)" min="1" max="10">
+                            <button class="btn btn-success" onclick="adivinarNumero()">
+                                <i class="fas fa-check me-2"></i> Verificar
                             </button>
                         </div>
-
                         <div class="result-container">
-                            <p id="resBucle1" class="result-text"></p>
+                            <p id="resBucle6" class="result-text"></p>
                         </div>
                     </div>
                 </div>

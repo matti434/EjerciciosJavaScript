@@ -441,3 +441,80 @@ function contar() {
     }, i * 500);
   }
 }
+
+function sumar50() {
+  let respuesta = document.getElementById("resBucle2");
+  let suma=0
+  for (let i = 0; i < 50; i++) {
+      suma = suma+i;
+  }
+  respuesta.textContent=`El resultado de la suma de los primeros 50 numeros naturales es: ${suma}`;
+}
+
+
+function tablaDeMultiplicar() {
+  let numero = parseInt(document.getElementById("numeroTablaMultiplicar").value);
+  let respuesta = document.getElementById("resBucle3");
+  let multiplicar;
+  let tablaCompleta = "";
+  for (let i = 0; i <= 10; i++) {
+      multiplicar = numero*i;
+      console.log(`${numero} x ${i} = ${multiplicar}`);
+      tablaCompleta += `--${numero} x ${i} = ${multiplicar}\n--  `;
+    }
+    respuesta.textContent=tablaCompleta;
+}
+
+
+function mostrarPares() {
+  let respuesta = document.getElementById("resBucle4");
+  let resultado = "Los números pares son: ";
+  
+  for (let i = 0; i <= 100; i += 2) {
+    resultado += i + (i < 100 ? " -- " : "");
+  }
+  
+  console.log(resultado);
+  respuesta.textContent = resultado;
+}
+
+
+function cuentaRegresiva() {
+  let respuesta = document.getElementById("resBucle5");
+  
+  for (let i = 10; i >= 0; i--) {
+    // setTimeout se programa con un retraso (i*tiempo)
+    setTimeout(() => {
+      respuesta.textContent = i === 0 ? "¡Despegue!" : `-${i}-`;
+      console.log(i === 0 ? "¡Despegue!" : i );
+    }, (10-i) * 500);
+  }
+}
+
+
+// let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+let numeroAleatorioBucles = Math.floor(Math.random() * 10) + 1;
+
+function adivinarNumero() {
+  const input = document.getElementById("numeroBucleAleatorio");
+  const resultado = document.getElementById("resBucle6");
+  let numeroIngresado = parseInt(input.value);
+  
+  if (isNaN(numeroIngresado)) {
+    resultado.textContent = "Ingresa un número válido";
+    return;
+  }
+
+  do {
+    if (numeroIngresado === numeroAleatorioBucles) {
+      resultado.textContent = `¡Correcto! El número era ${numeroAleatorioBucles}`;
+      return true;
+    } else if (numeroIngresado < numeroAleatorioBucles) {
+      resultado.textContent = "El número es mayor";
+    } else {
+      resultado.textContent = "El número es menor";
+    }
+    
+    return false;
+  } while (true);
+}
