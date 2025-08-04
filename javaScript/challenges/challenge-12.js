@@ -182,3 +182,124 @@ function verificarAcceso() {
     respuesta.textContent = "Acceso denegado: Usuario o contraseña incorrectos";
   }
 }
+
+function calcularEdad() {
+  let edad = parseFloat(document.getElementById("edades").value);
+  let respuesta = document.getElementById("res11");
+
+  if (edad >= 0 && edad <= 1) {
+    respuesta.textContent = `La edad es ${edad} por lo que es un bebe`;
+  } else if (edad > 1 && edad <= 11) {
+    respuesta.textContent = `La edad es ${edad} por lo que es un niño`;
+  } else if (edad > 11 && edad <= 18) {
+    respuesta.textContent = `La edad es ${edad} por lo que es un adolecente`;
+  } else if (edad > 18 && edad <= 65) {
+    respuesta.textContent = `La edad es ${edad} por lo que es un adulto`;
+  } else if (edad > 65) {
+    respuesta.textContent = `La edad es ${edad} por lo que es un adulto mayor`;
+  }
+}
+
+function validarFecha() {
+  const dia = parseInt(document.getElementById("dia").value);
+  const mes = parseInt(document.getElementById("mes").value);
+  const anio = parseInt(document.getElementById("anio2").value);
+  const respuesta = document.getElementById("res12");
+
+  if (mes < 1 || mes > 12) {
+    respuesta.textContent = "Mes inválido (debe ser 1-12)";
+    return;
+  }
+
+  let maxDias = 31;
+  if (mes === 2) {
+    const esBisiesto = (anio % 4 === 0 && anio % 100 !== 0) || anio % 400 === 0;
+    maxDias = esBisiesto ? 29 : 28;
+  } else if (mes === 4 || mes === 6 || mes === 9 || mes === 11) {
+    maxDias = 30;
+  }
+
+  if (dia < 1 || dia > maxDias) {
+    respuesta.textContent = `Día inválido para ${mes}/${anio} (máx ${maxDias} días)`;
+    return;
+  }
+
+  respuesta.textContent = `Fecha válida: ${dia}/${mes}/${anio}`;
+}
+
+function verificarRol() {
+  let usuario = document.getElementById("usuario2").value;
+  let rol = document.getElementById("rol").value;
+  let resultado = document.getElementById("res13");
+
+  if (rol === "admin") {
+    resultado.textContent = "Usted es admin por lo que tiene acceso total";
+  } else if (rol === "editor") {
+    resultado.textContent = "Usted es editor por lo que tiene acceso limitado";
+  } else if (rol === "invitado") {
+    resultado.textContent = "Usted es invitado por lo que solo puede observar";
+  } else {
+    resultado.textContent =
+      "Usted no tiene un rol por lo que no tiene acceso de ningun tipo";
+  }
+}
+
+function verificarRol() {
+  let sueldo = document.getElementById("ingresos").value;
+  let resultado = document.getElementById("res14");
+  let impuesto = 0;
+  let total = 0;
+  if (sueldo > 5000) {
+    impuesto = sueldo * 0.1;
+    total = sueldo - impuesto;
+    resultado.textContent = `Sus ingresos son superiores a 5000 por lo que sus impuestos son del 10% su salario es ${sueldo} sacando los impuestos el total es : ${total}`;
+  } else if (sueldo > 1000 && sueldo <= 5000) {
+    impuesto = sueldo * 0.05;
+    total = sueldo - impuesto;
+    resultado.textContent = `Sus ingresos son medios por lo que sus impuestos son del 5% su salario es ${sueldo} sacando los impuestos el total es : ${total}`;
+  } else if ((sueldo = 1000)) {
+    impuesto = sueldo * 0.02;
+    total = sueldo - impuesto;
+    resultado.textContent = `Sus ingresos son bajos por lo que sus impuestos son del 2% su salario es ${sueldo} sacando los impuestos el total es : ${total}`;
+  } else {
+    resultado.textContent ="Su sueldo es bajo por lo que no debe pagar impuestos";
+  }
+}
+
+function convertirTemperatura() {
+    // Obtener valores
+    const temperatura = parseFloat(document.getElementById('temperatura').value);
+    const escala = document.getElementById('escala').value;
+    const resultado = document.getElementById('res15');
+    const diagnostico = document.getElementById('diagnostico');
+    let tempC, tempF, conversionText;
+    
+   
+    if (escala === 'celsius') {
+        tempC = temperatura;
+        tempF = (tempC * 9/5) + 32;
+        conversionText = `${tempC.toFixed(1)}°C = ${tempF.toFixed(1)}°F`;
+    } else {
+        tempF = temperatura;
+        tempC = (tempF - 32) * 5/9;
+        conversionText = `${tempF.toFixed(1)}°F = ${tempC.toFixed(1)}°C`;
+    }
+    
+    resultado.textContent = conversionText;
+    
+    if (tempC < 35) {
+        diagnostico.textContent = "Hipotertermia: Temperatura peligrosamente baja";
+    } 
+    else if (tempC >= 35 && tempC <= 37.2) {
+        diagnostico.textContent = "Normal: Temperatura corporal normal";    
+    }
+    else if (tempC > 37.2 && tempC <= 38) {
+        diagnostico.textContent = "Febrícula: Temperatura ligeramente elevada";
+    }
+    else if (tempC > 38 && tempC <= 39) {
+        diagnostico.textContent = "Fiebre: Temperatura alta";   
+    }
+    else {
+        diagnostico.textContent = "Fiebre muy alta busque atención ";
+    }
+}

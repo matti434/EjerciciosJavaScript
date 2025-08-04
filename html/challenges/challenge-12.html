@@ -12,253 +12,382 @@
 
 <body>
     <main class="container mt-5">
+        <section class="container">
 
-        <!-- Botonera de ejercicios -->
-        <div class="exercise-nav mb-5">
-            <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
-                <button class="nav-link active" onclick="mostrarEjercicio(1)" id="ej1-tab">
-                    <i class="fas fa-check-circle me-2"></i>Par/Impar
-                </button>
-                <button class="nav-link" onclick="mostrarEjercicio(2)" id="ej2-tab">
-                    <i class="fas fa-plus-circle me-2"></i>Sumar
-                </button>
-                <button class="nav-link" onclick="mostrarEjercicio(3)" id="ej3-tab">
-                    <i class="fas fa-user me-2"></i>Nombre
-                </button>
-            </div>
-        </div>
-
-        <!-- Contenido de los ejercicios -->
-        <div class="exercise-container">
-            <!-- Ejercicio 1 -->
-            <div id="ejercicio-1" class="exercise-card active">
-                <div class="card-header">
-                    <h2><i class="fas fa-check-circle text-primary me-2"></i>Número positivo o negativo</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Ingresa un número para verificar es positivo,negativo o cero</p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="num1" class="form-control" placeholder="Ingresa un número">
-                        <button class="btn btn-primary" onclick="esPositivoNegativoCero()">
-                            <i class="fas fa-check me-2"></i>Verificar
-                        </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res1" class="result-text"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ejercicio 2 -->
-            <div id="ejercicio-2" class="exercise-card active">
-                <div class="card-header">
-                    <h2><i class="fas fa-check-circle text-primary me-2"></i>Edad para votar</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Solicitar la edad del usuario y mostrar si puede votar</p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="edad" class="form-control" placeholder="Ingresa un número">
-                        <button class="btn btn-primary" onclick="edadMayorMenor()">
-                            <i class="fas fa-check me-2"></i>Verificar
-                        </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res2" class="result-text"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ejercicio 3 -->
-            <div id="ejercicio-3" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fas fa-equals text-success me-2"></i>Número par o impar</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Comprobar si el número ingresado es par o impar</p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="numeroParImpar" class="form-control" placeholder="Ingresa un número">
-                        <button class="btn btn-success" onclick="verificarParImpar()">
-                            <i class="fas fa-check me-2"></i>Verificar
-                        </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res3" class="result-text"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ejercicio 4 -->
-            <div id="ejercicio-4" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-equals text-success me-2"></i>Contraseña segura</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Comparar una contraseña ingresada con una contraseña guardada. Mostrar
-                        mensaje si coinciden o no.</p>
-                    <div class="input-group mb-3">
-                        <label></label>
-                        <input type="password" id="contraseña" class="form-control" placeholder="Ingrese contraseña">
-                        <label></label>
-                        <input type="password" id="contraseñaRepetida" class="form-control"
-                            placeholder="Repita la contraseña">
-                        <button class="btn btn-success" onclick="compararConstraseña()">
-                            <i class="fas fa-check me-2"></i>Comparar
-                        </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res4" class="result-text"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ejercicio 5 -->
-            <div id="ejercicio-5" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fas fa-user text-warning me-2"></i>Mayor de tres números</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Pedir tres números al usuario y mostrar cuál es el mayor</p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="numero1" class="form-control" placeholder="Escribe un numero">
-                        <input type="number" id="numero2" class="form-control" placeholder="Escribe un numero">
-                        <input type="number" id="numero3" class="form-control" placeholder="Escribe un numero">
-                        <button class="btn btn-warning" onclick="calcularMayor()">
-                            <i class="fas fa-eye me-2"></i>Mostrar
-                        </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res5" class="result-text"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ejercicio 6 -->
-            <div id="ejercicio-6" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-calculator text-danger me-2"></i>Calculadora básica</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">
-                        Usa if...else para realizar suma, resta, multiplicación o división según la opción elegida.
-                    </p>
-
-                    <!-- Selector de operación -->
-                    <div class="mb-3">
-                        <label for="operacion" class="form-label">Selecciona una operación:</label>
-                        <select id="operacion" class="form-control">
-                            <option value="" disabled selected>Elige una opción</option>
-                            <option value="1">Sumar</option>
-                            <option value="2">Restar</option>
-                            <option value="3">Multiplicar</option>
-                            <option value="4">Dividir</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="numero1" class="form-label">Primer número:</label>
-                        <input type="number" id="numero1" class="form-control" placeholder="Escribe un número">
-                    </div>
-                    <div class="mb-3">
-                        <label for="numero2" class="form-label">Segundo número:</label>
-                        <input type="number" id="numero2" class="form-control" placeholder="Escribe un número">
-                    </div>
-
-                    <button class="btn btn-warning w-100" onclick="calcularOperacion()">
-                        <i class="fa-solid fa-calculator me-2"></i>Calcular
+            <!-- Botonera de ejercicios -->
+            <div class="exercise-nav mb-5">
+                <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
+                    <button class="nav-link active" onclick="mostrarEjercicio(1)" id="ej1-tab">
+                        <i class="fas fa-check-circle me-2"></i>Ejercicio 1
                     </button>
-
-                    <div class="result-container">
-                        <p>resultado</p>
-                        <p id="res6" class="result-text mt-1"></p>
-                    </div>
+                    <button class="nav-link" onclick="mostrarEjercicio(2)" id="ej2-tab">
+                        <i class="fas fa-plus-circle me-2"></i>Ejercicio 2
+                    </button>
+                    <button class="nav-link" onclick="mostrarEjercicio(3)" id="ej3-tab">
+                        <i class="fas fa-user me-2"></i>Matias Lazarte
+                    </button>
                 </div>
             </div>
 
-            <!-- Ejercicio 7 -->
-            <div id="ejercicio-7" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-calendar-days text-warning me-2"></i>Año bisiesto</h2>
+            <!-- Contenido de los ejercicios -->
+            <div class="exercise-container">
+                <!-- Ejercicio 1 -->
+                <div id="ejercicio-1" class="exercise-card active mb-5">
+                    <div class="card-header">
+                        <h2><i class="fas fa-check-circle text-primary me-2"></i>Número positivo o negativo</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Ingresa un número para verificar es positivo,negativo o cero</p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="num1" class="form-control" placeholder="Ingresa un número">
+                            <button class="btn btn-primary" onclick="esPositivoNegativoCero()">
+                                <i class="fas fa-check me-2"></i>Verificar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res1" class="result-text"></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="instruction">Solicitar un año y comprobar si es bisiesto.</p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="anio" class="form-control" placeholder="Escribe el año">
-                        <button class="btn btn-warning" onclick="calcularAnioBisiesto()">
-                            <i class="fas fa-eye me-2"></i>validar
+
+                <!-- Ejercicio 2 -->
+                <div id="ejercicio-2" class="exercise-card active mb-5">
+                    <div class="card-header">
+                        <h2><i class="fas fa-check-circle text-primary me-2"></i>Edad para votar</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Solicitar la edad del usuario y mostrar si puede votar</p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="edad" class="form-control" placeholder="Ingresa un número">
+                            <button class="btn btn-primary" onclick="edadMayorMenor()">
+                                <i class="fas fa-check me-2"></i>Verificar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res2" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div id="ejercicio-3" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fas fa-equals text-success me-2"></i>Número par o impar</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Comprobar si el número ingresado es par o impar</p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="numeroParImpar" class="form-control"
+                                placeholder="Ingresa un número">
+                            <button class="btn btn-success" onclick="verificarParImpar()">
+                                <i class="fas fa-check me-2"></i>Verificar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res3" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div id="ejercicio-4" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-equals text-success me-2"></i>Contraseña segura</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Comparar una contraseña ingresada con una contraseña guardada. Mostrar
+                            mensaje si coinciden o no.</p>
+                        <div class="input-group mb-3">
+                            <label></label>
+                            <input type="password" id="contraseña" class="form-control"
+                                placeholder="Ingrese contraseña">
+                            <label></label>
+                            <input type="password" id="contraseñaRepetida" class="form-control"
+                                placeholder="Repita la contraseña">
+                            <button class="btn btn-success" onclick="compararConstraseña()">
+                                <i class="fas fa-check me-2"></i>Comparar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res4" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div id="ejercicio-5" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user text-warning me-2"></i>Mayor de tres números</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Pedir tres números al usuario y mostrar cuál es el mayor</p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="numero1" class="form-control" placeholder="Escribe un numero">
+                            <input type="number" id="numero2" class="form-control" placeholder="Escribe un numero">
+                            <input type="number" id="numero3" class="form-control" placeholder="Escribe un numero">
+                            <button class="btn btn-warning" onclick="calcularMayor()">
+                                <i class="fas fa-eye me-2"></i>Mostrar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res5" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 6 -->
+                <div id="ejercicio-6" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-calculator text-danger me-2"></i>Calculadora básica</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">
+                            Usa if...else para realizar suma, resta, multiplicación o división según la opción elegida.
+                        </p>
+
+                        <!-- Selector de operación -->
+                        <div class="mb-3">
+                            <label for="operacion" class="form-label">Selecciona una operación:</label>
+                            <select id="operacion" class="form-control">
+                                <option value="" disabled selected>Elige una opción</option>
+                                <option value="1">Sumar</option>
+                                <option value="2">Restar</option>
+                                <option value="3">Multiplicar</option>
+                                <option value="4">Dividir</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="numero1" class="form-label">Primer número:</label>
+                            <input type="number" id="numero1" class="form-control" placeholder="Escribe un número">
+                        </div>
+                        <div class="mb-3">
+                            <label for="numero2" class="form-label">Segundo número:</label>
+                            <input type="number" id="numero2" class="form-control" placeholder="Escribe un número">
+                        </div>
+
+                        <button class="btn btn-warning w-100" onclick="calcularOperacion()">
+                            <i class="fa-solid fa-calculator me-2"></i>Calcular
                         </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res7" class="result-text"></p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Ejercicio 8 -->
-            <div id="ejercicio-8" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-check text-warning me-2"></i>Clasificación de calificaciones</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Pedir una calificación numérica (0-10) y mostrar la nota correspondiente
-                        (Aprobado, Reprobado, Excelente).
-                    </p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="nota" class="form-control" placeholder="Escribe la calificacion">
-                        <button class="btn btn-warning" onclick="calificacion()">
-                            <i class="fas fa-eye me-2"></i>validar
-                        </button>
-                    </div>
-                    <div class="result-container">
-                        <p id="res8" class="result-text"></p>
+                        <div class="result-container mt-3">
+                            <p>resultado:</p>
+                            <p id="res6" class="result-text mt-1"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Ejercicio 9 -->
-            <div id="ejercicio-9" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-check text-warning me-2"></i>Precio con descuento</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Si el monto de la compra supera $100, aplicar un 10% de descuento.
-                    </p>
-                    <div class="input-group mb-3">
-                        <input type="number" id="monto" class="form-control" placeholder="Escribe la calificacion">
-                        <button class="btn btn-warning" onclick="descuento()">
-                            <i class="fas fa-eye me-2"></i>validar
-                        </button>
+                <!-- Ejercicio 7 -->
+                <div id="ejercicio-7" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-calendar-days text-warning me-2"></i>Año bisiesto</h2>
                     </div>
-                    <div class="result-container">
-                        <p id="res9" class="result-text"></p>
+                    <div class="card-body">
+                        <p class="instruction">Solicitar un año y comprobar si es bisiesto.</p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="anio" class="form-control" placeholder="Escribe el año">
+                            <button class="btn btn-warning" onclick="calcularAnioBisiesto()">
+                                <i class="fas fa-eye me-2"></i>validar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res7" class="result-text"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Ejercicio 10 -->
-            <div id="ejercicio-10" class="exercise-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-certificate text-danger me-2"></i>Verificar acceso</h2>
-                </div>
-                <div class="card-body">
-                    <p class="instruction">Solicitar nombre de usuario y contraseña. Verificar si ambos coinciden con
-                        valores predefinidos.
-                    </p>
-                    <div class="input-group mb-3">
-                        <label for="usuario"></label>
-                        <input type="text" id="nombreUsuario" class="form-control" placeholder="Escribe el nombre de usuario">
-                        <label for="contraseña"></label>
-                        <input type="password" id="contraseña2" class="form-control" placeholder="Escribe la contraseña">
-                        <button class="btn btn-warning" onclick="verificarAcceso()">
-                            <i class="fas fa-eye me-2"></i>verificar
-                        </button>
+                <!-- Ejercicio 8 -->
+                <div id="ejercicio-8" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-check text-warning me-2"></i>Clasificación de calificaciones</h2>
                     </div>
-                    <div class="result-container">
-                        <p id="res10" class="result-text"></p>
+                    <div class="card-body">
+                        <p class="instruction">Pedir una calificación numérica (0-10) y mostrar la nota correspondiente
+                            (Aprobado, Reprobado, Excelente).
+                        </p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="nota" class="form-control" placeholder="Escribe la calificacion">
+                            <button class="btn btn-warning" onclick="calificacion()">
+                                <i class="fas fa-eye me-2"></i>validar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res8" class="result-text"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+                <!-- Ejercicio 9 -->
+                <div id="ejercicio-9" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-check text-warning me-2"></i>Precio con descuento</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Si el monto de la compra supera $100, aplicar un 10% de descuento.
+                        </p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="monto" class="form-control" placeholder="Escribe la calificacion">
+                            <button class="btn btn-warning" onclick="descuento()">
+                                <i class="fas fa-eye me-2"></i>validar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res9" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 10 -->
+                <div id="ejercicio-10" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-certificate text-danger me-2"></i>Verificar acceso</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Solicitar nombre de usuario y contraseña. Verificar si ambos coinciden
+                            con
+                            valores predefinidos.
+                        </p>
+                        <div class="input-group mb-3">
+                            <label for="usuario"></label>
+                            <input type="text" id="nombreUsuario" class="form-control"
+                                placeholder="Escribe el nombre de usuario">
+                            <label for="contraseña"></label>
+                            <input type="password" id="contraseña2" class="form-control"
+                                placeholder="Escribe la contraseña">
+                            <button class="btn btn-warning" onclick="verificarAcceso()">
+                                <i class="fas fa-eye me-2"></i>verificar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res10" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-5 mb-5 text-center">
+                    <h2>Ejercicios intermedios con Condicionales en javaScript</h2>
+                </div>
+
+
+                <!-- Ejercicio 11 -->
+                <div id="ejercicio-11" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-certificate text-danger me-2"></i>Clasificador de edades</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Dado un número, mostrar si es un niño, adolescente, adulto o adulto
+                            mayor.
+                        </p>
+                        <div class="input-group mb-3">
+                            <label for="edad"></label>
+                            <input type="number" id="edades" class="form-control" placeholder="Escribe la edad">
+                            <button class="btn btn-warning" onclick="calcularEdad()">
+                                <i class="fas fa-eye me-2"></i>verificar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res11" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 12 -->
+                <div id="ejercicio-12" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-calendar-days text-primary me-2"></i>Validar fecha</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Ingrese día, mes y año para validar una fecha:</p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="dia" class="form-control" placeholder="Día (1-31)" min="1"
+                                max="31">
+                            <input type="number" id="mes" class="form-control" placeholder="Mes (1-12)" min="1"
+                                max="12">
+                            <input type="number" id="anio2" class="form-control" placeholder="Año (ej. 2023)" min="1">
+                            <button class="btn btn-primary" onclick="validarFecha()">
+                                <i class="fas fa-check me-2"></i>Validar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res12" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 13 -->
+                <div id="ejercicio-13" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-check text-primary me-2"></i>Verificación de acceso por roles
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Solicitar nombre de usuario y rol. Permitir o denegar acceso dependiendo
+                            si
+                            es "admin", "editor" o "invitado".
+                        </p>
+                        <div class="input-group mb-3">
+                            <input type="text" id="usuario2" class="form-control" placeholder="Ingrese el usuario">
+                            <input type="text" id="rol" class="form-control" placeholder="ingrese el rol">
+                            <button class="btn btn-primary" onclick="verificarRol()">
+                                <i class="fas fa-check me-2"></i>Validar
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res13" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 14 -->
+                <div id="ejercicio-14" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-calculator text-primary me-2"></i>Impuestos según ingreso
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Calcular el impuesto a pagar según rangos de ingreso (ej. menos de
+                            R$1.000, entre R$1.000 y R$5.000, más de R$5.000).
+                        </p>
+                        <div class="input-group mb-3">
+                            <input type="number" id="ingresos" class="form-control" placeholder="Ingrese los ingresos:">
+                            <button class="btn btn-primary" onclick="verificarRol()">
+                                <i class="fas fa-check me-2"></i>Calcular
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <p id="res14" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 15 - Conversión de temperatura -->
+                <div id="ejercicio-15" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fas fa-thermometer-half text-danger me-2"></i>Conversor de Temperatura</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Ingrese la temperatura y seleccione la escala original:</p>
+
+                        <div class="input-group mb-3">
+                            <input type="number" id="temperatura" class="form-control" placeholder="Ej: 37.5">
+                            <select id="escala" class="form-select">
+                                <option value="celsius">°C Celsius</option>
+                                <option value="fahrenheit">°F Fahrenheit</option>
+                            </select>
+                            <button class="btn btn-danger" onclick="convertirTemperatura()">
+                                <i class="fas fa-exchange-alt me-2"></i> Convertir
+                            </button>
+                        </div>
+
+                        <div class="result-container">
+                            <p id="res15" class="result-text"></p>
+                            <p id="diagnostico" class="result-text fw-bold mt-2"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
     <footer class="footer mt-5 py-3 text-center">
