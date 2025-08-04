@@ -7,7 +7,7 @@
     <title>Challenge 12 - Ejercicios de Lógica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/challenges/css/style.css">
+    
 </head>
 
 <body>
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <p class="instruction">Solicitar la edad del usuario y mostrar si puede votar</p>
                         <div class="input-group mb-3">
-                            <input type="number" id="edad" class="form-control" placeholder="Ingresa un número">
+                            <input type="number" id="edad2" class="form-control" placeholder="Ingresa un número">
                             <button class="btn btn-primary" onclick="edadMayorMenor()">
                                 <i class="fas fa-check me-2"></i>Verificar
                             </button>
@@ -132,8 +132,8 @@
                     <div class="card-body">
                         <p class="instruction">Pedir tres números al usuario y mostrar cuál es el mayor</p>
                         <div class="input-group mb-3">
-                            <input type="number" id="numero1" class="form-control" placeholder="Escribe un numero">
-                            <input type="number" id="numero2" class="form-control" placeholder="Escribe un numero">
+                            <input type="number" id="numero5" class="form-control" placeholder="Escribe un numero">
+                            <input type="number" id="numero4" class="form-control" placeholder="Escribe un numero">
                             <input type="number" id="numero3" class="form-control" placeholder="Escribe un numero">
                             <button class="btn btn-warning" onclick="calcularMayor()">
                                 <i class="fas fa-eye me-2"></i>Mostrar
@@ -258,7 +258,7 @@
                             valores predefinidos.
                         </p>
                         <div class="input-group mb-3">
-                            <label for="usuario"></label>
+                            <label for="usuario2"></label>
                             <input type="text" id="nombreUsuario" class="form-control"
                                 placeholder="Escribe el nombre de usuario">
                             <label for="contraseña"></label>
@@ -553,7 +553,7 @@
                         </p>
 
                         <div class="input-group mb-3">
-                            <input type="text" id="color" class="form-control"
+                            <input type="text" id="color2" class="form-control"
                                 placeholder="Escribe un color del semáforo">
                             <button class="btn btn-primary" onclick="simularSemaforo()">
                                 <i class="fas fa-play me-2"></i>Simular
@@ -565,9 +565,34 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
+        </section>
+
+        <section class="container mt-5 pt-2">
+            <hr>
+            <h1 class="display-2 text-center mt-5" style="font-family: 'Courier New', Courier, monospace;">Ejercicios con bucles</h1>
+            <hr>
+
+             <!-- Ejercicio 1 bucles -->
+                <div id="ejercicio-20" class="exercise-card mb-5">
+                    <div class="card-header">
+                        <h2><i class="fas fa-traffic-light text-danger me-2">Contar del 1 al 10</i></h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="instruction">Mostrar los números del 1 al 10 en consola.
+                        </p>
+
+                        <div class="input-group mb-3">
+                            <button class="btn btn-primary" onclick="contar()">
+                                <i class="fas fa-play me-2"></i>mostrar
+                            </button>
+                        </div>
+
+                        <div class="result-container">
+                            <p id="resBucle1" class="result-text"></p>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
 

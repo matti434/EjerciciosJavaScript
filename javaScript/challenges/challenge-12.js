@@ -10,7 +10,7 @@ function esPositivoNegativoCero() {
   }
 }
 function edadMayorMenor() {
-  let edad = parseInt(document.getElementById(`edad`).value);
+  let edad = parseInt(document.getElementById(`edad2`).value);
   let resultado = document.getElementById(`res2`);
 
   if (edad == 16) {
@@ -63,8 +63,8 @@ function compararConstraseña() {
 }
 
 function calcularMayor() {
-  let numero1 = parseFloat(document.getElementById(`numero1`).value);
-  let numero2 = parseFloat(document.getElementById(`numero2`).value);
+  let numero1 = parseFloat(document.getElementById(`numero5`).value);
+  let numero2 = parseFloat(document.getElementById(`numero4`).value);
   let numero3 = parseFloat(document.getElementById(`numero3`).value);
   let respuesta = document.getElementById("res5");
   /*
@@ -405,7 +405,6 @@ function verificarPelicula() {
   resultado.textContent = mensaje;
 }
 
-
 function simularSemaforo() {
   let color = document.getElementById("color").value.toLowerCase();
   let respuesta = document.getElementById("res20");
@@ -417,6 +416,28 @@ function simularSemaforo() {
   } else if (color === "verde") {
     respuesta.textContent = " Puedes avanzar, el semáforo está en verde.";
   } else {
-    respuesta.textContent = "Color inválido. Escribe 'rojo', 'amarillo' o 'verde'.";
+    respuesta.textContent =
+      "Color inválido. Escribe 'rojo', 'amarillo' o 'verde'.";
+  }
+}
+
+/*
+
+
+Aqui empiezan los ejercicios de bucles
+  
+
+ */
+
+function contar() {
+  let respuesta = document.getElementById("resBucle1");
+  let contador2 = 0;
+  for (let i = 0; i < 10; i++) {
+    // setTimeout se programa con un retraso (i*tiempo)
+    setTimeout(() => {
+      contador2++;
+      respuesta.textContent = `-${contador2}-`;
+      console.log(contador2);
+    }, i * 500);
   }
 }
