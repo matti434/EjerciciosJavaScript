@@ -262,63 +262,161 @@ function verificarRol() {
     total = sueldo - impuesto;
     resultado.textContent = `Sus ingresos son bajos por lo que sus impuestos son del 2% su salario es ${sueldo} sacando los impuestos el total es : ${total}`;
   } else {
-    resultado.textContent ="Su sueldo es bajo por lo que no debe pagar impuestos";
+    resultado.textContent =
+      "Su sueldo es bajo por lo que no debe pagar impuestos";
   }
 }
 
 function convertirTemperatura() {
-    // Obtener valores
-    const temperatura = parseFloat(document.getElementById('temperatura').value);
-    const escala = document.getElementById('escala').value;
-    const resultado = document.getElementById('res15');
-    const diagnostico = document.getElementById('diagnostico');
-    let tempC, tempF, conversionText;
-    
-   
-    if (escala === 'celsius') {
-        tempC = temperatura;
-        tempF = (tempC * 9/5) + 32;
-        conversionText = `${tempC.toFixed(1)}°C = ${tempF.toFixed(1)}°F`;
-    } else {
-        tempF = temperatura;
-        tempC = (tempF - 32) * 5/9;
-        conversionText = `${tempF.toFixed(1)}°F = ${tempC.toFixed(1)}°C`;
-    }
-    
-    resultado.textContent = conversionText;
-    
-    if (tempC < 35) {
-        diagnostico.textContent = "Hipotertermia: Temperatura peligrosamente baja";
-    } 
-    else if (tempC >= 35 && tempC <= 37.2) {
-        diagnostico.textContent = "Normal: Temperatura corporal normal";    
-    }
-    else if (tempC > 37.2 && tempC <= 38) {
-        diagnostico.textContent = "Febrícula: Temperatura ligeramente elevada";
-    }
-    else if (tempC > 38 && tempC <= 39) {
-        diagnostico.textContent = "Fiebre: Temperatura alta";   
-    }
-    else {
-        diagnostico.textContent = "Fiebre muy alta busque atención ";
-    }
+  // Obtener valores
+  const temperatura = parseFloat(document.getElementById("temperatura").value);
+  const escala = document.getElementById("escala").value;
+  const resultado = document.getElementById("res15");
+  const diagnostico = document.getElementById("diagnostico");
+  let tempC, tempF, conversionText;
+
+  if (escala === "celsius") {
+    tempC = temperatura;
+    tempF = (tempC * 9) / 5 + 32;
+    conversionText = `${tempC.toFixed(1)}°C = ${tempF.toFixed(1)}°F`;
+  } else {
+    tempF = temperatura;
+    tempC = ((tempF - 32) * 5) / 9;
+    conversionText = `${tempF.toFixed(1)}°F = ${tempC.toFixed(1)}°C`;
+  }
+
+  resultado.textContent = conversionText;
+
+  if (tempC < 35) {
+    diagnostico.textContent = "Hipotertermia: Temperatura peligrosamente baja";
+  } else if (tempC >= 35 && tempC <= 37.2) {
+    diagnostico.textContent = "Normal: Temperatura corporal normal";
+  } else if (tempC > 37.2 && tempC <= 38) {
+    diagnostico.textContent = "Febrícula: Temperatura ligeramente elevada";
+  } else if (tempC > 38 && tempC <= 39) {
+    diagnostico.textContent = "Fiebre: Temperatura alta";
+  } else {
+    diagnostico.textContent = "Fiebre muy alta busque atención ";
+  }
 }
 
 let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-let intentos = 0;
 
 function verificarNumero() {
-    const numeroIngresado = parseInt(document.getElementById('numeroUsuario').value);
-    const resultado = document.getElementById('res16');
-    const contador = document.getElementById('intentos');
-    
-    if (numeroIngresado === numeroAleatorio) {
-        resultado.textContent = `¡Correcto! El número era ${numeroAleatorio}`;
-    } 
-    else if (numeroIngresado < numeroAleatorio) {
-        resultado.textContent = "El número es mayor";
-    } 
-    else {
-        resultado.textContent = "El número es menor";
-    }
+  const numeroIngresado = parseInt(
+    document.getElementById("numeroUsuario").value
+  );
+  const resultado = document.getElementById("res16");
+  const contador = document.getElementById("intentos");
+
+  if (numeroIngresado === numeroAleatorio) {
+    resultado.textContent = `¡Correcto! El número era ${numeroAleatorio}`;
+  } else if (numeroIngresado < numeroAleatorio) {
+    resultado.textContent = "El número es mayor";
+  } else {
+    resultado.textContent = "El número es menor";
+  }
+}
+
+function validarContraseña(contraseña3) {
+  let validacion =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+
+  return validacion.test(contraseña3);
+}
+function verificarContraseña() {
+  const inputContraseña = document.getElementById("contraseña").value;
+  const resultado = document.getElementById("res17");
+
+  if (validarContraseña(inputContraseña)) {
+    resultado.textContent = " La contraseña cumple con todos los requisitos";
+  } else {
+    resultado.textContent =
+      "La contraseña debe tener: 8+ caracteres, mayúsculas, números y símbolos";
+  }
+}
+
+function calcularTarifa() {
+  const distancia = parseFloat(document.getElementById("distancia").value);
+  const resultado = document.getElementById("res18");
+  let tarifa = 0;
+  let detalle = "";
+
+  if (distancia <= 5) {
+    tarifa = 5.0;
+    detalle = "Tarifa base (0-5 km)";
+  } else if (distancia <= 15) {
+    tarifa = 10.0;
+    detalle = "Tramo 5.1-15 km";
+  } else if (distancia <= 30) {
+    tarifa = 15.0;
+    detalle = "Tramo 15.1-30 km";
+  } else {
+    const kmAdicionales = distancia - 30;
+    tarifa = 20.0 + kmAdicionales * 1.0;
+    detalle = `Base 30 km + ${kmAdicionales.toFixed(1)} km adicionales`;
+  }
+
+  // Mostrar resultado
+  resultado.innerHTML = `<strong>Distancia:</strong> ${distancia.toFixed(
+    1
+  )} km<br>
+        <strong>Tarifa:</strong> $${tarifa.toFixed(2)}<br>
+        <small class="text-muted">${detalle}</small>`;
+}
+
+function verificarPelicula() {
+  const edad = parseInt(document.getElementById("edad").value);
+  const clasificacion = document.getElementById("clasificacion").value;
+  const resultado = document.getElementById("res19");
+  let puedeEntrar = false;
+  let mensaje = "";
+
+  switch (clasificacion) {
+    case "A":
+      puedeEntrar = true;
+      mensaje = "Puede ver la película: Apto para todo público";
+      break;
+    case "B":
+      puedeEntrar = edad >= 12;
+      mensaje = puedeEntrar
+        ? " Puede ver la película (+12 años)"
+        : "Requiere tener al menos 12 años";
+      break;
+    case "B15":
+      puedeEntrar = edad >= 15;
+      mensaje = puedeEntrar
+        ? " Puede ver la película (+15 años)"
+        : "Requiere tener al menos 15 años";
+      break;
+    case "C":
+      puedeEntrar = edad >= 18;
+      mensaje = puedeEntrar
+        ? " Puede ver la película (+18 años)"
+        : "Requiere tener al menos 18 años";
+      break;
+    case "D":
+      puedeEntrar = edad >= 21;
+      mensaje = puedeEntrar
+        ? "Puede ver la película (Contenido adulto)"
+        : "Requiere tener al menos 21 años y identificación";
+      break;
+  }
+  resultado.textContent = mensaje;
+}
+
+
+function simularSemaforo() {
+  let color = document.getElementById("color").value.toLowerCase();
+  let respuesta = document.getElementById("res20");
+
+  if (color === "rojo") {
+    respuesta.textContent = "Detente, el semáforo está en rojo.";
+  } else if (color === "amarillo") {
+    respuesta.textContent = "Precaución, el semáforo está en amarillo.";
+  } else if (color === "verde") {
+    respuesta.textContent = " Puedes avanzar, el semáforo está en verde.";
+  } else {
+    respuesta.textContent = "Color inválido. Escribe 'rojo', 'amarillo' o 'verde'.";
+  }
 }
