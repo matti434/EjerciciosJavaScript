@@ -303,3 +303,22 @@ function convertirTemperatura() {
         diagnostico.textContent = "Fiebre muy alta busque atención ";
     }
 }
+
+let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+let intentos = 0;
+
+function verificarNumero() {
+    const numeroIngresado = parseInt(document.getElementById('numeroUsuario').value);
+    const resultado = document.getElementById('res16');
+    const contador = document.getElementById('intentos');
+    
+    if (numeroIngresado === numeroAleatorio) {
+        resultado.textContent = `¡Correcto! El número era ${numeroAleatorio}`;
+    } 
+    else if (numeroIngresado < numeroAleatorio) {
+        resultado.textContent = "El número es mayor";
+    } 
+    else {
+        resultado.textContent = "El número es menor";
+    }
+}
