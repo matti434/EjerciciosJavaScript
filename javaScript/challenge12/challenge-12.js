@@ -244,7 +244,7 @@ function verificarRol() {
   }
 }
 
-function verificarRol() {
+function sacandoImpuestos() {
   let sueldo = document.getElementById("ingresos").value;
   let resultado = document.getElementById("res14");
   let impuesto = 0;
@@ -406,7 +406,7 @@ function verificarPelicula() {
 }
 
 function simularSemaforo() {
-  let color = document.getElementById("color").value.toLowerCase();
+  let color = document.getElementById("color2").value.toLowerCase();
   let respuesta = document.getElementById("res20");
 
   if (color === "rojo") {
@@ -490,3 +490,4 @@ function cuentaRegresiva() {
     }, (10-i) * 500);
   }
 }
+
