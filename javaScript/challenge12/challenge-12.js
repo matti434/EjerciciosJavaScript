@@ -244,7 +244,7 @@ function verificarRol() {
   }
 }
 
-function verificarRol() {
+function sacandoImpuestos() {
   let sueldo = document.getElementById("ingresos").value;
   let resultado = document.getElementById("res14");
   let impuesto = 0;
@@ -406,7 +406,7 @@ function verificarPelicula() {
 }
 
 function simularSemaforo() {
-  let color = document.getElementById("color").value.toLowerCase();
+  let color = document.getElementById("color2").value.toLowerCase();
   let respuesta = document.getElementById("res20");
 
   if (color === "rojo") {
@@ -491,72 +491,3 @@ function cuentaRegresiva() {
   }
 }
 
-
-// let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-let numeroAleatorioBucles = Math.floor(Math.random() * 10) + 1;
-
-function adivinarNumero() {
-  const input = document.getElementById("numeroBucleAleatorio");
-  const resultado = document.getElementById("resBucle6");
-  let numeroIngresado = parseInt(input.value);
-  
-  if (isNaN(numeroIngresado)) {
-    resultado.textContent = "Ingresa un número válido";
-    return;
-  }
-
-  do {
-    if (numeroIngresado === numeroAleatorioBucles) {
-      resultado.textContent = `¡Correcto! El número era ${numeroAleatorioBucles}`;
-      return true;
-    } else if (numeroIngresado < numeroAleatorioBucles) {
-      resultado.textContent = "El número es mayor";
-    } else {
-      resultado.textContent = "El número es menor";
-    }
-    
-    return false;
-  } while (true);
-}
-
-let sumaTotal = 0;
-
-function agregarNumero() {
-    const input = document.getElementById("numeroSumar");
-    const resultado = document.getElementById("resbucle6");
-    const sumaDisplay = document.getElementById("sumaActual");
-    const numero = parseInt(input.value);
-    
-    // Validación
-    if (isNaN(numero)) {
-        resultado.textContent = "Por favor ingresa un número válido";
-        resultado.className = "result-text text-danger";
-        return;
-    }
-    
-    // Sumar el número
-    sumaTotal += numero;
-    sumaDisplay.textContent = `Suma actual: ${sumaTotal}`;
-    input.value = "";
-    input.focus();
-    
-    // Verificar si alcanzó 100
-    if (sumaTotal >= 100) {
-        resultado.textContent = `<span class="text-success">¡Meta alcanzada!</span> Suma total: ${sumaTotal}`;
-        resultado.className = "result-text text-success";
-        
-        // Deshabilitar el botón temporalmente
-        document.querySelector("#numeroSumar").nextElementSibling.disabled = true;
-        
-        // Reiniciar después de 3 segundos
-        setTimeout(() => {
-            sumaTotal = 0;
-            sumaDisplay.textContent = "Suma actual: 0";
-            resultado.textContent = "";
-            document.querySelector("#numeroSumar").nextElementSibling.disabled = false;
-        }, 3000);
-    } else {
-        resultado.textContent = `Necesitas ${100 - sumaTotal} más para llegar a 100`;
-        resultado.className = "result-text";
-    }
-}
