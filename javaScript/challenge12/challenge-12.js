@@ -582,3 +582,77 @@ function ordenCreciente() {
     alert("Los números NO están en orden creciente.");
   }
 }
+
+function menuInteractivo() {
+  alert("1-si quiere sumar // 2-si quiere restar // 3-si quiere salir");
+  let opciones = parseInt(prompt("Ingrese la opcion"));
+
+  while (opciones !== 3) {
+    if (opciones == 1) {
+      let numero = parseInt(prompt("ingrese el primer numero:"));
+      let numero2 = parseInt(prompt("ingrese el segundo numero:"));
+      let suma = numero + numero2;
+      alert(`La suma da ${suma}`);
+    } else if (opciones == 2) {
+      let numero = parseInt(prompt("ingrese el primer numero:"));
+      let numero2 = parseInt(prompt("ingrese el segundo numero:"));
+      let resta = numero - numero2;
+      alert(`La resta da ${resta}`);
+    } else {
+      alert(`La opcion ingresada es incorrecta vuelva a intentarlo`);
+    }
+    opciones = parseInt(prompt("Ingrese la opcion"));
+  }
+}
+
+function soliciarContraseña() {
+  let correcta = "123matias";
+  let contraseña;
+
+  do {
+    contraseña = prompt("Ingrese la contraseña:");
+  } while (contraseña !== correcta);
+
+  alert("Contraseña correcta. Bienvenido");
+}
+
+function soliciarCalificacion() {
+  let calificacion;
+
+  do {
+    calificacion = parseInt(prompt("Ingrese otra vez otra calificacion:"));
+  } while (calificacion >= 0);
+
+  alert("No pueden ingresarse calificaciones negativas");
+}
+
+function confirmarAccion() {
+  let confirmacion;
+  let si = "si";
+
+  do {
+    confirmacion = prompt("Ingrese la confirmacion").toLowerCase();
+  } while (confirmacion !== si);
+
+  alert("Ingreso SI por lo que el programa termina");
+}
+
+function calcularPromedio() {
+  let suma = 0;
+  let contador = 0;
+  let entrada;
+
+  do {
+    entrada = prompt("Ingrese un número o escriba 'fin' para terminar");
+
+    if (entrada !== "fin") {
+      let numero = parseInt(entrada);
+      suma += numero;
+      contador++;
+    }
+
+  } while (entrada !== "fin");
+
+  let promedio = suma / contador;
+  alert("El promedio es: " + promedio);
+}
