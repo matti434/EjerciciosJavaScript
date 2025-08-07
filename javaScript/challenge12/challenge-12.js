@@ -444,11 +444,11 @@ function contar() {
 
 function sumar50() {
   let respuesta = document.getElementById("resBucle2");
-  let suma=0
+  let suma = 0
   for (let i = 0; i < 50; i++) {
-      suma = suma+i;
+    suma = suma + i;
   }
-  respuesta.textContent=`El resultado de la suma de los primeros 50 numeros naturales es: ${suma}`;
+  respuesta.textContent = `El resultado de la suma de los primeros 50 numeros naturales es: ${suma}`;
 }
 
 
@@ -458,22 +458,22 @@ function tablaDeMultiplicar() {
   let multiplicar;
   let tablaCompleta = "";
   for (let i = 0; i <= 10; i++) {
-      multiplicar = numero*i;
-      console.log(`${numero} x ${i} = ${multiplicar}`);
-      tablaCompleta += `--${numero} x ${i} = ${multiplicar}\n--  `;
-    }
-    respuesta.textContent=tablaCompleta;
+    multiplicar = numero * i;
+    console.log(`${numero} x ${i} = ${multiplicar}`);
+    tablaCompleta += `--${numero} x ${i} = ${multiplicar}\n--  `;
+  }
+  respuesta.textContent = tablaCompleta;
 }
 
 
 function mostrarPares() {
   let respuesta = document.getElementById("resBucle4");
   let resultado = "Los números pares son: ";
-  
+
   for (let i = 0; i <= 100; i += 2) {
     resultado += i + (i < 100 ? " -- " : "");
   }
-  
+
   console.log(resultado);
   respuesta.textContent = resultado;
 }
@@ -481,13 +481,36 @@ function mostrarPares() {
 
 function cuentaRegresiva() {
   let respuesta = document.getElementById("resBucle5");
-  
+
   for (let i = 10; i >= 0; i--) {
     // setTimeout se programa con un retraso (i*tiempo)
     setTimeout(() => {
       respuesta.textContent = i === 0 ? "¡Despegue!" : `-${i}-`;
-      console.log(i === 0 ? "¡Despegue!" : i );
-    }, (10-i) * 500);
+      console.log(i === 0 ? "¡Despegue!" : i);
+    }, (10 - i) * 500);
   }
 }
+
+
+function adivinarNumero() {
+  const numeroCorrecto = Math.floor(Math.random() * 10) + 1;
+  let intento;
+
+  alert("Se ha generado un número aleatorio entre 1 y 10. ¡Adivina cuál es!");
+
+  do {
+    intento = parseInt(prompt("Ingresa un número entre 1 y 10:"));
+
+    if (isNaN(intento) || intento < 1 || intento > 10) {
+      alert("Número inválido. Por favor, ingresa un número del 1 al 10.");
+    } else if (intento !== numeroCorrecto) {
+      alert("Incorrecto. Intenta de nuevo.");
+    }
+
+  } while (intento !== numeroCorrecto);
+
+  alert("🎉 ¡Correcto! Adivinaste el número.");
+}
+
+
 
