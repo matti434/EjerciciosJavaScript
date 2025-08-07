@@ -444,16 +444,17 @@ function contar() {
 
 function sumar50() {
   let respuesta = document.getElementById("resBucle2");
-  let suma = 0
+  let suma = 0;
   for (let i = 0; i < 50; i++) {
     suma = suma + i;
   }
   respuesta.textContent = `El resultado de la suma de los primeros 50 numeros naturales es: ${suma}`;
 }
 
-
 function tablaDeMultiplicar() {
-  let numero = parseInt(document.getElementById("numeroTablaMultiplicar").value);
+  let numero = parseInt(
+    document.getElementById("numeroTablaMultiplicar").value
+  );
   let respuesta = document.getElementById("resBucle3");
   let multiplicar;
   let tablaCompleta = "";
@@ -464,7 +465,6 @@ function tablaDeMultiplicar() {
   }
   respuesta.textContent = tablaCompleta;
 }
-
 
 function mostrarPares() {
   let respuesta = document.getElementById("resBucle4");
@@ -478,7 +478,6 @@ function mostrarPares() {
   respuesta.textContent = resultado;
 }
 
-
 function cuentaRegresiva() {
   let respuesta = document.getElementById("resBucle5");
 
@@ -490,7 +489,6 @@ function cuentaRegresiva() {
     }, (10 - i) * 500);
   }
 }
-
 
 function adivinarNumero() {
   const numeroCorrecto = Math.floor(Math.random() * 10) + 1;
@@ -506,11 +504,25 @@ function adivinarNumero() {
     } else if (intento !== numeroCorrecto) {
       alert("Incorrecto. Intenta de nuevo.");
     }
-
   } while (intento !== numeroCorrecto);
 
-  alert("🎉 ¡Correcto! Adivinaste el número.");
+  alert("¡Correcto! Adivinaste el número.");
 }
 
+function hasta100() {
+  let numero;
+  let suma = 0;
+  alert("Ingresa los numeros que quieras, el programa terminara cuando la suma alcance o supere 100");
 
-
+  do {
+    numero = parseInt(prompt("ingrese un numero, estos se iran sumando hasta llegar o superar el total de 100"));
+    suma += numero;
+    if (suma > 100) {
+      alert(`La suma es ${suma} ya supero, por lo que no puede ingresar mas`);
+    } else if (suma == 100) {
+      alert(`La suma es ${suma} por lo que no puede ingresar mas`);
+    } else if (suma < 100) {
+      alert(`La suma es ${suma} puede ingresar mas`);
+    }
+  } while (suma < 100);
+}
