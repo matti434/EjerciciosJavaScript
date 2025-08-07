@@ -445,7 +445,7 @@ function contar() {
 function sumar50() {
   let respuesta = document.getElementById("resBucle2");
   let suma = 0;
-  for (let i = 0; i < 50; i++) {
+  for (let i = 1; i < 50; i++) {
     suma = suma + i;
   }
   respuesta.textContent = `El resultado de la suma de los primeros 50 numeros naturales es: ${suma}`;
@@ -512,10 +512,16 @@ function adivinarNumero() {
 function hasta100() {
   let numero;
   let suma = 0;
-  alert("Ingresa los numeros que quieras, el programa terminara cuando la suma alcance o supere 100");
+  alert(
+    "Ingresa los numeros que quieras, el programa terminara cuando la suma alcance o supere 100"
+  );
 
   do {
-    numero = parseInt(prompt("ingrese un numero, estos se iran sumando hasta llegar o superar el total de 100"));
+    numero = parseInt(
+      prompt(
+        "ingrese un numero, estos se iran sumando hasta llegar o superar el total de 100"
+      )
+    );
     suma += numero;
     if (suma > 100) {
       alert(`La suma es ${suma} ya supero, por lo que no puede ingresar mas`);
@@ -526,3 +532,29 @@ function hasta100() {
     }
   } while (suma < 100);
 }
+
+function contarVocales() {
+ let palabra= prompt("ingresa una palabra").toLowerCase();  
+ let contador = 0;
+
+  for(let i=0;i<palabra.length;i++){
+    let letra=palabra.charAt(i);
+    if("aeiou".includes(letra)){
+      contador++;
+    }
+  }
+
+  alert(`La cantidad de vocales son ${contador}`);
+}
+
+function validarEdad() {
+ let edad = parseInt(prompt("ingresa la edad"));  
+ let contador = 0;
+
+  while(edad>=18 && edad<=99 ){
+    alert("Esta dentro del rango de la edad");
+     edad = parseInt(prompt("Vuelve a ingresar la edad:"));
+  }
+  alert("Edad invalida. Gracias.");
+}
+
