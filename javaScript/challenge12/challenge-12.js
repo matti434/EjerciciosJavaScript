@@ -612,7 +612,6 @@ function soliciarContraseña() {
   do {
     contraseña = prompt("Ingrese la contraseña:");
   } while (contraseña !== correcta);
-
   alert("Contraseña correcta. Bienvenido");
 }
 
@@ -656,3 +655,5 @@ function calcularPromedio() {
   let promedio = suma / contador;
   alert("El promedio es: " + promedio);
 }
+
+
