@@ -199,7 +199,7 @@ FIN EJERCICIO 7
 8. Signo Zodiacal (Optativo)
 Diseñar un algoritmo que obtenga el mes y día de nacimiento y muestre el signo zodiacal.
 
-
+*/
 let signos = [
   "Capricornio", 
   // 0
@@ -225,6 +225,7 @@ let signos = [
   // 10
   "Sagitario"    
   // 11
+ 
 ];
 
 
@@ -259,7 +260,7 @@ let inicioSignos = [
 let dia = parseInt(prompt("Ingrese el dia del (1-31):"));
 let mes = parseInt(prompt("Ingrese el mes (1-12)"));
 
-if(mes<2 || mes>12 || dia<1 || dia>31){
+if(isNaN(mes) || isNaN(dia) || mes< 1 || mes>12 || dia<1 || dia>31){
     alert("La fecha es invalida");
 }
   else{
@@ -276,9 +277,4 @@ if(mes<2 || mes>12 || dia<1 || dia>31){
     }
     alert("Su signo es: "+ signo  );
   }
-
-----------------
-FIN EJERCICIO 8
-----------------
-  */
  
