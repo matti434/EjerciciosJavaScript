@@ -4,15 +4,16 @@ const conteoSumas = new Array(11).fill(0);
 
 function lanzarDado() {
   return Math.floor(Math.random() * 6) + 1;
+  // math.floor redondea hacia abajo no olvidarme
 }
 
 
 for (let i = 0; i < 50; i++) {
-  // Lanzar los dos dados
+
   const dado1 = lanzarDado();
   const dado2 = lanzarDado();
   
-  // Calcular la suma
+
   const suma = dado1 + dado2;
   
 
