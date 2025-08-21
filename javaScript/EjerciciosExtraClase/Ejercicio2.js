@@ -6,7 +6,7 @@ let continuar = true;
 do {
     let input = prompt("Ingrese un numero:");
     
-    // Si el usuario hace clic en "Cancelar"
+   
     if (input === null) {
         continuar = false;
         break;
