@@ -23,8 +23,7 @@ class rectangulos {
         if(nuevoAlto.trim() === ""){
             alert("Ingrese un valor valido");
             return;
-        }
-        
+        }        
         else{
             this.alto=nuevoAlto;
         }
