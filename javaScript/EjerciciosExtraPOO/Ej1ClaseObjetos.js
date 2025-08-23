@@ -34,7 +34,7 @@ Agrega un método detalles() que devuelva "Coche: [marca] [modelo] ([año])".
     }
 
     detalles(){
-        console.log{` La marca del coche es ${this.marca} su modelo es ${this.modelo} y es del año ${this.anio}`};
+        console.log(`La marca del coche es ${this.marca} su modelo es ${this.modelo} y es del año ${this.anio}`);
     }
  }
 
