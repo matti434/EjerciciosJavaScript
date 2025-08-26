@@ -1,12 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Mis Ejercicios</title>
+  <link rel="stylesheet" href="/css/Challenge14/challenge14.css">
 </head>
 <body>
-    
-    <script src="/javaScript/challenge14/Ej-10.js"></script>
+  <h1>Ejercicios en Página</h1>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 1: Contar caracteres de un texto</h2>
+    <input type="text" id="input-texto" placeholder="Ingrese un texto">
+    <button onclick="ejecutarContarCaracteres()">Mostrar resultado</button>
+    <div id="output-caracteres" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 2: Agregar elemento al final del array</h2>
+    <input type="text" id="input-array" placeholder="Elementos separados por coma">
+    <input type="text" id="input-elemento" placeholder="Elemento a agregar">
+    <button onclick="ejecutarAgregarElemento()">Mostrar resultado</button>
+    <div id="output-array" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 3: Eliminar primer elemento de un array</h2>
+    <input type="text" id="input-array-shift" placeholder="Elementos separados por coma">
+    <button onclick="ejecutarEliminarPrimero()">Mostrar resultado</button>
+    <div id="output-shift" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 4: Contar letras en un texto</h2>
+    <input type="text" id="input-texto-contar" placeholder="Ingrese un texto">
+    <input type="text" id="input-letra" placeholder="Letra a contar" maxlength="1">
+    <button onclick="ejecutarContarLetras()">Mostrar resultado</button>
+    <div id="output-contar" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 5: Invertir un texto</h2>
+    <input type="text" id="input-texto-invertir" placeholder="Ingrese un texto">
+    <button onclick="ejecutarInvertirTexto()">Mostrar resultado</button>
+    <div id="output-invertir" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 6: Eliminar elemento por posición</h2>
+    <input type="text" id="input-array-splice" placeholder="Elementos separados por coma">
+    <input type="number" id="input-posicion" placeholder="Posición a eliminar">
+    <button onclick="ejecutarEliminarPosicion()">Mostrar resultado</button>
+    <div id="output-splice" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 7: Calculadora básica</h2>
+    <input type="number" id="input-num1" placeholder="Primer número">
+    <input type="number" id="input-num2" placeholder="Segundo número">
+    <select id="input-operador">
+      <option value="+">Suma (+)</option>
+      <option value="-">Resta (-)</option>
+      <option value="*">Multiplicación (*)</option>
+      <option value="/">División (/)</option>
+    </select>
+    <button onclick="ejecutarCalculadora()">Mostrar resultado</button>
+    <div id="output-calculadora" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 8: Extraer parte de un array</h2>
+    <input type="text" id="input-array-slice" placeholder="Elementos separados por coma">
+    <input type="number" id="input-inicio" placeholder="Posición inicial">
+    <input type="number" id="input-fin" placeholder="Posición final">
+    <button onclick="ejecutarExtraerParte()">Mostrar resultado</button>
+    <div id="output-slice" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 9: Número aleatorio</h2>
+    <button onclick="ejecutarAleatorio()">Generar número aleatorio (1-10)</button>
+    <div id="output-aleatorio" class="output"></div>
+  </section>
+
+  <section class="ejercicio">
+    <h2>Ejercicio 10: Primera letra de un texto</h2>
+    <input type="text" id="input-texto-primera" placeholder="Ingrese un texto">
+    <button onclick="ejecutarPrimeraLetra()">Mostrar resultado</button>
+    <div id="output-primera" class="output"></div>
+  </section>
+
+  <script src="/javaScript/challenge14/app.js"></script>
 </body>
 </html>
