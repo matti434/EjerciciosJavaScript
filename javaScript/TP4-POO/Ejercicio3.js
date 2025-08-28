@@ -1,4 +1,5 @@
 /*
+
 Rectángulos
 Dificultad:  🟢
 3-Escribe una clase que permita crear distintos objetos “rectángulos”, con las propiedades de alto y ancho, 
@@ -6,7 +7,7 @@ mas los métodos necesarios para modificar y mostrar sus propiedades, calcular e
 
 */
 
-class rectangulos {
+class Rectangulo {
 
     constructor(alto,ancho){
         //this hace referencia a la instancia actual del objeto
@@ -29,7 +30,4 @@ class rectangulos {
         }
 
     }
-
-
-
 }

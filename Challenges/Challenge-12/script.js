@@ -655,5 +655,3 @@ function calcularPromedio() {
   let promedio = suma / contador;
   alert("El promedio es: " + promedio);
 }
-
-
