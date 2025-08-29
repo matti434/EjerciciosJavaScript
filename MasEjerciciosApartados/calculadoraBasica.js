@@ -1,35 +1,43 @@
 /*
  Calculadora básica: Funciones `sumar()`, `restar()`, `multiplicar()`, `dividir()` que reciban 2 números y devuelvan el resultado.
 */
+function calculadoraBasica() {
+  do {
+    let salir = false;
+    let operacion = prompt(
+      "Ingrese la operacion que decea realizar: (sumar-restar-multiplicar-dividir-salir)"
+    ).toLowerCase();
 
-do {
-  let operacion = prompt(
-    "Ingrese la operacion que decea realizar: (sumar-restar-multiplicar-dividir-salir)"
-  ).toLowerCase();
+    if (
+      operacion === null ||
+      operacion === undefined ||
+      operacion.trim() === ""
+    ) {
+      alert("Por favor ingrese valores validos");
+    }
+    let resultado;
+    switch (operacion) {
+      case "sumar":
+        resultado = sumar();
+        break;
+      case "restar":
+        resultado = resta();
+        break;
+      case "multiplicar":
+        resultado = multiplicar();
+        break;
+      case "dividir":
+        resultado = dividir();
+        break;
+      case "salir":
+        alert("Saliendo del programa...");
+        salir = true;
+        break;
+    }
+  } while (!salir);
+}
 
-  if (
-    operacion === null ||
-    operacion === undefined ||
-    operacion.trim() === ""
-  ) {
-    alert("Por favor ingrese valores validos");
-  }
-  let resultado;
-  switch (operacion) {
-    case "sumar":
-      resultado = sumar();
-      break;
-    case "restar":
-      resultado = resta();
-      break;
-    case "multiplicar":
-      resultado = multiplicar();
-      break;
-    case "dividir":
-      resultado = dividir();
-      break;
-  }
-} while (true);
+calculadoraBasica();
 
 /*
 
@@ -209,6 +217,7 @@ function multiplicar() {
 
   for (let i = 0; i < cantidad; i++) {
     let numeroValido = false;
+    let numero;
     // agregamos numero valido mientras sea distinto de 0 se seguira el programa
     while (!numeroValido) {
       let input = prompt(`Ingrese el número ${i + 1} de ${cantidad}:`);
@@ -228,8 +237,7 @@ function multiplicar() {
         continue;
       }
 
-      let numero = parseFloat(input);
-      numerosMultiplicados.push(numero);
+      numero = parseFloat(input);
 
       if (numero === 0) {
         // Si ingresa cero, toda la multiplicación será cero
@@ -257,7 +265,11 @@ function multiplicar() {
   }
   console.log("Números multiplicados:", numerosMultiplicados);
   console.log("Resultado de la multiplicación:", multiplicacion);
-  alert(`El resultado de multiplicar ${numerosMultiplicados.join(" x ")} es: ${multiplicacion}`);
+  alert(
+    `El resultado de multiplicar ${numerosMultiplicados.join(
+      " x "
+    )} es: ${multiplicacion}`
+  );
   return multiplicacion;
 }
 
@@ -316,22 +328,20 @@ function dividir() {
         continue;
       }
 
-      let numero = parseFloat(input);
-      numerosDividir.push(numero);
+      numero = parseFloat(input);
 
-      if ((i >= 1) && numero === 0) {
-        // Desde el segundo numero en adelante no puede ser 0
+      // Validar división por cero (solo desde el segundo número)
+      if (i >= 1 && numero === 0) {
         alert("No se puede divividir en 0");
         continue;
-      } else {
-        // numero diferente de cero osea valido
-        numeroValido = true;
       }
+      // numero diferente de cero osea valido
+      numeroValido = true;
     }
     numerosDividir.push(numero);
 
     if (i === 0) {
-      dividir=0;
+      dividir = 0;
     } else if (dividir !== 0) {
       dividir /= numero;
     }
@@ -339,6 +349,6 @@ function dividir() {
   console.log("Números divididos:", numerosDividir);
   console.log("Resultado de la division:", dividir);
   alert(`El resultado de dividir ${numerosDividir.join(" x ")} es: ${dividir}`);
-  
+
   return dividir;
 }
