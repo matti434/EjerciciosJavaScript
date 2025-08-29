@@ -25,6 +25,9 @@ do {
     case "multiplicar":
       resultado = multiplicar();
       break;
+    case "dividir":
+      resultado = dividir();
+      break;
   }
 } while (true);
 
@@ -256,4 +259,86 @@ function multiplicar() {
   console.log("Resultado de la multiplicación:", multiplicacion);
   alert(`El resultado de multiplicar ${numerosMultiplicados.join(" x ")} es: ${multiplicacion}`);
   return multiplicacion;
+}
+
+function dividir() {
+  let dividir = 1;
+  let numerosDividir = [];
+  let cantidad;
+
+  do {
+    let inputCantidad = prompt("¿Cuántos números desea dividir?");
+
+    if (inputCantidad === null) {
+      alert("Operación cancelada");
+      return null;
+    }
+
+    if (inputCantidad.trim() === "") {
+      alert("No ingrese espacios vacíos");
+      continue;
+    }
+
+    if (isNaN(inputCantidad)) {
+      alert("Ingrese un número válido");
+      continue;
+    }
+
+    cantidad = parseInt(inputCantidad);
+
+    if (cantidad < 2) {
+      alert("Debe ingresar al menos 2 números");
+      continue;
+    }
+
+    break;
+  } while (true);
+
+  for (let i = 0; i < cantidad; i++) {
+    let numeroValido = false;
+    let numero;
+
+    while (!numeroValido) {
+      let input = prompt(`Ingrese el número ${i + 1} de ${cantidad}:`);
+
+      if (input === null) {
+        alert("Operación cancelada");
+        return null;
+      }
+
+      if (input.trim() === "") {
+        alert("No puede dejar el campo vacío");
+        continue;
+      }
+
+      if (isNaN(input)) {
+        alert("Debe ingresar un número válido");
+        continue;
+      }
+
+      let numero = parseFloat(input);
+      numerosDividir.push(numero);
+
+      if ((i >= 1) && numero === 0) {
+        // Desde el segundo numero en adelante no puede ser 0
+        alert("No se puede divividir en 0");
+        continue;
+      } else {
+        // numero diferente de cero osea valido
+        numeroValido = true;
+      }
+    }
+    numerosDividir.push(numero);
+
+    if (i === 0) {
+      dividir=0;
+    } else if (dividir !== 0) {
+      dividir /= numero;
+    }
+  }
+  console.log("Números divididos:", numerosDividir);
+  console.log("Resultado de la division:", dividir);
+  alert(`El resultado de dividir ${numerosDividir.join(" x ")} es: ${dividir}`);
+  
+  return dividir;
 }
