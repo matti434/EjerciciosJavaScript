@@ -58,5 +58,4 @@ function promedioNotas() {
   return promedio;
 }
 
-// Llamar a la función
 promedioNotas();
