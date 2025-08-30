@@ -3,29 +3,39 @@
 */
 
 const arrayContactos = [];
-function agendaContactos() {
-  let nombre = prompt("Ingrese el nombre:");
-  let telefono = prompt("Ingrese el numero telefonico:");
+function menuPrincipal() {
+  let salir = false;
 
-  // creo el objeto contacto
-  const contacto = {
-    nombre: nombre,
-    telefono: telefono,
-  };
+  do {
+    let opcion = prompt(
+      `AGENDA DE CONTACTOS\n 1. Agregar contacto 2. Buscar contacto 3. Eliminar contacto 4. Salir -Seleccione una opción:`
+    );
 
-  // agrega al array
-  arrayContactos.push(contacto);
-  alert("Contacto agregado correctamente");
+    switch (opcion) {
+      case "1":
+        agregarContacto();
+        break;
+      case "2":
+        buscarContacto();
+        break;
+      case "3":
+        eliminarContacto();
+        break;
+      case "4":
+        salir = true;
+        break;
+      default:
+        alert("Opción no válida");
+    }
+  } while (!salir);
+
+  alert("¡Gracias por usar la agenda!");
 }
 
-function agendar() {
+function agregarContacto() {
   let nombre = prompt("Ingrese el nombre que decea agendar:");
   let inputTelefono = prompt("Ingrese el numero de telefono:");
 
-  if (isNaN(inputTelefono)) {
-    alert("Ingrese un valor valido");
-    return;
-  }
   if (nombre.trim() === "" || inputTelefono.trim() === "") {
     alert("No ingrese espacios vacios");
     return;
@@ -39,7 +49,7 @@ function agendar() {
     alert("Ingrese un valor válido para el teléfono");
     return;
   }
-  if(!/^\d+$/.test(inputTelefono)){
+  if (!/^\d+$/.test(inputTelefono)) {
     alert("El telefono solo debe tener números");
     return;
   }
@@ -47,23 +57,23 @@ function agendar() {
     alert("Los numeros de telefono son de 10 digitos");
     return;
   }
-  // number no acepta caracteres no numericos
-  let telefono = Number(inputTelefono);
 
-  const nombreAgendar = arrayContactos.find(
+  let telefono = inputTelefono;
+
+  const nombreExiste = arrayContactos.find(
     (contacto) => contacto.nombre.toLowerCase() === nombre.toLowerCase()
   );
-  const telefonoAgendar = arrayContactos.find(
+  const telefonoExiste = arrayContactos.find(
     (contacto) => contacto.telefono === telefono
   );
 
-  if (nombreAgendar && telefonoAgendar) {
+  if (nombreExiste && telefonoExiste) {
     alert(`Contacto ya existe`);
     return;
-  } else if (nombreAgendar) {
+  } else if (nombreExiste) {
     alert(`Ya existe un contacto con ese nombre pero distinto telefono`);
     return;
-  } else if (telefonoAgendar) {
+  } else if (telefonoExiste) {
     alert(`Ya existe un contacto con ese telefono pero distinto nombre`);
     return;
   }
@@ -77,41 +87,107 @@ function agendar() {
   alert("Contacto agregado correctamente");
 }
 
-function BuscarContacto() {
-  let inputNombre = prompt("Ingrese el nombre a buscar");
+function buscarContacto() {
+  let nombre = prompt("Ingrese el nombre a buscar");
   let inputTelefono = prompt("Ingrese el telefono a buscar");
 
+  if (nombre.trim() === "" || inputTelefono.trim() === "") {
+    alert("No ingrese espacios vacios");
+    return;
+  }
+  if (nombre === null || inputTelefono === null) {
+    alert("Saliendo del programa");
+    return;
+  }
+  if (isNaN(inputTelefono)) {
+    alert("Ingrese un valor valido");
+    return;
+  }
+  if (!/^\d+$/.test(inputTelefono)) {
+    alert("Ingrese solo numeros");
+    return;
+  }
+  if (inputTelefono.length != 10) {
+    alert("Los numeros de telefono son de 10 digitos");
+    return;
+  }
+
+  let telefono = inputTelefono;
+
   // arrayContactos.find() busca en el array Global
-  const contactoEncontrado = arrayContactos.find(
-    (contacto) =>
-      contacto.nombre.toLowerCase() === inputNombre.toLowerCase() &&
-      contacto.telefono === inputTelefono
+  const nombreEncontrado = arrayContactos.find(
+    (contacto) => contacto.nombre.toLowerCase() === nombre.toLowerCase()
   );
 
-  if (contactoEncontrado) {
-    return `Contacto encontrado ${contactoEncontrado.nombre} - ${contactoEncontrado.telefono}`;
-  } else {
+  const telefonoEncontrar = arrayContactos.find(
+    (contacto) => contacto.telefono === telefono
+  );
+
+  if (nombreEncontrado && telefonoEncontrar) {
+    alert(
+      `Contacto encontrado ${contactoEncontrado.nombre} - ${contactoEncontrado.telefono}`
+    );
+  } else if (nombreEncontrado) {
+    alert(`Ya existe un contacto con ese nombre pero distinto telefono`);
+    return;
+  } else if (telefonoEncontrar) {
+    alert(`Ya existe un contacto con ese telefono pero distinto nombre`);
+    return;
+  }
+  else {
     alert("Contacto no encontrado");
   }
 }
 
 function eliminarContacto() {
-  let nombre = prompt("Ingrese el nombre que decea eliminar:");
+  let nombre = prompt("Ingrese el nombre a buscar");
+  let inputTelefono = prompt("Ingrese el telefono a buscar");
 
-  const contactoEliminar = arrayContactos.find(
-    (contacto) => contacto.nombre.toLowerCase() === nombre.toLowerCase()
+  if (nombre.trim() === "" || inputTelefono.trim() === "") {
+    alert("No ingrese espacios vacios");
+    return;
+  }
+  if (nombre === null || inputTelefono === null) {
+    alert("Saliendo del programa");
+    return;
+  }
+  if (isNaN(inputTelefono)) {
+    alert("Ingrese un valor valido");
+    return;
+  }
+  if (!/^\d+$/.test(inputTelefono)) {
+    alert("Ingrese solo numeros");
+    return;
+  }
+  if (inputTelefono.length != 10) {
+    alert("Los numeros de telefono son de 10 digitos");
+    return;
+  }
+
+  let telefono = inputTelefono;
+
+  // findIndex() devuelve la posicion(indice)
+  const indice = arrayContactos.findIndex(
+    (contacto) =>
+      contacto.nombre.toLowerCase() === nombre.toLowerCase() &&
+      contacto.telefono === inputTelefono
   );
+  /* 
+       String let inputTelefono = "0123456789"; - Teléfono con 0 al inicio
+       let telefono = Number(inputTelefono); - 123456789 ¡Pierde el 0!
+    */
 
-  if (contactoEliminar) {
-    // findIndex() devuelve la posicion(indice)
-    const indice = arrayContactos.findIndex(
-      (contacto) => contacto.nombre.toLowerCase() === nombre.toLowerCase()
-    );
+  if (indice !== -1) {
+    const contacto = arrayContactos[indice];
+    const confirmar = confirm(`¿Está seguro de eliminar a ${contacto.nombre} - ${contacto.telefono}?`);
 
-    // splice para eliminar
-    arrayContactos.splice(indice, 1);
-    alert("Contacto borrado");
+    if (confirmar) {
+      arrayContactos.splice(indice, 1);
+      alert("✅ Contacto eliminado correctamente");
+    }
   } else {
     alert("Contacto no encontrado");
   }
 }
+
+menuPrincipal();
