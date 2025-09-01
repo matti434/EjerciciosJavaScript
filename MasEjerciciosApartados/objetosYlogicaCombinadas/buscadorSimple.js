@@ -16,7 +16,52 @@ const datos = [
   "Machine learning con Python",
 ];
 
-function buscarPalabra() {}
+// (datos,palabra) palabra = palabraValida
+function buscarPalabra(datos, palabra) {
+  if (!Array.isArray(datos)) {
+    console.error("El primer parámetro debe ser un array");
+    return [];
+  }
+  if (typeof palabra !== "string") {
+    console.error("La palabra debe ser un texto");
+    return [];
+  }
+
+  const palabraLimpia = palabra.trim();
+
+  if(palabraLimpia === ''){
+    console.error('La palabra no puede estar vacía');
+    return [];
+  }
+
+  // validasr que el array no este vacio
+  if(datos.length===0){
+    console.log("El array esta vacio.No hay nada que buscar");
+    return[];
+  }
+
+  const resultados=[];
+
+  for(let i=0;i<datos.length;i++){
+    const texto=datos[i];
+
+    // valida que el elemento actual es un string
+    if(typeof texto !== 'string'){
+        console.warn(` El elemento en la posición ${i} no es un texto.`);
+        continue; // salta el elemento
+    }
+
+    const textoMinuscula = texto.toLowerCase();
+    const palabraMinuscula= palabra.toLowerCase();
+
+    // verifica si el texto tiene la palabra
+    if(textoMinuscula.includes(palabraMinuscula)){
+        resultados.push(texto); 
+    }
+  }
+
+  return resultados;
+}
 
 function iniciarBuscador() {
   // Devuelve un valor booleano que indica si una variable es una matriz - IsArray devuelve True si la variable es un array; de lo contrario, devuelve False
@@ -177,21 +222,32 @@ function iniciarBuscador() {
   }
 }
 
-function obtenerPalabrasUnicas(){
-    const totalPalabrasUnicas = [];
+function obtenerPalabrasUnicas() {
+  const totalPalabrasUnicas = [];
 
-    datos.forEach(frase => {
-        // Split se usa para dividir una cadena delimitada en subcadenas
-        //. Si no se especifica ningún carácter delimitador, la cadena se divide en caracteres de espacio en blanco
-        const palabras = frase.toLowerCase().split(/\s+/);
-        palabras.forEach(palabras => {
-            // Limpiar palabra de signos de puntuación
-            const palabraLimpia = palabra.replace(/[.,!?;:()\[\]{}'"-]/g, '');
-            if (palabraLimpia.length > 2) { // Solo palabras de 3+ caracteres
-                todasLasPalabras.push(palabraLimpia);
-            }
-        })
-    })
+  datos.forEach((frase) => {
+    // Split se usa para dividir una cadena delimitada en subcadenas
+    //. Si no se especifica ningún carácter delimitador, la cadena se divide en caracteres de espacio en blanco
+    const palabras = frase.toLowerCase().split(/\s+/);
+    palabras.forEach((palabras) => {
+      // Limpiar palabra de signos de puntuación
+      const palabraLimpia = palabra.replace(/[.,!?;:()\[\]{}'"-]/g, "");
+      if (palabraLimpia.length > 2) {
+        // Solo palabras de 3+ caracteres
+        todasLasPalabras.push(palabraLimpia);
+      }
+    });
+  });
+
+  //La función SORT ordena el contenido de un rango o matriz.
+  return [...new Set(todasLasPalabras)].sort();
 }
-
-iniciarBuscador();
+function generarSugerencias(palabra) {
+  const palabrasUnicas = obtenerPalabrasUnicas();
+  return palabrasUnicas
+    .filter(
+      (p) =>
+        p.includes(palabra.toLowerCase()) || palabra.toLowerCase().includes(p)
+    )
+    .slice(0, 5);
+}
