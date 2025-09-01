@@ -7,6 +7,7 @@ Crea un contador en la consola que muestre los números del 1 al 10 cada segundo
 
 Muestra en la consola "Boom 💥" después de 5 segundos
 
+*/
 setTimeout(() => {
   console.log("hola");
 }, 2000);
@@ -32,8 +33,6 @@ function contar() {
 
 setTimeout(contar, 1000);
 
-*/
-let contador = 1;
 setTimeout(() => {
   console.log("Boom 💥")
 }, 5000);
