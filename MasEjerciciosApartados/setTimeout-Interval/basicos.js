@@ -6,10 +6,9 @@ Haz que aparezca un alert("¡Hola!") después de 2 segundos con setTimeout.
 Crea un contador en la consola que muestre los números del 1 al 10 cada segundo.
 
 Muestra en la consola "Boom 💥" después de 5 segundos
-*/
 
 setTimeout(() => {
-  alert("hola");
+  console.log("hola");
 }, 2000);
 
 let contador = 1;
@@ -17,7 +16,7 @@ let contador = 1;
 const intervalo = setInterval(() => {
   console.log(`Contador: ${contador}`);
   contador++;
-
+  
   if (contador > 10) {
     clearInterval(intervalo); // detener cuando llegue a 10
   }
@@ -33,13 +32,10 @@ function contar() {
 
 setTimeout(contar, 1000);
 
+*/
+let contador = 1;
 setTimeout(() => {
-  contador++;
-  console.log(`Contador: ${contador} `);
-
-  if (contador > 5) {
-    console.log("Boom 💥");
-  }
+  console.log("Boom 💥")
 }, 5000);
 
 /*
