@@ -34,7 +34,7 @@ function iniciarPomodoro() {
   );
 
   let tiempoDescanso;
-  if ((opcionTiempoDescanso === true)) {
+  if (opcionTiempoDescanso === true) {
     let inputTiempoDescanso = prompt(
       "Ingrese los segundos que desea descansar:"
     );
@@ -54,59 +54,59 @@ function iniciarPomodoro() {
       console.error("Por favor ingrese numeros validos");
       return;
     }
-  }
-  else{
+  } else {
     // math.floor redondea hacia abajo al nuimero mas cercano.
     // math.max(5,...) Toma el valor máximo entre dos números,Garantiza mínimo 5 segundos de descanso,Si el cálculo da menos de 5, usa 5
-    let segudosDescanso=Math.max(5,Math.floor(segundosEstudio * 0.6));
+    tiempoDescanso = Math.max(5, Math.floor(segundosEstudio * 0.6));
   }
-  console.log(`Configuracion Pomodoro : -Tiempo de estudio ${formatearTiempo(segundosEstudio)} - Tiempo de descanso ${formatearTiempo(tiempoDescanso)} `);
+  console.log(
+    `Configuracion Pomodoro : -Tiempo de estudio ${formatearTiempo(
+      segundosEstudio
+    )} - Tiempo de descanso ${formatearTiempo(tiempoDescanso)} `
+  );
 
+  iniciarFase("Estudio", segundosEstudio, () => {
+    // al terminar estudio sigue descando;
+    console.log("Hora de descanzar");
+    iniciarFase("Descanso", tiempoDescanso, () => {
+      console.log("Sesion Pomodoro completa");
+    });
+  });
+}
 
-   iniciarFaseEstudio("Estudio",segundosEstudio,()=> {
-      // al terminar estudio sigue descando;
-      console.log("Hora de descanzar");
-      iniciarFaseDescanso("Descanso",segundos,()=>{
-        console.log("Sesion Pomodoro completa");
-      })
-   })
-
-  function formatearTiempo(segundosEstudio){
-    if(segundosEstudio>=3600){
-        //formato con horas,minutos y segundos
-        const horas=Math.floor(segundosEstudio/3600) // 1 hora=3600
-        const minutos=Math.floor((segundosEstudio % 3600)/60) // resto convertido a minutos
-        const segs = Math.floor(segundosEstudio % 60); // segundos restantes
-        return `${horas}h  ${minutos}m ${segs}s`;
-    }
-    else if(segundosEstudio>=60){
-        const minutos=Math.floor(segundosEstudio/60);
-        const segs=Math.floor(segundosEstudio % 60);
-        return `${minutos}m ${segs}s`;
-    }
-    else{
-        return `${segundos}`;
-    }
+function formatearTiempo(segundosEstudio) {
+  if (segundosEstudio >= 3600) {
+    //formato con horas,minutos y segundos
+    const horas = Math.floor(segundosEstudio / 3600); // 1 hora=3600
+    const minutos = Math.floor((segundosEstudio % 3600) / 60); // resto convertido a minutos
+    const segs = Math.floor(segundosEstudio % 60); // segundos restantes
+    return `${horas}h  ${minutos}m ${segs}s`;
+  } else if (segundosEstudio >= 60) {
+    const minutos = Math.floor(segundosEstudio / 60);
+    const segs = Math.floor(segundosEstudio % 60);
+    return `${minutos}m ${segs}s`;
+  } else {
+    return `${segundosEstudio}`;
   }
 }
 
-  // nombre: String con el nombre de la fase("Estudio, Descanso")
-  // callbackFinalizacion funcion que se ejecutara cuando termine el tiempo
-  function iniciarFase(nombre,segundosEstudio,callbackFinalizacion){
-     let tiempoRestante=segundosEstudio;
-     const fase=nombre.toLowerCase();
+// nombre: String con el nombre de la fase("Estudio, Descanso")
+// callbackFinalizacion funcion que se ejecutara cuando termine el tiempo
+function iniciarFase(nombre, segundosEstudio, callbackFinalizacion) {
+  let tiempoRestante = segundosEstudio;
+  const fase = nombre.toLowerCase();
 
-     const intervalo = setInterval(()=>{
-        tiempoRestante--;
+  const intervalo = setInterval(() => {
+    tiempoRestante--;
 
-        console.log(`Tiempo: ${formatearTiempo(tiempoRestante)}`);
+    console.log(`Tiempo: ${formatearTiempo(tiempoRestante)}`);
 
-        if(tiempoRestante<=0){
-            clearInterval(intervalo);
-            console.log(`La fase ${nombre} a terminado`);
-        }
-     },1000);
-  }
+    if (tiempoRestante <= 0) {
+      clearInterval(intervalo);
+      console.log(`La fase ${nombre} a terminado`);
+      callbackFinalizacion(); // ejecuta el callback
+    }
+  }, 1000);
+}
 
-
-  iniciarPomodoro();
+iniciarPomodoro();
