@@ -28,3 +28,14 @@ setInterval(() => {
 },1000);
 
 // Version mas detallada con limpieza
+
+let intervalo;
+
+function iniciarReloj(){
+    intervalo=setInterval(() => {
+      console.clear();
+      console.log('Hora actual: ',new Date().toLocaleTimeString());
+    });
+}
+
+iniciarReloj();
