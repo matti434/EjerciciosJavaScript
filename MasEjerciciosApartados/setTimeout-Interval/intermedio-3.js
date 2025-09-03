@@ -30,20 +30,11 @@ setInterval(() => {
 // Version mas detallada con limpieza
 
 let intervalo;
-<<<<<<< HEAD
-
-function iniciarReloj(){
-    intervalo=setInterval(() => {
-      console.clear();
-      console.log('Hora actual: ',new Date().toLocaleTimeString());
-    });
-=======
 function iniciarReloj(){
   invervalo = setInterval(()=>{
     console.clear(); // Limpiar consola
     console.log('Hora actual:', new Date().toLocaleTimeString());
   },1000);
->>>>>>> fe67704ddd3467c4aca0cad69bbc2c7c81879c93
 }
 
 iniciarReloj();
