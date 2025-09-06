@@ -13,31 +13,48 @@ aprobado() → devuelve true si el promedio ≥ 6.
 */
 
 class Estudiante{
-    constructor(nombre,notas){
+    constructor(nombre, notas = []){
        this.nombre=nombre;
-       this.notas=[];
+       this.notas=notas;
     }
 
 
-    agregarNota(){
-        this.notas.push(notas);
+    agregarNota(nota){
+        this.notas.push(nota);
     }
 
     promedio(){
-        let total=0;
-        let promedio=0;
-        for(let i=0;i<=this.notas.length;i++){
-           total += this.notas[i];
-        }
-        promedio =(total*this.notas.length)/100;
-        return `El promedio de las notas es: ${promedio}`;
+        if(this.notas.length === 0) return 0; // si el array esta vacio devuelve 0
+        let total = this.notas.reduce((acc,nota) => acc+nota,0); // acc es acumulador empieza en 0
+        return total / this.notas.length;
     }
 
     aprobado(){
-        
-        if(this.promedio>=6){
-
-            return `El alumno ${this.nombre} : ${true}`;
+        /*
+        this.notas.forEach((n)=>{
+            if(c>=6){
+                console.log(`El alumno ${this.nombre} esta aprobado con ${this.notas}`);
+            }
+        })
+        Creo que es una forma tambien correcta de acerlo */
+        // mas corto y simple
+        /*
+        if(this.promedio()>=6){
+          return `El alumno ${this.nombre} esta aprobado con un promedio ${this.promedio}`;
         }
+         Me pide devolver true o false por lo que esto es ineccesario 
+         */
+        return this.promedio()>=6;
+    }
+
+    mostrarNota(){
+        console.log(`Notas de ${this.nombre}: [${this.notas.join(', ')}]`);
     }
 }
+
+const alumno = new Estudiante("Matias", [7, 8, 10]);
+alumno.agregarNota(5);
+alumno.mostrarNota(); // Notas de Matias: [7, 8, 10,5]
+
+console.log(`Promedio: ${alumno.promedio()}`);
+console.log(`¿Aprobado? ${alumno.aprobado() ? 'Sí' : 'No'}`);
