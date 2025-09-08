@@ -23,6 +23,7 @@ class Animales{
 class Perro extends Animales{
 
    hacerSonido(){
+    
     return "Guau";
    }   
 }
