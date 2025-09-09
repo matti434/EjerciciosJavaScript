@@ -19,31 +19,33 @@ if (typeof palabra !== "string") {
     alert("El valor ingresado no es una palabra");
     return;
 }
+// primero tenemos palabra
+// validamos hasta !=="string"
+// despues validamos lo que esta abajo y lo guardamos en palabraNormalizada
+// en el for es lo mismo pero con la palabra normalizada
 
-/*
- // 5. Normalizar la palabra (eliminar acentos, caracteres especiales, espacios y convertir a minúsculas)
-    const palabraNormalizada = palabra
-        .toLowerCase()
-        .normalize("NFD") // Separar caracteres acentuados
-        .replace(/[\u0300-\u036f]/g, "") // Eliminar diacríticos
-        .replace(/[^a-z0-9]/g, ""); // Eliminar todo lo que no sea alfanumérico
-    
-    // 6. Validar longitud después de normalizar
-    if (palabraNormalizada.length < 2) {
-        console.error("Error: La palabra debe tener al menos 2 caracteres válidos");
-        return false;
-    }
-*/
+// 5. Normalizar la palabra (eliminar acentos, caracteres especiales, espacios y convertir a minúsculas)
+const palabraNormalizada = palabra
+    .toLowerCase()
+    .normalize("NFD") // Separar caracteres acentuados
+    .replace(/[\u0300-\u036f]/g, "") // Eliminar diacríticos
+    .replace(/[^a-z0-9]/g, ""); // Eliminar todo lo que no sea alfanumérico
 
+// 6. Validar longitud después de normalizar
+if (palabraNormalizada.length < 2) {
+    console.error("Error: La palabra debe tener al menos 2 caracteres válidos");
+    return false;
+}
 
 let palabraAlrevez = "";
-for (let i = palabra.length - 1; i >= 0; i--) {
-    palabraAlrevez += palabra[i];
+for (let i = palabraNormalizada.length - 1; i >= 0; i--) {
+    palabraAlrevez += palabraNormalizada[i];
 }
-if (palabraAlrevez === palabra) {
+if (palabraAlrevez === palabraNormalizada) {
     console.log("La palabra: " + palabra + " es palindroma");
 }
 else {
     console.log("La palabra: " + palabra + " no es palindroma");
 }
+console.log("-----------------------")
 console.log(palabraAlrevez);
