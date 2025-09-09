@@ -80,8 +80,14 @@ class Persona {
         return (`${this.nombre} con dni: ${this.dni} sexo: ${ this.sexo} peso:  ${this.peso} altura: ${this.altura} fecha de nacimiento: ${this.anioNacimiento} <br> ${this.mostrarGeneracion()} `);
     }
 
+    generarDni(){
+        this.dni = Math.floor(10000000 + Math.random() * 90000000);
+        return this.dni;
+    }
+
 }
 const Flor = new Persona("Flor", 42936906, "F", 60, 1.49, "26/10/1932");
 Flor.mostrarGeneracion();
 console.log(Flor.mostrarGeneracion());
 console.log(Flor.mostrarInformacion());
+console.log("DNI generado: " + Flor.generarDni());
