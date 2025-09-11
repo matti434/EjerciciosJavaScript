@@ -43,8 +43,8 @@ class Libro {
             return;
         }
 
-        if (isbnString.length < 4) {
-            console.log("El ISBN debe tener al menos 4 caracteres");
+        if (isbnString.length < 4 || isbnString.length > 20) {
+            console.log("El ISBN debe tener al menos 4 caracteres y maximo 20");
             return;
         }
 
@@ -59,6 +59,61 @@ class Libro {
         console.log("El ISBN se modifico correctamente" + this._ISBN);
     }
 
+    get titulo(){
+        return this.titulo;
+    }
+
+    set titulo(nuevoTitulo){
+       
+        const nuevoTituloStr = String(nuevoTitulo).trim();
+
+        if(nuevoTituloStr === ""){
+            console.log("No debe estar vacio");
+            return;
+        }
+        if(nuevoTituloStr.length < 4 || nuevoTituloStr.length > 50){
+            console.log("No puede tener menos de 4 caracteres y maximo 50");
+            return;
+        }
+        
+
+        this._titulo = nuevoTituloStr;
+        console.log("El titulo se modifico correctamente" + this._titulo);
+    }
+
+    get autor(){
+        return this.autor;
+    }
+
+    set autor(nuevoAutor){
+        if(nuevoAutor === undefined || nuevoAutor === null){
+            console.log("Los valores ingresados no pueden ser nulos ni indefinidos");
+            return;
+        }
+
+        const nuevoAutorStr = String(nuevoAutor).trim();
+
+        if(nuevoAutorStr === ""){
+            console.log("No debe estar vacio");
+            return;
+        }
+
+        if(nuevoAutorStr.length < 4 || nuevoAutorStr.length > 30){
+            console.log("No puede tener menos de 4 caracteres y maximo 30");
+            return;
+        }
+
+        if(/^[0-9]+$/.test(nuevoAutorStr)){
+             console.log("El nombre del autor no puede contener numeros ni caracteres especiales");
+             return;
+        }
+
+        this.autor= nuevoAutorStr;
+        console.log("El autor se modifico correctamente" + this._autor);
+
+    }
+
+
 
 }
 
@@ -66,5 +121,7 @@ class Libro {
 const libro1 = new Libro("978-3-16-148410-0", "Cien años de soledad", "García Márquez", 432);
 console.log(libro1);
 
+libro1._titulo= "El amor en los tiempos de colera";
+console.log(libro1);
 libro1.ISBN = 3505; 
 console.log(libro1);
