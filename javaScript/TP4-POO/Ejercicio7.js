@@ -75,7 +75,7 @@ class Contacto {
       return;
     }
 
-    if (!/^[0-9]+$/.test(telefonoStr)) {
+    if (!/^\d+$/.test(telefonoStr)) {
       console.log("Deben ser números");
       return;
     }
@@ -88,14 +88,43 @@ class Contacto {
     const telefonoInt = parseInt(telefonoStr);
 
     this._telefono = telefonoInt;
-
-    console.log("Numero de telefono guardado");
   }
+
+  equals(otroContacto){
+    return this._nombre.toLowerCase() === otroContacto.nombre.toLowerCase();
+  }
+  
 }
 
-class agenda {}
+const arrayContactos = [10];
+class agenda {
+  constructor(contacto) {
+    this.contacto = [];
+  }
+
+  agregarContacto(contacto) {
+    if (!(contacto instanceof Contacto)) {
+      throw new Error("Debe proporcionar un objeto Contacto válido");
+    }
+
+    const existe = this.contacto.some((c) => c.equals(contacto));
+
+    if (existe) {
+      throw new Error("Ya existe un contacto con ese nombre");
+    }
+
+    this.contacto.push(contacto);
+    return true;
+  }
+}
 
 const Nombre = prompt("Por favor ingrese el nombre");
 const Telefono = prompt("Por favor ingrese el numero telefonico");
 
 const contacto = new Contacto(Nombre, Telefono);
+
+// clase
+// atributos #id - private int dni
+// constructor
+// setter and getter
+// metodos
