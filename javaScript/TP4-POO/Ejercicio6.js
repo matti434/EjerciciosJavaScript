@@ -21,7 +21,7 @@ class Libro {
     this._numeroPaginas = numeroPaginas;
   }
 
-  toString(){
+  toString() {
     return `El libro ${this._titulo} con ISBN ${this._ISBN} creado por el autor ${this._autor} tiene páginas ${this._numeroPaginas}`;
   }
   // obtener algo
@@ -147,13 +147,28 @@ class Libro {
 
     this._numeroPaginas = numeroPaginasInt;
 
-    console.log("Cantidad de paginas del libro correctamente cargada" + this.numeroPaginas);
+    console.log(
+      "Cantidad de paginas del libro correctamente cargada" + this._numeroPaginas
+    );
   }
 
   /*
   Un método estático es un método que pertenece a la clase misma, no a las instancias (objetos) de la clase.
    Se define con la palabra clave static y se llama directamente sobre la clase, no sobre un objeto.
   */
+  static compararPaginas(libroA, libroB) {
+    //Esta condición es una validación de tipo que verifica si los parámetros recibidos son realmente instancias de la clase Libro
+    if (!(libroA instanceof Libro) || !(libroB instanceof Libro)) {
+      throw new Error("Ambos parametros deben ser intancias de la clase libro");
+    }
+    if (libroA.numeroPaginas > libroB.numeroPaginas) {
+      return `"${libroA.titulo}" tiene más páginas (${libroA.numeroPaginas})`;
+    } else if (libroB.numeroPaginas > libroA.numeroPaginas) {
+      return `"${libroB.titulo}" tiene más páginas (${libroB.numeroPaginas})`;
+    } else {
+      return "Ambos libros tienen la misma cantidad de páginas";
+    }
+  }
 }
 
 const libro1 = new Libro(
@@ -175,12 +190,13 @@ console.log(libro1.toString());
 const libro2 = new Libro();
 libro2.titulo = "Cien años de soledad";
 //console.log(libro1);
-libro2.ISBN = "5998-5353-2636";
+libro2.ISBN = 599853532636;
 //console.log(libro1);
+libro2.autor = " Fernando Pessoa";
 libro2.numeroPaginas = 470;
 //console.log(libro1);
 console.log(libro2.toString());
 
 //Crear al menos 2 objetos libros y utilizar el método mostrarLibro(); - no usare el metodo mostrarLibro() por que use toString() para probarlo.
 
-calcularMayor(libro1,libro2);
+console.log(Libro.compararPaginas(libro1,libro2));
