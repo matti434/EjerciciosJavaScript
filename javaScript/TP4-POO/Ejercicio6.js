@@ -200,3 +200,7 @@ console.log(libro2.toString());
 //Crear al menos 2 objetos libros y utilizar el método mostrarLibro(); - no usare el metodo mostrarLibro() por que use toString() para probarlo.
 
 console.log(Libro.compararPaginas(libro1,libro2));
+
+
+// Para repasar del codigo 1 usamos static , ademas usamos instanceof y valicaciones con los setters la mas nueva .test
+// Podria ahora hacer el codigo pero que reciba datos por prompt y que los valide con los setters
