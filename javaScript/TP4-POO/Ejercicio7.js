@@ -42,8 +42,8 @@ class Contacto {
       return;
     }
 
-    if (nuevoNombreStr.length < 4 || nuevoNombreStr.length > 30) {
-      console.log("No puede tener menos de 4 caracteres y maximo 30");
+    if (nuevoNombreStr.length < 2 || nuevoNombreStr.length > 30) {
+      console.log("No puede tener menos de 2 caracteres y maximo 30");
       return;
     }
 
@@ -90,19 +90,21 @@ class Contacto {
     this._telefono = telefonoInt;
   }
 
-  equals(otroContacto){
+  equals(otroContacto) {
     return this._nombre.toLowerCase() === otroContacto.nombre.toLowerCase();
   }
-  
 }
-
-const arrayContactos = [10];
-class agenda {
-  constructor(contacto) {
+class Agenda {
+  constructor(tamaño = 10) {
     this.contacto = [];
+    this.tamaño = tamaño;
   }
 
   agregarContacto(contacto) {
+    if (this.contacto.length >= this.tamaño) {
+      console.log("La agenda esta llena");
+      return;
+    }
     if (!(contacto instanceof Contacto)) {
       throw new Error("Debe proporcionar un objeto Contacto válido");
     }
@@ -120,9 +122,11 @@ class agenda {
 
 const Nombre = prompt("Por favor ingrese el nombre");
 const Telefono = prompt("Por favor ingrese el numero telefonico");
-
-const contacto = new Contacto(Nombre, Telefono);
-
+const Nombre2 = prompt("Por favor ingrese el nombre");
+const Telefono2 = prompt("Por favor ingrese el numero telefonico");
+const contacto1 = new Contacto(Nombre, Telefono);
+const contacto2 = new Contacto(Nombre2, Telefono2);
+contacto1.equals(contacto2);
 // clase
 // atributos #id - private int dni
 // constructor
