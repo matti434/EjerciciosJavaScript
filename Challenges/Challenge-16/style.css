@@ -1,11 +1,21 @@
 body {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #b1fc04 0%, #08f100 100%);
     padding: 20px;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.dark-mode{
+    background-color: #56b607;
+    color:  #56b607;
+}
+
+body.dark-mode .card{
+    background-color: #1e1e1e;
+    border-color: #333;
 }
 
 .container {
