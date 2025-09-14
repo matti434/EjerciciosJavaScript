@@ -3,6 +3,8 @@ const btnReiniciar = document.getElementById("reiniciar");
 const btnIncrementar = document.getElementById("incrementar");
 const btnDisminuir = document.getElementById("disminuir");
 const mensaje = document.getElementById("mensaje")
+const botonModo  = document.getElementById("toggleModo");
+
 
 let valor = 0;
 
@@ -29,3 +31,14 @@ btnReiniciar.addEventListener('click',()=>{
     mensaje.textContent="";
 });
 
+
+botonModo.addEventListener('click',() =>{
+    document.body.classList.toggle('dark-mode');
+
+    if(document.body.classList.contains('dark-mode')){
+        botonModo.textContent = 'Modo claro';
+    }
+    else{
+        botonModo.textContent = 'Modo oscuro';
+    }
+});
