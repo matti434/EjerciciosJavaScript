@@ -94,6 +94,24 @@ body.dark-mode .btn {
   color: white;
 }
 
+/* ======== MODO OSCURO ======== */
+body.dark-mode .btn-increment {
+  background: linear-gradient(to right, #00c9ff, #005bea);
+}
+
+body.dark-mode .btn-decrement {
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+}
+
+body.dark-mode .btn-reset {
+  background: linear-gradient(to right, #654ea3, #eaafc8);
+}
+
+body.dark-mode .btn {
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
