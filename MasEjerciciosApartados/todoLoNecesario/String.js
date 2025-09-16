@@ -21,3 +21,4 @@ texto.replaceAll("o", "a");       // Reemplaza todas las coincidencias
 texto.slice(0, 4);                 // Substring desde inicio a fin
 texto.substring(0, 4);             // Similar a slice
 texto.split(" ");                  // Divide en array usando separador
+
