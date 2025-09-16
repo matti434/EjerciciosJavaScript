@@ -7,6 +7,8 @@ function fibonacciSeguro(n) {
     
     let a = 0, b = 1;
     for (let i = 2; i <= n; i++) {
+        console.log(i);
+        
         [a, b] = [b, a + b];
     }
     
@@ -15,6 +17,8 @@ function fibonacciSeguro(n) {
 
 // Ejemplo de uso
 try {
+    console.log(fibonacciSeguro(0)); // 0
+    console.log(fibonacciSeguro(1)); // 1
     console.log(fibonacciSeguro(8)); // 21
     console.log(fibonacciSeguro(-1)); // Error
 } catch (error) {
