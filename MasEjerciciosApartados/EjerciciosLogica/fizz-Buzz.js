@@ -14,3 +14,16 @@ Multiples of 5 for the word "buzz".
 Multiples of both 3 and 5 for the word "fizzbuzz".
  */
 
+
+for(let i=0;i<=100;i++){
+
+    if(i % 3 === 0 && i % 5 === 0){
+        console.log(`fizzbuzz`);
+    }
+    if(i % 3 === 0){
+        console.log(`fizz`);
+    }
+    if(i % 5 === 0){
+        console.log(`buzz`);
+    }
+}
