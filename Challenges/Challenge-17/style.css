@@ -8,12 +8,16 @@
   font-family: "Share Tech Mono", monospace;
   font-weight: 400;
   font-style: normal;
-  height: 30vh;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 9rem;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 @media (max-width: 768px) {
   .contenedor-reloj {
