@@ -55,15 +55,24 @@ addList.addEventListener("click", () => {
 
   //creo el contenido
   const cardBody = document.createElement("div");
-  cardBody.className = "card-body text-center";
+  cardBody.className = "row card-body text-center d-flex justify-content-between";
 
   //muestro la tarea
   const p = document.createElement("p");
-  p.className = "card-text";
+  p.className = "col-6 col-md-7 card-text";
   p.textContent = tareaValida;
+
+  const btnEliminar = document.createElement("button");
+  btnEliminar.textContent = "Eliminar";
+  btnEliminar.className= "col-6 col-md-5 btn btn-danger btn-sm";
+  
+  btnEliminar.addEventListener('click',() => {
+    col.remove();
+  });
 
   // ensamblar
   cardBody.appendChild(p);
+  cardBody.appendChild(btnEliminar);
   card.appendChild(cardBody);
   col.appendChild(card);
 
