@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contenedor-reloj {
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9rem;
+}
+
+@media (max-width: 768px) {
+  .contenedor-reloj {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .contenedor-reloj {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .contenedor-reloj {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 325px) {
+  .contenedor-reloj {
+    font-size: 3.5rem;
+  }
+}
