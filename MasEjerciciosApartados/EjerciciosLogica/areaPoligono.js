@@ -8,7 +8,26 @@
 
 function areaPoligono(poligono) {
 
- 
+  switch (poligono.tipo) {
+    case "triángulo":
+      const areaTriangulo = (poligono.base * poligono.altura) / 2;
+      console.log("El area del triangulo es: "+areaTriangulo);
+      return areaTriangulo;
+    
+    case "cuadrado":
+      const areaCuadrado = poligono.lado*poligono.lado;
+      console.log("El area del cuadrado es: "+areaCuadrado);
+      return areaCuadrado;
+      
+    case "rectangulo":
+      const areaRectangulo = poligono.base*poligono.altura;
+      console.log("El area del rectangulo es: "+areaRectangulo);
+      return areaRectangulo;
+    
+    default :
+      console.log("Opcion no valida");
+      break;
+  }
 }
 
 const Triángulo = {
