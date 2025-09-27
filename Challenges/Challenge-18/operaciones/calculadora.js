@@ -1,3 +1,6 @@
+
+import { multiplicar,dividir,sumar,restar} from '.operaciones'
+
 export class calculadora {
   constructor() {
     this.display = "0";
@@ -37,12 +40,34 @@ export class calculadora {
     try {
       const tokens = this.expresionActual.match(/(\d+\.?\d*)|([+\-×/])/g);// estoy pasando los valores de expresionActual a tokens y separando los numeros y operaciones ej 3x2+5 a "3","+","5"
 
-      if(!tokens==='0'|| tokens.length<3){
+      if(!tokens|| tokens.length<3){
         this.display= this.expresionActual;
         return;
       }
-      tokens.split(",");
-      for (let i = 0; i < tokens.length; i++) {}
+
+      console.log("Tokens: " + tokens) // para debug: (depuacion) para encontrar y arreglar errores;
+      for (let i = 0; i < tokens.length; i++) {
+        
+        
+        if(tokens[i] === "x" || tokens[i]=== "/"){
+            let numeroAnterior = parseFloat(tokens[i-1]);
+            let OperadorActual = tokens[i];
+            let numeroSiguiente= parseFloat(tokens[i+1]);
+
+            let resultado;
+
+            if(OperadorActual === "x"){
+                resultado= multiplicar(numeroAnterior,numeroSiguiente);
+            }
+            else{
+               if(numeroSiguiente === 0){
+                   console.log("ERROR----NO SE PUEDE DIVIDIR EN 0")
+                   return;
+               }
+               resultado= multiplicar(numeroAnterior,numeroSiguiente);
+            }
+        }
+      }
     } catch {}
   }
 }
