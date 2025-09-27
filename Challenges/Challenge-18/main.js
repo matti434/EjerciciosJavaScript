@@ -7,28 +7,28 @@ const botonesNumeros = document.querySelectorAll(".number");
 
 botonesNumeros.forEach((boton) => {
   boton.addEventListener("click", () => {
-    Calculadora.ingresarNumero(boton.textContent);
-    pantalla.value = Calculadora.display; //actualiza la pantalla
+    calcular.ingresarNumero(boton.textContent);
+    pantalla.value = calcular.display; //actualiza la pantalla
   });
 });
 
 document.getElementById("sumar").addEventListener("click", () => {
-  Calculadora.ingresarOperador("+");
-  pantalla.value = Calculadora.display;
+  calcular.ingresarOperador("+");
+  pantalla.value = calcular.display;
 });
 document.getElementById("restar").addEventListener("click", () => {
-  Calculadora.ingresarOperador("-");
-  pantalla.value = Calculadora.display;
+  calcular.ingresarOperador("-");
+  pantalla.value = calcular.display;
 });
 document.getElementById("multiplicar").addEventListener("click", () => {
-  Calculadora.ingresarOperador("×");
-  pantalla.value = Calculadora.display;
+  calcular.ingresarOperador("×");
+  pantalla.value = calcular.display;
 });
-document.getElementById("dividir").addEventListener("click", () => {
-  Calculadora.ingresarOperador("/");
-  pantalla.value = Calculadora.display;
+document.getElementById("division").addEventListener("click", () => {
+  calcular.ingresarOperador("/");
+  pantalla.value = calcular.display;
 });
 document.getElementById("igual").addEventListener("click", () => {
-  Calculadora.calcular();
-  pantalla.value = Calculadora.display;
+  calcular.calcular();
+  pantalla.value = calcular.display;
 });

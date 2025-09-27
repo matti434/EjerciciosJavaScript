@@ -11,6 +11,7 @@ export class Calculadora {
   }
 
   ingresarNumero(numero) {
+    console.log("🔢 Número recibido:", numero, "Expresión actual:", this.expresionActual);
     //this.ultimoEsOperador significa que es true osea que el ultimo es fue operador
     if ((this.display === "0" || this.ultimoEsOperador)) {
       // si el ultimo fue operador empieza nuevo numero;
@@ -27,6 +28,7 @@ export class Calculadora {
   }
 
   ingresarOperador(operador) {
+    console.log("⚡ Operador recibido:", operador, "Expresión actual:", this.expresionActual);
     if (!this.ultimoEsOperador && this.expresionActual !== "") {
       this.expresionActual += operador;
       this.display = operador;
@@ -103,4 +105,11 @@ export class Calculadora {
       throw error("ERROR PRECIONE OFF Y VUELVA A INTENTARLO");
     }
   }
+
+  limpiar(){
+    this.display="0";
+    this.expresionActual="";
+    this.ultimoEsOperador=false;
+  }
 }
+
