@@ -1,4 +1,4 @@
-const numerosSumar=[];
-export function sumar(a, b) {
+
+export function suma(a, b) {
     return a + b;
 }

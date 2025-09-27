@@ -1,9 +1,9 @@
-import { multiplicar } from "./operaciones/multiplicacion.js";
+import { multiplicacion } from "./operaciones/multiplicacion.js";
 import { division } from "./operaciones/division.js";
 import { suma } from "./operaciones/suma.js";
 import { resta } from "./operaciones/resta.js";
 
-export class calculadora {
+export class Calculadora {
   constructor() {
     this.display = "0";
     this.expresionActual = "";
