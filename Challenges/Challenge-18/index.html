@@ -4,34 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
+
     <div id="calculator">
-        <input type="text" id="display" readonly>
+        <div class="contenedorOperacion">
+            <div class="col-12">
+                <div id="operacion" class="operacionCompleta"></div>
+            </div>
+        </div>
+        <input type="text" id="display" readonly> <!--readonly es un atributo HTML que significa "solo lectura".-->
         <div class="buttons-container">
             <button id="off" class="operator">OFF</button>
             <button id="ac" class="operator">AC</button>
             <button id="porcentaje" class="operator">%</button>
             <button id="division" class="operator">/</button>
-            
+
             <button id="7" class="number">7</button>
             <button id="8" class="number">8</button>
             <button id="9" class="number">9</button>
-            <button id="multiplicar" class="operator">×</button>
-            
+            <button id="multiplicar" class="operator">x</button>
+
             <button id="4" class="number">4</button>
             <button id="5" class="number">5</button>
             <button id="6" class="number">6</button>
             <button id="restar" class="operator">-</button>
-            
+
             <button id="1" class="number">1</button>
             <button id="2" class="number">2</button>
             <button id="3" class="number">3</button>
             <button id="sumar" class="operator">+</button>
-            
+
             <button id="00" class="number">00</button>
             <button id="0" class="number">0</button>
             <button id="punto" class="number">.</button>

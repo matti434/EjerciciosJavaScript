@@ -11,9 +11,14 @@ export class Calculadora {
   }
 
   ingresarNumero(numero) {
-    console.log("🔢 Número recibido:", numero, "Expresión actual:", this.expresionActual);
+    console.log(
+      " Número recibido:",
+      numero,
+      "Expresión actual:",
+      this.expresionActual
+    );
     //this.ultimoEsOperador significa que es true osea que el ultimo es fue operador
-    if ((this.display === "0" || this.ultimoEsOperador)) {
+    if (this.display === "0" || this.ultimoEsOperador) {
       // si el ultimo fue operador empieza nuevo numero;
       this.display = numero; // remplaza lo que hay en el display
     }
@@ -22,18 +27,24 @@ export class Calculadora {
       // el ultimo seria un numero entonces concatena
       this.display += numero;
     }
-
     this.expresionActual += numero;
     this.ultimoEsOperador = false; // marcamos que ultimoEsOperador ahora es un numero
   }
 
   ingresarOperador(operador) {
-    console.log("⚡ Operador recibido:", operador, "Expresión actual:", this.expresionActual);
+    console.log(
+      " Operador recibido:",
+      operador,
+      "Expresión actual:",
+      this.expresionActual
+    );
+
     if (!this.ultimoEsOperador && this.expresionActual !== "") {
       this.expresionActual += operador;
       this.display = operador;
       this.ultimoEsOperador = true;
     }
+
   }
 
   calcular() {
@@ -42,8 +53,7 @@ export class Calculadora {
     }
 
     try {
-      const tokens = this.expresionActual.match(/(\d+\.?\d*)|([+\-×/])/g); // estoy pasando los valores de expresionActual a tokens y separando los numeros y operaciones ej 3x2+5 a "3","+","5"
-
+      const tokens = this.expresionActual.match(/(\d+\.?\d*)|([+\-x/])/g); // estoy pasando los valores de expresionActual a tokens y separando los numeros y operaciones ej 3x2+5 a "3","+","5"
       if (!tokens || tokens.length < 3) {
         this.display = this.expresionActual;
         return;
@@ -52,14 +62,14 @@ export class Calculadora {
       console.log("Tokens: " + tokens); // para debug: (depuacion) para encontrar y arreglar errores;
       let i = 0;
       while (i < tokens.length) {
-        if (tokens[i] === "×" || tokens[i] === "/") {
+        if (tokens[i] === "x" || tokens[i] === "/") {
           let numeroAnterior = parseFloat(tokens[i - 1]);
           let numeroSiguiente = parseFloat(tokens[i + 1]);
 
           let resultadoMD;
 
-          if (tokens[i] === "×") {
-            resultadoMD = multiplicar(numeroAnterior, numeroSiguiente);
+          if (tokens[i] === "x") {
+            resultadoMD = multiplicacion(numeroAnterior, numeroSiguiente);
           } else {
             if (numeroSiguiente === 0) {
               throw new Error("ERROR----NO SE PUEDE DIVIDIR EN 0");
@@ -81,10 +91,9 @@ export class Calculadora {
 
       for (let i = 1; i < tokens.length; i += 2) {
         if (tokens[i] === "+" || tokens[i] === "-") {
-          
-          let OperadorActual=tokens[i];
-          let numeroSiguiente = parseFloat(tokens[i+1]);
-          
+          let OperadorActual = tokens[i];
+          let numeroSiguiente = parseFloat(tokens[i + 1]);
+
           if (OperadorActual === "+") {
             resultadoFinal = suma(resultadoFinal, numeroSiguiente);
           } else {
@@ -93,23 +102,26 @@ export class Calculadora {
         }
       }
 
-      this.display=resultadoFinal.toString();
+      this.display = resultadoFinal.toString();
       this.expresionActual = resultadoFinal.toString(); // muestra el ultimo resultado en el display
-      this.ultimoEsOperador=false;
+      this.ultimoEsOperador = false;
       return resultadoFinal;
       // Ahora si el usuario presiona "+", será "8+" en lugar de "+"
-    } catch (error){
-      this.display="error";
-      this.expresionActual="error";
-      this.ultimoEsOperador="error";
+    } catch (error) {
+      this.display = "error";
+      this.expresionActual = "error";
+      this.ultimoEsOperador = "error";
       throw error("ERROR PRECIONE OFF Y VUELVA A INTENTARLO");
     }
   }
 
-  limpiar(){
-    this.display="0";
-    this.expresionActual="";
-    this.ultimoEsOperador=false;
+  getExpresionCompleta() {
+    this.expresionActual;
+  }
+
+  limpiar() {
+    this.display = "0";
+    this.expresionActual = "";
+    this.ultimoEsOperador = false;
   }
 }
-

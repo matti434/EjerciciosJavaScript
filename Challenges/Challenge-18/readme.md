@@ -16,6 +16,20 @@ Ejemplo con "3+4"
 this.expresionActual = "3+4";  // ← Aquí se acumula todo
 this.display = "4";           // ← Lo que se muestra ahora
 
+calculadora.js
+
+ ingresarNumero(numero) {
+    console.log(" Número recibido:", numero, "Expresión actual:", this.expresionActual);
+    if ((this.display === "0" || this.ultimoEsOperador)) {
+      this.display = numero; // remplaza lo que hay en el display
+    }
+    else {
+      this.display += numero;
+    }
+}
+Display: "5" → Usuario presiona "+" → Display: "+" → Usuario presiona "3" → Display: "3" 
+
+
 main.js escucha los clicks
 
 // Cuando hay click en cualquier botón de número:

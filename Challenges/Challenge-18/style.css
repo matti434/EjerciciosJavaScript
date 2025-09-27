@@ -92,6 +92,18 @@ button:active {
     background-color: #e68a00;
 }
 
+
+#operacion {
+    min-height: 30px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: right;
+    color: #333;
+}
 /* Responsive */
 @media (max-width: 480px) {
     #calculator {
