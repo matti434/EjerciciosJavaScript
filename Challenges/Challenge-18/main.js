@@ -32,3 +32,7 @@ document.getElementById("igual").addEventListener("click", () => {
   calcular.calcular();
   pantalla.value = calcular.display;
 });
+document.getElementById("ac").addEventListener('click', () =>{
+    calcular.limpiar();
+    pantalla.value = calcular.display;
+});
