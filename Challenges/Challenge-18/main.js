@@ -6,7 +6,7 @@ const pantalla = document.getElementById("display");
 const botonesNumeros = document.querySelectorAll(".number");
 //const operaciones = document.getElementById("operacion");
 const operaciones = document.querySelector("#operacion");
-
+const calCient = document.getElementById("ce"); 
 
 botonesNumeros.forEach((boton) => {
   boton.addEventListener("click", () => {
@@ -46,3 +46,8 @@ document.getElementById("ac").addEventListener("click", () => {
   pantalla.value = calcular.display;
   operaciones.textContent = calcular.expresionActual;
 });
+
+
+calCient.addEventListener("click", () => {
+  
+})

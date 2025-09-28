@@ -25,7 +25,7 @@
       <div class="buttons-container">
         <button id="off" class="operator">OFF</button>
         <button id="ac" class="operator">AC</button>
-        <button id="porcentaje" class="operator">%</button>
+        <button id="ce" class="operator">CE</button>
         <button id="division" class="operator">/</button>
 
         <button id="7" class="number">7</button>
@@ -49,6 +49,57 @@
         <button id="igual" class="equal operator">=</button>
       </div>
     </div>
+
+    <div class="calculadora-cientifica">
+      <div class="pantalla">
+        <div class="operacion-anterior" id="operacion-anterior"></div>
+        <div class="display" id="display">0</div>
+      </div>
+
+      <div class="botones">
+        <button class="btn btn-funcion" data-funcion="sin">sin</button>
+        <button class="btn btn-funcion" data-funcion="cos">cos</button>
+        <button class="btn btn-funcion" data-funcion="tan">tan</button>
+        <button class="btn btn-funcion" data-funcion="log">log</button>
+        <button class="btn btn-funcion" data-funcion="ln">ln</button>
+
+        <button class="btn btn-constante" data-valor="pi">π</button>
+        <button class="btn btn-constante" data-valor="e">e</button>
+        <button class="btn btn-operador" data-operador="^">x^y</button>
+        <button class="btn btn-funcion" data-funcion="raiz">√</button>
+        <button class="btn btn-funcion" data-funcion="cuadrado">x²</button>
+
+        <button class="btn btn-numero" data-numero="7">7</button>
+        <button class="btn btn-numero" data-numero="8">8</button>
+        <button class="btn btn-numero" data-numero="9">9</button>
+        <button class="btn btn-operador" data-operador="/">/</button>
+        <button class="btn btn-funcion" data-funcion="factorial">x!</button>
+
+        <button class="btn btn-numero" data-numero="4">4</button>
+        <button class="btn btn-numero" data-numero="5">5</button>
+        <button class="btn btn-numero" data-numero="6">6</button>
+        <button class="btn btn-operador" data-operador="x">x</button>
+        <button class="btn btn-parentesis" data-parentesis="(">(</button>
+
+        <button class="btn btn-numero" data-numero="1">1</button>
+        <button class="btn btn-numero" data-numero="2">2</button>
+        <button class="btn btn-numero" data-numero="3">3</button>
+        <button class="btn btn-operador" data-operador="-">-</button>
+        <button class="btn btn-parentesis" data-parentesis=")">)</button>
+
+        <button class="btn btn-numero" data-numero="0">0</button>
+        <button class="btn btn-decimal" data-decimal=".">.</button>
+        <button class="btn btn-igual" id="igual">=</button>
+        <button class="btn btn-operador" data-operador="+">+</button>
+        <button class="btn btn-funcion" data-funcion="potencia10">10^x</button>
+
+        <button class="btn btn-clear" id="clear">C</button>
+        <button class="btn btn-clear" id="clear-entry">CE</button>
+        <button class="btn btn-borrar" id="borrar">⌫</button>
+        <button class="btn btn-volver" id="volver">← Volver</button>
+      </div>
+    </div>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
