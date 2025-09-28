@@ -59,3 +59,27 @@ boton3.addEventListener("click", function() {
 - reemplazar los 3 tokens por el resultado
 4-repetir hasta que no haya mas x o /
 5.luego resolver + y - de izquierda a derecha
+
+
+¿Qué son los data attributes?
+Son atributos que empiezan con data- y nos permiten almacenar información extra en los elementos HTML,sirve para dar informacion extra a js
+
+Ejemplo práctico:
+html
+<!-- Puedo mostrar "√" pero guardar "raiz" -->
+<button data-funcion="raiz">√</button>
+<button data-funcion="cuadrado">x²</button>
+<button data-funcion="potencia">x^y</button>
+
+
+Sin data attributes sería más complicado:
+
+// Tendrías que ver el texto del botón
+if (boton.textContent === '√') {
+    // hacer raíz
+} else if (boton.textContent === 'x²') {
+    // hacer cuadrado
+}
+// Esto es más frágil y difícil de mantener
+
+### En resumen: data-funcion es como una "etiqueta" que le dice a JavaScript qué función debe ejecutar cuando se presiona ese botón, sin depender del texto visible
