@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <div id="calculator">
+    <div id="calculadora-basica">
       <div class="contenedorOperacion">
         <div class="col-12">
           <div id="operacion" class="operacionCompleta"></div>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="calculadora-cientifica">
+    <div class="calculadora-c" id="calculadora-cientifica">
       <div class="pantalla">
         <div class="operacion-anterior" id="operacion-anterior"></div>
         <div class="display" id="display">0</div>
@@ -61,7 +61,7 @@
         <button class="btn btn-funcion" data-funcion="cos">cos</button>
         <button class="btn btn-funcion" data-funcion="tan">tan</button>
         <button class="btn btn-funcion" data-funcion="log">log</button>
-        <button class="btn btn-funcion" data-funcion="ln">ln</button>
+        <button class="btn btn-funcion" data-funcion="ln" id="atras">ln</button>
 
         <button class="btn btn-constante" data-valor="pi">π</button>
         <button class="btn btn-constante" data-valor="e">e</button>

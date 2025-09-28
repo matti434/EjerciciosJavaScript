@@ -6,7 +6,8 @@ const pantalla = document.getElementById("display");
 const botonesNumeros = document.querySelectorAll(".number");
 //const operaciones = document.getElementById("operacion");
 const operaciones = document.querySelector("#operacion");
-const calCient = document.getElementById("ce"); 
+const calCient = document.getElementById("ce");
+const calBas = document.getElementById("atras");  
 
 botonesNumeros.forEach((boton) => {
   boton.addEventListener("click", () => {
@@ -49,5 +50,11 @@ document.getElementById("ac").addEventListener("click", () => {
 
 
 calCient.addEventListener("click", () => {
-  
+  document.getElementById("calculadora-basica").style.display="none";
+  document.getElementById("calculadora-cientifica").style.display="block";
+})
+
+calBas.addEventListener("click", () =>{
+  document.getElementById("calculadora-basica").style.display="block";
+  document.getElementById("calculadora-cientifica").style.display="none";
 })

@@ -15,7 +15,7 @@ body {
   padding: 20px;
 }
 
-#calculator {
+#calculadora-basica {
   max-width: 360px;
   width: 100%;
   background-color: #0d1b2a;
@@ -142,7 +142,7 @@ button:active {
   }
 }
 
-.calculadora-cientifica {
+.calculadora-c {
   background: #2d3748;
   border-radius: 20px;
   padding: 25px;

@@ -1,7 +1,7 @@
-import { multiplicacion } from "./operaciones/multiplicacion.js";
-import { division } from "./operaciones/division.js";
-import { suma } from "./operaciones/suma.js";
-import { resta } from "./operaciones/resta.js";
+import { multiplicacion } from "./operacionesB/multiplicacion.js";
+import { division } from "./operacionesB/division.js";
+import { suma } from "./operacionesB/suma.js";
+import { resta } from "./operacionesB/resta.js";
 
 export class Calculadora {
   constructor() {
