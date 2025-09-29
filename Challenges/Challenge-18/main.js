@@ -7,7 +7,7 @@ const botonesNumeros = document.querySelectorAll(".number");
 //const operaciones = document.getElementById("operacion");
 const operaciones = document.querySelector("#operacion");
 const calCient = document.getElementById("ce");
-const calBas = document.getElementById("atras");  
+const calBas = document.getElementById("volver");  
 
 botonesNumeros.forEach((boton) => {
   boton.addEventListener("click", () => {
