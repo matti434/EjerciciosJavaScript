@@ -7,31 +7,36 @@
  *   imagen de 1920*1080px.
  */
 
-function calcularAspectRatio(url) {
-  const img = new Image();
+function calcularAspectRatio(width, height) {
+  /*const img = new Image();
   img.src = url;
   img.onload = function () {
     const width = this.naturalWidth;
     const height = this.naturalHeight;
-    let a = width;
-    let b = height;
+  */
+  let a = width;
+  let b = height;
 
-    let temporal;
-    while (b !== 0) {
-      if (b !== 0) {
-        temporal = b;
-        b = a % b;
-        a = temporal;
-      }
+  let temporal;
+  while (b !== 0) {
+    if (b !== 0) {
+      temporal = b;
+      b = a % b;
+      a = temporal; //
     }
+  }
 
-    const X = width / temporal;
-    const Y = height / temporal;
+  const X = width / a;
+  const Y = height / a;
 
-    console.log(`Ratio : ${X}:${Y}`);
-  };
+  return `Ratio : ${X}:${Y}`;
 }
 
+/*
 calcularAspectRatio(
   "https://upload.wikimedia.org/wikipedia/commons/8/8c/Euklid2.jpg"
 );
+*/
+
+console.log(calcularAspectRatio(1920, 1080)); // "16:9"
+console.log(calcularAspectRatio(800, 600)); // "4:3"
