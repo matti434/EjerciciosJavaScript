@@ -5,11 +5,23 @@
  *   lo resuelvan directamente.
  */
 
-function mayuscula(string){
+function palabras(st){
+    
+    let palabras=[];
+    for(let i=0;i<st.length;i++){
+       let aux = String(st[i]).split(" ");
+       console.log("auxiliar"+aux);
+       palabras.push(aux.mayuscula());
+    }
+
+    return palabras;
+}
+
+function mayuscula(st){
   
     let primera;
     let mayuscula="";
-    const palabra=String(string);
+    const palabra=String(st);
     for(let i=0; i<palabra.length;i++){
         if(i===0){
             primera=palabra[0];
@@ -23,4 +35,4 @@ function mayuscula(string){
     return mayuscula;
 }
 
-console.log(mayuscula("hola"));
+console.log(mayuscula("hola como estas?"));
