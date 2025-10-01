@@ -8,14 +8,16 @@
 function mayuscula(string){
   
     let primera;
-    const mayuscula=[];
+    let mayuscula="";
     const palabra=String(string);
-    for(let i=0; i<=palabra.length;i++){
-        if(palabra[0]){
+    for(let i=0; i<palabra.length;i++){
+        if(i===0){
             primera=palabra[0];
-            mayuscula += palabra[0].toUpperCase();
+            mayuscula += palabra[i].toUpperCase();
         }
-        mayuscula += palabra[i];
+        else{
+            mayuscula += palabra[i];
+        }
     }
 
     return mayuscula;
