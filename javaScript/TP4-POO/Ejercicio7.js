@@ -18,28 +18,7 @@ huecosLibres(): indica cuántos contactos más podemos ingresar.
 Crea un menú con opciones que serán seleccionadas por el usuario usando un prompt, las salidas de las operaciones seleccionadas por el usuario se pueden mostrar en pantalla y  por consola.
 
 */
-
-function menu(){
-
-  let opciones=prompt("Por favor eliga la opcion: 1-Añadir contacto 2-Existe Contacto 3-Lista de contactos 4-BuscarContacto 5-Eliminar Contacto 6-Agenda llena 7-Huecos Libres");
-  
-  switch(opciones){
-    case 1:
-      let nombre=prompt("Por favor ingrese el nombre:");
-      let telefono=prompt("Ingrese el numero de telefono:");
-
-      let nuevoContacto = new Contacto(nombre,telefono);
-      let resultado = new Agenda.agregarContacto(nuevoContacto);
-      if(resultado){
-        console.log("Contacto añadido con exito");
-        
-      }
-      break;
-    case 2:
-      
-    
-  }
-}
+const agenda = new Agenda();
 
 class Contacto {
   constructor(nombre, telefono) {
@@ -131,26 +110,41 @@ class Agenda {
       throw new Error("Debe proporcionar un objeto Contacto válido");
     }
 
-    const existe = this.contacto.some((c) => c.equals(contacto));
-
-    if (existe) {
-      throw new Error("Ya existe un contacto con ese nombre");
-    }
-
     this.contacto.push(contacto);
     return true;
   }
+
+  contactoExiste(contacto) {
+    return this.contacto.some((c) => c.equals(contacto)); // retorna true
+  }
 }
 
-const Nombre = prompt("Por favor ingrese el nombre");
-const Telefono = prompt("Por favor ingrese el numero telefonico");
-const Nombre2 = prompt("Por favor ingrese el nombre");
-const Telefono2 = prompt("Por favor ingrese el numero telefonico");
-const contacto1 = new Contacto(Nombre, Telefono);
-const contacto2 = new Contacto(Nombre2, Telefono2);
-contacto1.equals(contacto2);
+function menu() {
+  let opciones = prompt(
+    "Por favor eliga la opcion: 1-Añadir contacto 2-Existe Contacto 3-Lista de contactos 4-BuscarContacto 5-Eliminar Contacto 6-Agenda llena 7-Huecos Libres"
+  );
 
+  switch (opciones) {
+    case "1":
+      let nombre = prompt("Por favor ingrese el nombre:");
+      let telefono = prompt("Ingrese el numero de telefono:");
 
+      let nuevoContacto = new Contacto(nombre, telefono);
+      let resultado = Agenda.agregarContacto(nuevoContacto);
+      if (resultado) {
+        console.log("Contacto añadido con exito");
+      }
+      break;
+    case "2":
+      let buscarNombre = prompt("Ingrese el nombre del contacto a buscar:");
+      let resultadoBusqueda = new Agenda.contactoExiste(buscarNombre);
+      if (resultadoBusqueda) {
+        console.log("El contacto existe");
+      }
+  }
+}
+
+menu();
 // clase
 // atributos #id - private int dni
 // constructor
