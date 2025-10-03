@@ -129,6 +129,14 @@ class Agenda {
     }
     return;
   }
+  buscarContacto(contacto) {
+    if(this.contacto.find(contacto)){
+      console.log(`Contacto encontrado`);
+    }
+    else{
+      console.log("No se encontro");
+    }
+  }
 }
 
 const contacto = new Contacto();
@@ -153,17 +161,21 @@ function menu() {
         }
         break;
       case "2":
-        let contactoABuscar = prompt(
+        let contactoExiste = prompt(
           "Ingrese el nombre del contacto a buscar:"
         );
-        let contactoTemporal = new Contacto(contactoABuscar, "0000000000");
-        let resultadoBusqueda = agenda.contactoExiste(contactoTemporal);
-        if (resultadoBusqueda) {
+        let contactoTemporalExiste = new Contacto(contactoExiste, "0000000000");
+        let resultadoBusquedaExiste = agenda.contactoExiste(contactoTemporalExiste);
+        if (resultadoBusquedaExiste) {
           console.log("El contacto existe");
         }
         break;
       case "3":
         agenda.listaContactos();
+        break;
+      case "4":
+        let contactoBuscar=prompt("Ingresa el nombre del contecto");
+        agenda.buscarContacto(contactoBuscar);
         break;
     }
 
