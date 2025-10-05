@@ -91,7 +91,7 @@ class Contacto {
   }
 
   equals(otroContacto) {
-    return this._nombre.toLowerCase() === otroContacto.nombre.toLowerCase();
+    return this._nombre.toLowerCase() === otroContacto._nombre.toLowerCase();
   }
 }
 class Agenda {
@@ -109,24 +109,81 @@ class Agenda {
       throw new Error("Debe proporcionar un objeto Contacto válido");
     }
 
-    const existe = this.contacto.some((c) => c.equals(contacto));
-
-    if (existe) {
-      throw new Error("Ya existe un contacto con ese nombre");
+    if (this.contactoExiste(contacto)) {
+      console.log("Ya existe un contacto con ese nombre");
+      return false;
     }
 
     this.contacto.push(contacto);
     return true;
   }
+
+  contactoExiste(contacto) {
+    return this.contacto.some((c) => c.equals(contacto)); // retorna true
+  }
+  listaContactos(contacto) {
+    for (let i = 0; i < this.contacto.length; i++) {
+      console.log(
+        `Nombre: ${this.contacto[i].nombre} y telefono: ${this.contacto[i].telefono}`
+      );
+    }
+    return;
+  }
+  buscarContacto(contacto) {
+    if(this.contacto.find(contacto)){
+      console.log(`Contacto encontrado`);
+    }
+    else{
+      console.log("No se encontro");
+    }
+  }
 }
 
-const Nombre = prompt("Por favor ingrese el nombre");
-const Telefono = prompt("Por favor ingrese el numero telefonico");
-const Nombre2 = prompt("Por favor ingrese el nombre");
-const Telefono2 = prompt("Por favor ingrese el numero telefonico");
-const contacto1 = new Contacto(Nombre, Telefono);
-const contacto2 = new Contacto(Nombre2, Telefono2);
-contacto1.equals(contacto2);
+const contacto = new Contacto();
+const agenda = new Agenda();
+
+function menu() {
+  let continuar;
+  do {
+    let opciones = prompt(
+      "Por favor eliga la opcion: 1-Añadir contacto 2-Existe Contacto 3-Lista de contactos 4-BuscarContacto 5-Eliminar Contacto 6-Agenda llena 7-Huecos Libres"
+    );
+
+    switch (opciones) {
+      case "1":
+        let nombre = prompt("Por favor ingrese el nombre:");
+        let telefono = prompt("Ingrese el numero de telefono:");
+
+        let nuevoContacto = new Contacto(nombre, telefono);
+        let resultado = agenda.agregarContacto(nuevoContacto);
+        if (resultado) {
+          console.log("Contacto añadido con exito");
+        }
+        break;
+      case "2":
+        let contactoExiste = prompt(
+          "Ingrese el nombre del contacto a buscar:"
+        );
+        let contactoTemporalExiste = new Contacto(contactoExiste, "0000000000");
+        let resultadoBusquedaExiste = agenda.contactoExiste(contactoTemporalExiste);
+        if (resultadoBusquedaExiste) {
+          console.log("El contacto existe");
+        }
+        break;
+      case "3":
+        agenda.listaContactos();
+        break;
+      case "4":
+        let contactoBuscar=prompt("Ingresa el nombre del contecto");
+        agenda.buscarContacto(contactoBuscar);
+        break;
+    }
+
+    continuar = confirm("¿Quiere continuar con otra operación?"); // Cambié el nombre de la variable
+  } while (continuar);
+}
+
+menu();
 // clase
 // atributos #id - private int dni
 // constructor
