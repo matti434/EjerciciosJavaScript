@@ -9,6 +9,7 @@ function palabras(st){
     
     let palabras=[];
     for(let i=0;i<st.length;i++){
+       console.log("entramos for palabras");      
        let aux = String(st[i]).split(" ");
        console.log("auxiliar"+aux);
        palabras.push(aux.mayuscula());
@@ -21,7 +22,7 @@ function mayuscula(st){
   
     let primera;
     let mayuscula="";
-    const palabra=String(st);
+    const palabra=palabras(st);
     for(let i=0; i<palabra.length;i++){
         if(i===0){
             primera=palabra[0];
@@ -31,7 +32,6 @@ function mayuscula(st){
             mayuscula += palabra[i];
         }
     }
-
     return mayuscula;
 }
 

@@ -14,3 +14,15 @@ const intervalo = setInterval(() =>{
         console.log("¡Llegamos a 100! Intervalo detenido.");
     }
 },1000)
+
+
+function contar(){
+
+    contador=0;
+    for(let i=1;i<=100;i++){
+        contador++
+        console.log(contador);
+    }
+}
+
+contar();
