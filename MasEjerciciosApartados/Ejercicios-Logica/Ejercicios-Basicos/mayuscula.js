@@ -5,34 +5,17 @@
  *   lo resuelvan directamente.
  */
 
-function palabras(st){
-    
-    let palabras=[];
-    for(let i=0;i<st.length;i++){
-       let aux = String(st[i]).split(" ");
-       console.log("auxiliar"+aux);
-       palabras.push(aux.mayuscula());
+function mayuscula(st) {
+  let resultado = "";
+
+  for (let i = 0; i < st.length; i++) {
+    let letra = st[i];
+    if (i === 0 || st[i - 1] === " ") {
+      resultado += letra.toUpperCase();
+    } else {
+      resultado += letra;
     }
-
-    return palabras;
+  }
+  return resultado;
 }
-
-function mayuscula(st){
-  
-    let primera;
-    let mayuscula="";
-    const palabra=String(st);
-    for(let i=0; i<palabra.length;i++){
-        if(i===0){
-            primera=palabra[0];
-            mayuscula += palabra[i].toUpperCase();
-        }
-        else{
-            mayuscula += palabra[i];
-        }
-    }
-
-    return mayuscula;
-}
-
 console.log(mayuscula("hola como estas?"));
