@@ -4,25 +4,42 @@
  * Crea el código para cada una de ellas.
  */
 
-let contador=0;
-const intervalo = setInterval(() =>{
+let contador = 0;
+const intervalo = setInterval(() => {
+  contador++;
+  console.log(contador);
+
+  if (contador >= 100) {
+    clearInterval(intervalo);
+    console.log("¡Llegamos a 100! Intervalo detenido.");
+  }
+}, 1000);
+
+function contar() {
+  contador = 0;
+  r = 0;
+  for (let i = 1; i <= 100; i++) {
     contador++;
     console.log(contador);
-    
-    if(contador>=100){
-        clearInterval(intervalo);
-        console.log("¡Llegamos a 100! Intervalo detenido.");
-    }
-},1000)
+  }
 
+  while (r <= 100) {
+    r++;
+    console.log(r);
+  }
 
-function contar(){
+  do {
+    r++;
+    console.log(r);
+  } while (r <= 100);
 
-    contador=0;
-    for(let i=1;i<=100;i++){
-        contador++
-        console.log(contador);
-    }
+}
+
+function contarRecursivo(numero=1){
+    if(numero>100)return;
+    console.log(numero);
+    contarRecursivo(numero+1);
 }
 
 contar();
+contarRecursivo();
