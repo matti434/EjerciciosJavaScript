@@ -148,6 +148,39 @@ class Agenda {
     }
 
   }
+
+  EliminarContacto(nombre,telefono){
+
+    const indice = this.contacto.findIndex(c => {
+         
+      return c.nombre.toLowerCase()===nombre.toLowerCase() && c.telefono === telefono;
+    })
+
+    if(indice !== -1){
+      
+      this.contacto.splice(indice,1);
+      console.log("Eliminando contacto...");
+      return true;
+    }
+    else{
+      console.log("Eliminando contacto no encontrado para eliminar");
+      return false;
+    }
+  }
+
+  agendaLlena(){
+    if(this.contacto>=this.tamaño){
+      console.log("La agenda esta llena.");
+      return true;
+    }
+    else{
+      console.log("La agenda tiene espacio");
+      return false;
+    }
+  }
+  
+
+
 }
 
 const contacto = new Contacto();
@@ -188,9 +221,16 @@ function menu() {
         let contactoBuscar=prompt("Ingresa el nombre del contacto");
         agenda.buscarContacto(contactoBuscar);
         break;
+      case "5":
+        let nombreEliminar=prompt("Ingrese el nombre del contacto a eliminar");
+        let telefonoEliminar=prompt("Ingrese el numero de telefono");
+        agenda.EliminarContacto(nombreEliminar,telefonoEliminar);
+        break;
     }
-
+  
     continuar = confirm("¿Quiere continuar con otra operación?"); // Cambié el nombre de la variable
+
+    agendaLlena();
   } while (continuar);
 }
 
