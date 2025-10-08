@@ -169,7 +169,7 @@ class Agenda {
   }
 
   agendaLlena(){
-    if(this.contacto>=this.tamaño){
+    if(this.contacto.length>=this.tamaño){
       console.log("La agenda esta llena.");
       return true;
     }
@@ -178,7 +178,17 @@ class Agenda {
       return false;
     }
   }
-  
+
+  huecosLibres(){
+     if(this.contacto.length<this.tamaño){
+      console.log("La agenda tiene huecos libres");
+      return true;
+    }
+    else{
+      console.log("La agenda no tiene espacio disponible");
+      return false;
+    }
+  }
 
 
 }
@@ -226,11 +236,13 @@ function menu() {
         let telefonoEliminar=prompt("Ingrese el numero de telefono");
         agenda.EliminarContacto(nombreEliminar,telefonoEliminar);
         break;
+      case "7":
+        agenda.huecosLibres();
     }
   
     continuar = confirm("¿Quiere continuar con otra operación?"); // Cambié el nombre de la variable
 
-    agendaLlena();
+    agenda.agendaLlena();
   } while (continuar);
 }
 
