@@ -129,13 +129,24 @@ class Agenda {
     }
     return;
   }
-  buscarContacto(contacto) {
-    if(this.contacto.find(contacto)){
-      console.log(`Contacto encontrado`);
+
+  buscarContacto(nombre) {
+                             //this.contacto.find recorre cada elemento del array contacto - c es cada contacto individual - 
+    const contactoEncontrado=this.contacto.find(c => {
+      
+      return c.nombre.toLowerCase() === nombre.toLowerCase();
+
+    })
+
+    if(contactoEncontrado){
+      console.log(`Contacto encontrado ${contactoEncontrado.nombre} - Telefono ${contactoEncontrado.telefono}`);
+      return contactoEncontrado;
     }
     else{
-      console.log("No se encontro");
+       console.log(`No se encontro el contacto de nombre ${nombre}`);
+       return null;
     }
+
   }
 }
 
@@ -174,7 +185,7 @@ function menu() {
         agenda.listaContactos();
         break;
       case "4":
-        let contactoBuscar=prompt("Ingresa el nombre del contecto");
+        let contactoBuscar=prompt("Ingresa el nombre del contacto");
         agenda.buscarContacto(contactoBuscar);
         break;
     }
