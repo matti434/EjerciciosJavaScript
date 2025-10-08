@@ -3,3 +3,20 @@ la interfaz del usuario debe tener además un input para ingresar un número y u
 si no lo adivino indicarle con un alert si el numero que ingreso es mayor o menor al número mágico.
 Cuando el usuario adivine el numero mostrar un mensaje indicando al usuario que adivino el numero.
 */
+
+const button = document.getElementById("button-init");
+const random = Math.floor(Math.random() * 10) + 1;
+
+button.addEventListener("click", () => {
+  try {
+    const input = document.getElementById("input-text").value;
+    const valueInput = parseInt(input);
+    if (valueInput === random) {
+      alert("Felicidades acerto el numero aleatorio" + random);
+    } else {
+      alert("No le acertaste aun" + random);
+    }
+  } catch (error) {
+    alert("Error al generar numero:", error);
+  }
+});
