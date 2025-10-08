@@ -10,3 +10,32 @@ Agregar los 3 aviones al aeropuerto, buscar un avión y usar el método abordar.
 
 // cuantos hay, cual es la capacidad maxima,tiempo de ingreso
 */
+
+
+//crear una clase aeropuerto con las propiedades nombreAeropuerto y lista de aviones, esta clase deberá contener el método agregarAvion,
+class aeropuerto{
+
+  constructor(nombreAeropuerto,listaDeAviones){
+     this.nombreAeropuerto=nombreAeropuerto;
+     this.listaDeAviones=[];
+  }
+
+
+  agregarAvion(avion){
+    this.listaDeAviones.push(avion);
+  }
+
+}
+
+class avion{
+   
+  constructor(nombre,capacidad,destino,listaDePasajeros){
+    this.nombre=nombre;
+    this.capacidad=capacidad;
+    this.destino=destino;
+    this.listaDePasajeros=[];
+  }
+
+
+
+}
