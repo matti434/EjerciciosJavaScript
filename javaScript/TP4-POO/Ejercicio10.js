@@ -23,6 +23,22 @@ class Aeropuerto {
   agregarAvion(avion) {
     this.listaDeAviones.push(avion);
   }
+
+  buscarAvion(nombreAvion) {
+    const avionEncontrado = this.listaDeAviones.find(
+      (avion) => avion.nombre === nombreAvion
+    );
+
+    if (avionEncontrado) {
+      console.log(
+        `Avión encontrado: ${avionEncontrado.nombre}, Destino: ${avionEncontrado.destino}, Capacidad: ${avionEncontrado.capacidad}`
+      );
+      return avionEncontrado;
+    } else {
+      console.log(`No se encontró el avión: ${nombreAvion}`);
+      return null;
+    }
+  }
 }
 
 /*Por su parte los aviones tendrán las propiedades: nombre, capacidad, destino, lista de pasajeros. 
@@ -38,18 +54,14 @@ class Avion {
   }
 
   abordar(pasajero) {
-
-    if(!pasajero.pasaporte){
+    if (!pasajero.pasaporte) {
       return ` El pasajero ${pasajero.nombre} no puede abordar: "Pasaporte invalido" `;
     }
 
     if (this.listaDePasajeros.length < this.capacidad) {
       this.listaDePasajeros.push(pasajero);
       return "Pasajero aborde exitosamente";
-    } else if (
-      this.listaDePasajeros.length > this.capacidad ||
-      this.listaDePasajeros.length === this.capacidad
-    ) {
+    } else {
       return "El avion ya esta lleno";
     }
   }
@@ -65,6 +77,28 @@ class Pasajero {
 /*Crear un objeto de tipo aeropuerto llamado "Aeropuerto Internacional", crear 3 objetos aviones con diferentes destinos. 
 Agregar los 3 aviones al aeropuerto, buscar un avión y usar el método abordar.*/
 
-const aeropuertoInternacional = new Aeropuerto();
-const avion1 = new Avion("MessiAirenls",2,"Nueva Zelanda");
-const pasajero1 = new Pasajero("Matias",true);
+// 1. Crear aeropuerto
+const aeropuertoInternacional = new Aeropuerto("Aeropuerto Internacional");
+
+// 2. Crear 3 aviones
+const avion1 = new Avion("MessiAirenls", 2, "Nueva Zelanda");
+const avion2 = new Avion("Airbus 747", 3, "España");
+const avion3 = new Avion("Boeing 777", 4, "Japón");
+
+// 3. Agregar aviones al aeropuerto
+aeropuertoInternacional.agregarAvion(avion1);
+aeropuertoInternacional.agregarAvion(avion2);
+aeropuertoInternacional.agregarAvion(avion3);
+
+// 4. Crear pasajeros
+const pasajero1 = new Pasajero("Matias", true);
+const pasajero2 = new Pasajero("Ana", true);
+const pasajero3 = new Pasajero("Carlos", false); // Pasaporte inválido
+
+// 5. Usar método abordar
+console.log(avion1.abordar(pasajero1)); // "Matias abordó exitosamente"
+console.log(avion1.abordar(pasajero2)); // "Ana abordó exitosamente"
+console.log(avion1.abordar(pasajero3)); // "No puede abordar: pasaporte inválido"
+
+// 6. Buscar avión (necesitas implementar este método)
+aeropuertoInternacional.buscarAvion("MessiAirenls");
