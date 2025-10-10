@@ -14,19 +14,9 @@ Luego crea la interfaz necesaria para que el usuario pueda crear un objeto perso
 const generaciones = [
   { nombre: "Generazion Z", desde: 1994, hasta: 2010, rasgo: "Irreverencia" },
   { nombre: "Milenials", desde: 1981, hasta: 1993, rasgo: "Frustracion" },
-  {
-    nombre: "Generazion X",
-    desde: 1969,
-    hasta: 1980,
-    rasgo: "obsesion por el exito",
-  },
+  { nombre: "Generazion X",desde: 1969,hasta: 1980,rasgo: "obsesion por el exito",},
   { nombre: "Baby Boom", desde: 1949, hasta: 1968, rasgo: "ambision" },
-  {
-    nombre: "Silent Generation",
-    desde: 1930,
-    hasta: 1948,
-    rasgo: "austeridad",
-  },
+  { nombre: "Silent Generation",desde: 1930,hasta: 1948,rasgo: "austeridad",},
 ];
 
 class Persona {
@@ -93,9 +83,10 @@ class Persona {
     this.dni = Math.floor(10000000 + Math.random() * 90000000);
     return this.dni;
   }
+
+  esMayorDeEdad(){
+    if(this.anioNacimiento>2010){
+        alert
+    }
+  }
 }
-const Flor = new Persona("Flor", 42936906, "F", 60, 1.49, "26/10/1932");
-Flor.mostrarGeneracion();
-console.log(Flor.mostrarGeneracion());
-console.log(Flor.mostrarInformacion());
-console.log("DNI generado: " + Flor.generarDni());
