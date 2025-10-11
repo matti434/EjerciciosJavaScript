@@ -19,7 +19,7 @@ const generaciones = [
   { nombre: "Silent Generation", desde: 1930, hasta: 1948, rasgo: "Austeridad" },
 ];
 
-class Persona {
+export class Persona {
   constructor(nombre, dni, sexo, peso, altura, anio) {
     this.nombre = nombre;
     this.dni = dni;
