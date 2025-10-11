@@ -74,3 +74,20 @@ Con preventDefault():
 4. Navegador: "OK, tú te encargas"
 5. ✅ Página NO se recarga - mantienes el control.
 
+
+#### Como saber que opcion se selecciono en sexo
+
+Opción 1: Usar checked
+
+// ¿Qué devuelve esto?
+```
+document.getElementById('sexo-m').checked
+document.getElementById('sexo-f').checked
+```
+Opción 2: Usar querySelector con atributos
+```
+// ¿Puedes seleccionar el radio button que tenga checked="true"?
+document.querySelector('input[name="sexo"]:checked')
+```
+
+#### Que es novalidate?
