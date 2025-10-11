@@ -17,11 +17,25 @@
             </div>
             <div class="card-body p-4">
                 <form id="formulario-datos-personales" novalidate>
+                  
+                    <div class="form-section">
+                        <h5 class="mb-3 required">Nombre Completo</h5>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">👤</span>
+                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Juan Pérez"
+                                minlength="2" maxlength="50" required>
+                        </div>
+                        <div class="form-text">
+                            Ingresa tu nombre completo
+                        </div>
+                    </div>
+
                     <!-- DNI -->
                     <div class="form-section">
                         <h5 class="mb-3 required">Documento de Identidad</h5>
                         <div class="input-group mb-3">
                             <span class="input-group-text">📋</span>
+                            <label for="dni" class="visually-hidden">Documento de identidad</label>
                             <input type="text" id="dni" name="dni" class="form-control" placeholder="12345678"
                                 minlength="7" maxlength="12" pattern="[0-9]+" title="Solo se permiten números" required>
                             <span class="input-group-text">
