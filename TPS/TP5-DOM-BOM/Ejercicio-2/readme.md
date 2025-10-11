@@ -40,4 +40,23 @@ const obtenerDatos = () => {
 };
 ```
 
+### Por que usar 'SUBMIT' y no 'CLICK'
+
+```
+// ❌ Solo captura el CLICK, no el envío real del formulario
+boton.addEventListener('click', () => {
+    // Pero el formulario igual se envía y recarga la página
+    // Puede saltarse validaciones HTML
+});
+
+Con 'submit' (correcto):
+
+// ✅ Captura el EVENTO DE ENVÍO del formulario
+formulario.addEventListener('submit', (evento) => {
+    evento.preventDefault(); // Detiene el envío normal
+    // Ahora tú controlas todo
+});
+```
+
+### Que hace preventDefault()?
 
