@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-button{
+    flex-direction: column;
+}
+.display{
+    background-color: transparent;
+    border: solid 2px burlywood;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}

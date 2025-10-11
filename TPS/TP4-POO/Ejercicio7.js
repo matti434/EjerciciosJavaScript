@@ -129,14 +129,68 @@ class Agenda {
     }
     return;
   }
-  buscarContacto(contacto) {
-    if(this.contacto.find(contacto)){
-      console.log(`Contacto encontrado`);
+
+  buscarContacto(nombre) {
+                             //this.contacto.find recorre cada elemento del array contacto - c es cada contacto individual - 
+    const contactoEncontrado=this.contacto.find(c => {
+      
+      return c.nombre.toLowerCase() === nombre.toLowerCase();
+
+    })
+
+    if(contactoEncontrado){
+      console.log(`Contacto encontrado ${contactoEncontrado.nombre} - Telefono ${contactoEncontrado.telefono}`);
+      return contactoEncontrado;
     }
     else{
-      console.log("No se encontro");
+       console.log(`No se encontro el contacto de nombre ${nombre}`);
+       return null;
+    }
+
+  }
+
+  EliminarContacto(nombre,telefono){
+
+    const indice = this.contacto.findIndex(c => {
+         
+      return c.nombre.toLowerCase()===nombre.toLowerCase() && c.telefono === telefono;
+    })
+
+    if(indice !== -1){
+      
+      this.contacto.splice(indice,1);
+      console.log("Eliminando contacto...");
+      return true;
+    }
+    else{
+      console.log("Eliminando contacto no encontrado para eliminar");
+      return false;
     }
   }
+
+  agendaLlena(){
+    if(this.contacto.length>=this.tamaño){
+      console.log("La agenda esta llena.");
+      return true;
+    }
+    else{
+      console.log("La agenda tiene espacio");
+      return false;
+    }
+  }
+
+  huecosLibres(){
+     if(this.contacto.length<this.tamaño){
+      console.log("La agenda tiene huecos libres");
+      return true;
+    }
+    else{
+      console.log("La agenda no tiene espacio disponible");
+      return false;
+    }
+  }
+
+
 }
 
 const contacto = new Contacto();
@@ -174,12 +228,21 @@ function menu() {
         agenda.listaContactos();
         break;
       case "4":
-        let contactoBuscar=prompt("Ingresa el nombre del contecto");
+        let contactoBuscar=prompt("Ingresa el nombre del contacto");
         agenda.buscarContacto(contactoBuscar);
         break;
+      case "5":
+        let nombreEliminar=prompt("Ingrese el nombre del contacto a eliminar");
+        let telefonoEliminar=prompt("Ingrese el numero de telefono");
+        agenda.EliminarContacto(nombreEliminar,telefonoEliminar);
+        break;
+      case "7":
+        agenda.huecosLibres();
     }
-
+  
     continuar = confirm("¿Quiere continuar con otra operación?"); // Cambié el nombre de la variable
+
+    agenda.agendaLlena();
   } while (continuar);
 }
 

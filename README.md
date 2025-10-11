@@ -236,16 +236,10 @@ print("hello world)
 | Row 2    | Cell 5   | Cell 6   |
 | Row 3    | Cell 8   | Cell 9   |
 
+
+
+
 En un README de GitHub, Markdown puro no tiene opciones para cambiar el tamaño o posición de una imagen, pero podés usar HTML directamente, porque GitHub permite mezclar HTML con Markdown.
 
-### Aqui usamos html para poder controlar el tamaño
-<img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxj7kCzMIlSC20SNjaJf9GmG15ocnF.zbBRgxMSlB7Ejh6FbgNzxLvZOoW7N3ML56fn3m5Z4MO.M8pYrCFVKIhqM-&format=source" width="200" height="auto" alt="Visual Studio Code Logo">
 
-### Aqui solo usamos ![Texto alternativo](URL-de-la-imagen)
-![visual studio code logo](https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxj7kCzMIlSC20SNjaJf9GmG15ocnF.zbBRgxMSlB7Ejh6FbgNzxLvZOoW7N3ML56fn3m5Z4MO.M8pYrCFVKIhqM-&format=source)
 
- <!--Github markdown-->
-<!--puede pasar que no se vea como es devido ya que es especifico de github y no de markdown-->
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=matti434&show_icons=true&theme=dark)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=matti434&layout=compact&theme=dark)
