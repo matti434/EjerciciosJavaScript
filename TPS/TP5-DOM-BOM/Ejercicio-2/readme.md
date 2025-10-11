@@ -60,3 +60,17 @@ formulario.addEventListener('submit', (evento) => {
 
 ### Que hace preventDefault()?
 
+1. Usuario hace submit
+2. Navegador: "¡Ah! Voy a enviar datos al servidor"
+3. Recoge los datos del formulario
+4. LOS ENVÍA a la URL del `action` (o recarga si no hay action)
+5. ✅ Página se RECARGA - pierdes todo tu JavaScript
+
+Con preventDefault():
+
+1. Usuario hace submit  
+2. Navegador: "¡Ah! Voy a enviar datos al servidor"
+3. Tu JavaScript: "¡Espera! preventDefault()"
+4. Navegador: "OK, tú te encargas"
+5. ✅ Página NO se recarga - mantienes el control.
+
