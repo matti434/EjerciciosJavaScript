@@ -91,3 +91,13 @@ document.querySelector('input[name="sexo"]:checked')
 ```
 
 #### Que es novalidate?
+
+novalidate: decide:
+
+Si quieres validación nativa del navegador → quítalo.
+
+Si vas a validar todo con JS → déjalo y maneja form.checkValidity() o tu propia validación.
+
+```
+<form id="formulario-datos-personales" novalidate>
+```
