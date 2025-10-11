@@ -47,7 +47,14 @@ export class Persona {
 
   esMayorDeEdad() {
     const edad = new Date().getFullYear() - this.anio;
-    return edad >= 18;
+    let resultado;
+    if (edad >= 18){
+       resultado= "Es mayor de edad";
+    }
+    else{
+       resultado= "Es menor de edad";
+    }
+    return resultado;
   }
 
   calcularIMC() {
