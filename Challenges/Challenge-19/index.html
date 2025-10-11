@@ -11,8 +11,67 @@
 
 <body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./admin.js"></script>
+    <header class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand">🏪 Panel Admin</span>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav class="col-md-3 col-lg-2 bg-light sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#productos" data-section="productos">
+                                🛒 Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#categorias" data-section="categorias">
+                                🏷️ Categorías
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#usuarios" data-section="usuarios">
+                                👤 Usuarios
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 col-lg-10 px-md-4">
+
+                <!-- Sección Productos -->
+                <section id="productos" class="content-section">
+                    <h2>Gestión de Productos</h2>
+
+                    <!-- Formulario Productos -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>Agregar/Editar Producto</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="form-producto">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control mb-2" placeholder="Nombre" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" class="form-control mb-2" placeholder="Precio" step="0.01"
+                                            required>
+                                    </div>
+                                </div>
+                                <!-- ¿Qué otros campos necesitarías para productos? -->
+                            </form>
+                        </div>
+                    </div>
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                    <script type="module" src="./admin.js"></script>
 </body>
 
 </html>
