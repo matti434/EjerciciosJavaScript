@@ -9,8 +9,8 @@ Descripción
 
 export class Categoria{
 
-    constructor(id,nombre,descripcion){
-        this.id=id;
+    constructor(nombre,descripcion){
+        this.id= Date.now() + Math.random();
         this.nombre=nombre;
         this.descripcion=descripcion;
     }
