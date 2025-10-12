@@ -1,17 +1,17 @@
 
-class Admin{
+export class Admin{
 
 
     #usuario;
-    #constrasña;
+    #constraseña;
     constructor(usuario= "matti" ,contraseña= "60442567" ){
 
          this.#usuario=usuario;
-         this.#constrasña=usuario;
+         this.#constraseña=usuario;
     }
 
 
     validarAdministrador(usuarioAp,contraseñaAp){
-         return this.#usuario===usuarioAp && this.#constrasña===contraseñaAp;
+         return this.#usuario===usuarioAp && this.#constraseña===contraseñaAp;
     }
 }

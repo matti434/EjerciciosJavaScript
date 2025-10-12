@@ -1,17 +1,20 @@
+import { Admin } from "./clases/Admin.js"; 
 
+const adminIntance = new Admin();
 
-const Admin = new Admin();
+const formLogin = document.getElementById("form-login");
 
-form-login.addEventListener('submit' ,(c) =>{
-    c.preventDefault();
+formLogin.addEventListener('submit' ,(e) =>{
+    e.preventDefault();
 
-    const usuarioAp= document.getElementById("login-usuario");
-    const constraseñaAp= document.getElementById("login-password");
+    const usuarioAp= document.getElementById("login-usuario").value;
+    const constraseñaAp= document.getElementById("login-password").value;
 
-    if(validarAdministrador(usuarioAp,constraseñaAp)){
+    if(adminIntance.validarAdministrador(usuarioAp,constraseñaAp)){
         window.location.href="admin.html";
     }
     else{
         alert("Credenciales incorrectas");
     }
 })
+
