@@ -22,5 +22,14 @@ formLogin.addEventListener('submit' ,(e) =>{
     }
 })
 
+const categoriaIntance = new Categoria();
+
+const formCategoria= document.getElementById("form-categoria");
+
+formCategoria.addEventListener("submit" ,(e) =>{
+    e.preventDefault();
+
+    adminIntance.id=document.getElementById
+})
 
 
