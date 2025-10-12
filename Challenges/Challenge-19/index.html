@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white p-3">
+        <div class="container">
+            <h1 class="display-1">Sistema de Gestión</h1>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-nav">
+                <a class="nav-link active" data-section="login">🔐 Login Admin</a>
+                <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
+                <a class="nav-link" data-section="producto">🛒 Ingresar Producto</a>
+                <a class="nav-link" data-section="categoria">🏷️ Crear Categoría</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container my-4">
+
+        <!-- Sección Login -->
+        <section id="seccion-login" class="content-section">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Acceso Administrativo</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="form-login">
+                                <div class="mb-3">
+                                    <label class="form-label">Usuario:</label>
+                                    <input type="text" class="form-control" id="login-usuario" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Contraseña:</label>
+                                    <input type="password" class="form-control" id="login-password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Ingresar al Panel Admin</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Usuario -->
+        <section id="seccion-usuario" class="content-section d-none">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Registro de Usuario</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="form-usuario">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nombre completo:</label>
+                                            <input type="text" class="form-control" id="usuario-nombre" name="nombre"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Email:</label>
+                                            <input type="email" class="form-control" id="usuario-email" name="email"
+                                                required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Rol:</label>
+                                            <select class="form-select" id="usuario-rol" name="rol" required>
+                                                <option value="">Seleccionar rol...</option>
+                                                <option value="admin">Administrador</option>
+                                                <option value="cliente">Cliente</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Estado:</label>
+                                            <select class="form-select" id="usuario-estado" name="estado" required>
+                                                <option value="">Seleccionar estado...</option>
+                                                <option value="activo">Activo</option>
+                                                <option value="inactivo">Inactivo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success">Registrar Usuario</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Producto -->
+        <section id="seccion-producto" class="content-section d-none">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Ingresar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <form id="form-producto">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre del producto:</label>
+                                    <input type="text" class="form-control" id="producto-nombre" name="nombre" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Precio:</label>
+                                    <input type="number" class="form-control" id="producto-precio" name="precio" min="0"
+                                        step="0.01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción:</label>
+                            <textarea class="form-control" id="producto-descripcion" name="descripcion" rows="3"
+                                required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Categoría:</label>
+                                    <select class="form-select" id="producto-categoria" name="categoria" required>
+                                        <option value="">Seleccionar categoría...</option>
+                                        <!-- Las categorías se cargarán dinámicamente desde JS -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Stock:</label>
+                                    <input type="number" class="form-control" id="producto-stock" name="stock" min="0"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Imagen (URL):</label>
+                            <input type="url" class="form-control" id="producto-imagen" name="imagen"
+                                placeholder="https://ejemplo.com/imagen.jpg" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Guardar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Categoría -->
+        <section id="seccion-categoria" class="content-section d-none">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Crear Categoría</h4>
+                </div>
+                <div class="card-body">
+                    <form id="form-categoria">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre de la categoría:</label>
+                            <input type="text" class="form-control" id="categoria-nombre" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción:</label>
+                            <textarea class="form-control" id="categoria-descripcion" name="descripcion" rows="3"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Crear Categoría</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
