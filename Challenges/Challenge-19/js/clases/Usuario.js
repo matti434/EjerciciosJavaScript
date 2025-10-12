@@ -13,8 +13,8 @@ Estado (activo / inactivo)
 
 export class Usuario{
 
-    constructor(id,nombreCompleto,email,rol,estado){
-        this.id=id;
+    constructor(nombreCompleto,email,rol,estado){
+        this.id=Date.now() + Math.random();
         this.nombreCompleto=nombreCompleto;
         this.email=email;
         this.rol=rol;
