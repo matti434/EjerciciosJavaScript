@@ -7,7 +7,7 @@ Nombre
 Descripción
 */
 
-export class Categoría{
+export class Categoria{
 
     constructor(id,nombre,descripcion){
         this.id=id;
