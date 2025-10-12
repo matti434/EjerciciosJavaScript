@@ -14,3 +14,5 @@ y admin.html (panel administrativo-acceso restringido)
 - Lista completa de usuarios (CRUD)
 - Lista completa de productos (CRUD) 
 - Lista completa de categorías (CRUD)
+
+

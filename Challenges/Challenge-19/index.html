@@ -1,106 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
+    <title>Sistema de Gestión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-
 <body>
-
-    <header class="navbar navbar-dark bg-dark">
+    <!-- Header -->
+    <header class="bg-primary text-white p-3">
         <div class="container">
-            <span class="navbar-brand">🏪 Panel Admin</span>
+            <h1>🏢 Sistema de Gestión</h1>
         </div>
     </header>
 
-    <div class="container-fluid">
-        <div class="row">
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-nav">
+                <a class="nav-link active" data-section="login">🔐 Login Admin</a>
+                <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
+                <a class="nav-link" data-section="producto">🛒 Ingresar Producto</a>
+                <a class="nav-link" data-section="categoria">🏷️ Crear Categoría</a>
+            </div>
+        </div>
+    </nav>
 
-
-            <nav class="col-md-3 col-lg-2 bg-light sidebar">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#productos" data-section="productos">
-                                🛒 Productos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#categorias" data-section="categorias">
-                                🏷️ Categorías
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#usuarios" data-section="usuarios">
-                                👤 Usuarios
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-
-            <main class="col-md-9 col-lg-10 px-md-4">
-
-
-                <section id="productos" class="content-section">
-                    <h2>Gestión de Productos</h2>
-
-                    <div class="card mb-4">
+    <!-- Contenido Principal -->
+    <main class="container my-4">
+        
+        <!-- Sección Login -->
+        <section id="seccion-login" class="content-section">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
                         <div class="card-header">
-                            <h5>Agregar/Editar Producto</h5>
+                            <h4>Acceso Administrativo</h4>
                         </div>
                         <div class="card-body">
-                            <form id="form-producto">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control mb-2" placeholder="Nombre" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control mb-2" placeholder="Precio" step="0.01"
-                                            required>
-                                    </div>
+                            <form id="form-login">
+                                <div class="mb-3">
+                                    <label class="form-label">Usuario:</label>
+                                    <input type="text" class="form-control" id="login-usuario" required>
                                 </div>
-
+                                <div class="mb-3">
+                                    <label class="form-label">Contraseña:</label>
+                                    <input type="password" class="form-control" id="login-password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Ingresar al Panel Admin</button>
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Lista de Productos -->
+        <!-- Sección Usuario -->
+        <section id="seccion-usuario" class="content-section d-none">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Lista de Productos</h5>
+                            <h4>Registro de Usuario</h4>
                         </div>
                         <div class="card-body">
-                            <div id="lista-productos">
-                                <!-- Aquí se cargarán los productos dinámicamente -->
-                            </div>
+                            <form id="form-usuario">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nombre completo:</label>
+                                            <input type="text" class="form-control" id="usuario-nombre" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Email:</label>
+                                            <input type="email" class="form-control" id="usuario-email" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ¿Qué otros campos necesitaría el formulario de usuario? -->
+                                <button type="submit" class="btn btn-success">Registrar Usuario</button>
+                            </form>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
-                <!-- Sección Categorías (oculta inicialmente) -->
-                <section id="categorias" class="content-section d-none">
-                    <h2>Gestión de Categorías</h2>
-                    <!-- ¿Cómo estructurarías el formulario de categorías? -->
-                </section>
+        <!-- Sección Producto -->
+        <section id="seccion-producto" class="content-section d-none">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Ingresar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <form id="form-producto">
+                        <!-- ¿Qué campos pondrías aquí para un producto? -->
+                        <button type="submit" class="btn btn-success">Guardar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </section>
 
-                <!-- Sección Usuarios (oculta inicialmente) -->
-                <section id="usuarios" class="content-section d-none">
-                    <h2>Gestión de Usuarios</h2>
-                    <!-- ¿Cómo estructurarías el formulario de usuarios? -->
-                </section>
+        <!-- Sección Categoría -->
+        <section id="seccion-categoria" class="content-section d-none">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Crear Categoría</h4>
+                </div>
+                <div class="card-body">
+                    <form id="form-categoria">
+                        <!-- ¿Qué campos pondrías aquí para una categoría? -->
+                        <button type="submit" class="btn btn-success">Crear Categoría</button>
+                    </form>
+                </div>
+            </div>
+        </section>
 
-            </main>
-        </div>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./admin.js"></script>
+    <script type="module" src="./js/app.js"></script>
 </body>
-
 </html>
