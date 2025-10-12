@@ -17,4 +17,11 @@ y admin.html (panel administrativo-acceso restringido)
 
 
 1. primero empezamos por administracion
-2. creamos la clase administrador con usuario y contraseña ya definidos y en privado
+2. creamos la clase administrador con usuario y contraseña ya definidos y en privado.
+3. Por que no uso Try Catch ? 
+  - La validacion es simple ya que estoy compranado strings
+  - No hay operaciones que puedan fallar.
+  - mas directo.
+Cuando deberia usar Try Catch ?
+  - Operacion con LocalStorage
+  - Llamadas a APIs
