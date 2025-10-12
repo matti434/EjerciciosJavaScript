@@ -35,5 +35,30 @@ export class Gestion{
     return[...this.#categorias];
    }
 
-  
+    #cargarDatos() {
+        this.#usuarios = this.#cargarDesdeStorage('usuarios');
+        this.#productos = this.#cargarDesdeStorage('productos');
+        this.#categorias = this.#cargarDesdeStorage('categorias');
+    }
+
+    #guardarUsuarios(){
+        this.#guardarEnStorage('usuarios', this.#usuarios);
+    }
+
+    #guardarProductos(){
+        this.#guardarEnStorage('producto', this.#productos);
+    }
+
+    #guardarCategoria(){
+        this.#guardarEnStorage('categoria', this.#categorias);
+    }
+
+    #cargarDesdeStorage(clave) {
+        const datos = localStorage.getItem(clave);
+        return datos ? JSON.parse(datos) : [];
+    }
+    
+    #guardarEnStorage(clave, datos) {
+        localStorage.setItem(clave, JSON.stringify(datos));
+    }
 }
