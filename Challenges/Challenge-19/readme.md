@@ -52,3 +52,33 @@ Solución con Date.now() + Math.random():
 const id1 = Date.now() + Math.random(); // 1700000000000.5487
 const id2 = Date.now() + Math.random(); // 1700000000000.8412 ← Diferentes!
 ```
+
+
+import { Gestion } from "./clases/gestion.js"; esta mal
+Deberia ser Gestion.js, pero cambie el nombre ante y por alguna razon el programa no toma el cambio aun, de otra manera tira error.
+
+¿Por qué return [...this.#usuarios]?
+El problema:
+
+```
+// Si devuelves el array directamente:
+obtenerUsuarios() {
+    return this.#usuarios; // ❌ PELIGROSO
+}
+```
+
+// En app.js:
+const usuarios = gestion.obtenerUsuarios();
+usuarios.push("USUARIO PIRATA"); // Modifica el array original
+La solución:
+
+```
+obtenerUsuarios() {
+    return [...this.#usuarios]; // ✅ SEGURO
+}
+
+```
+```
+// [...this.#usuarios] crea una COPIA del array
+// Los cambios en la copia NO afectan al original
+```
