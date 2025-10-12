@@ -141,3 +141,11 @@ this.#usuarios = this.#cargarDesdeStorage('usuarios');
     // Busca en localStorage por la clave 'usuarios'
 }
 ```
+
+### Flujo categoria
+
+1. Usuario escribe en formulario → "Tecnología", "Productos electrónicos"
+2. JavaScript obtiene los VALORES → "Tecnología", "Productos electrónicos"  
+3. Crea nueva Categoria → new Categoria("Tecnología", "Productos electrónicos")
+4. Agrega al almacén → almacen.agregarCategoria(categoriaCompleta)
+5. Se guarda en LocalStorage automáticamente

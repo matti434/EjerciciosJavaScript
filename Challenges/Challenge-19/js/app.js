@@ -2,10 +2,10 @@ import { Admin } from "./clases/Admin.js";
 import { Usuario } from "./clases/Usuario.js";
 import { Categoria } from "./clases/Categoria.js";
 import { Productos } from "./clases/Productos.js";
-import { Gestion } from "./clases/gestion.js";
+import { Gestion } from "./clases/Gestion.js";
 
 const adminIntance = new Admin();
-const cofre = new Gestion();
+const almacen = new Gestion();
 const formLogin = document.getElementById("form-login");
 
 formLogin.addEventListener('submit' ,(e) =>{
@@ -29,10 +29,12 @@ const formCategoria= document.getElementById("form-categoria");
 formCategoria.addEventListener("submit" ,(e) =>{
     e.preventDefault();
 
-    categoriaIntance.nombre=document.getElementById("categoria-nombre");
-    categoriaIntance.descripcion=document.getElementById("categoria-descripcion");
+    const nombre = document.getElementById("categoria-nombre").value;
+    const descripcion = document.getElementById("categoria-descripcion").value;
 
-    cofre
+    almacen.agregarCategoria(nombre,descripcion);
+    alert("Categoría agregada con éxito");
+    formCategoria.reset();
 })
 
 
