@@ -82,3 +82,62 @@ obtenerUsuarios() {
 // [...this.#usuarios] crea una COPIA del array
 // Los cambios en la copia NO afectan al original
 ```
+
+### Explicando Gestion.js
+
+```
+#cargarDatos() {
+    this.#usuarios = this.#cargarDesdeStorage('usuarios');
+    this.#productos = this.#cargarDesdeStorage('productos');
+    this.#categorias = this.#cargarDesdeStorage('categorias');
+}
+```
+
+Cuando abro la tienda (página), voy al almacen (LocalStorage) y traigo:
+ - Todos los usuarios guardados
+ - Todos los productos guardados
+ - Todos los categoria guardados
+
+y los pongo en mis mostradores (arrays #usuarios,#productos, #caregorias)
+
+### #guardarUsuarios()
+```
+#guardarUsuarios() {
+    this.#guardarEnStorage('usuarios', this.#usuarios);
+}
+```
+Cuando agrego un nuevo usuario, tomo TODOS los usuarios que tengo 
+en mi mostrador (#usuarios) y los guardo en el almacén (LocalStorage)
+
+#### cargarDesdeStorage('usuarios')
+
+"Ve al almacén (LocalStorage) y:
+- Busca la CAJA llamada 'usuarios' (clave)
+- Trae lo que hay dentro (datos)
+- Si la caja está vacía, trae una caja vacía ([])"
+
+#### guardarEnStorage('usuarios', this.#usuarios)
+
+"Toma todos los usuarios (this.#usuarios) y:
+- Ve al almacén (LocalStorage)
+- Ponlos en la CAJA llamada 'usuarios' (clave)"
+
+Como funciona el flujo ?
+
+```
+// PASO 1: Al crear Gestión
+const gestion = new Gestion();
+// → Ejecuta constructor()
+// → Ejecuta #cargarDatos()
+
+// PASO 2: Dentro de #cargarDatos()
+this.#usuarios = this.#cargarDesdeStorage('usuarios');
+//                                ↑↑↑↑↑↑↑↑↑
+// Este 'usuarios' viaja hasta:
+
+// PASO 3: Dentro de #cargarDesdeStorage(clave)
+#cargarDesdeStorage(clave) { // ← clave = 'usuarios'
+    const datos = localStorage.getItem(clave); // ← clave = 'usuarios'
+    // Busca en localStorage por la clave 'usuarios'
+}
+```
