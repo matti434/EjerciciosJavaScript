@@ -7,7 +7,7 @@ export class Admin{
     constructor(usuario= "matti" ,contraseña= "60442567" ){
 
          this.#usuario=usuario;
-         this.#constraseña=usuario;
+         this.#constraseña=contraseña;
     }
 
 
