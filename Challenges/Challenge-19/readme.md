@@ -16,3 +16,5 @@ y admin.html (panel administrativo-acceso restringido)
 - Lista completa de categorías (CRUD)
 
 
+1. primero empezamos por administracion
+2. creamos la clase administrador con usuario y contraseña ya definidos y en privado
