@@ -229,3 +229,20 @@ const seccionId = "usuario";
 // Busca el elemento con data-section="usuario"
 const linkActivo = document.querySelector(`[data-section="${seccionId}"]`);
 // Encuentra: <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
+
+ENTONCES ¿PARA QUÉ USAR CLOSURE O # PRIVADAS?
+Razones válidas:
+✅ Mejores prácticas - Código más limpio y mantenible
+
+✅ Encapsulación - Evita modificación accidental
+
+✅ Dificulta (no imposibilita) el acceso para usuarios no técnicos
+
+✅ Prepara para cuando tengas backend
+
+Razones NO válidas:
+❌ Seguridad real - No existe en el frontend
+
+❌ Ocultar credenciales - Imposible en JavaScript del cliente
+
+Entiendo que no hay una forma segura de esconder las credenciales. Ya que necesitamos otras cosas para que no se muestren, ahora es facil entrar ya que abrimos el devTools y buscamos el archivo auth.js. En protectos reales iria en el backend y usan appis.

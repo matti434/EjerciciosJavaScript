@@ -5,7 +5,7 @@ import { Gestion } from "./clases/Gestion.js";
 import { verifyAdmin } from "./utils/auth.js";
 
 const almacen = new Gestion();
-const navLinks = document.querySelectorAll('.nav-Link[data-section]');
+const navLinks = document.querySelectorAll('.nav-link[data-section]');
 const secciones = document.querySelectorAll('.content-section');
 
 function mostrarSeccion(seccionId){
@@ -21,7 +21,7 @@ function mostrarSeccion(seccionId){
     })
 
     // muestro la seccion seleccionada
-    const seccionActiva = document.querySelector(`seccion-${seccionId}`);
+    const seccionActiva = document.querySelector(`#seccion-${seccionId}`);
     seccionActiva.classList.remove('d-none');
 
     // activo el link clikeado
@@ -77,7 +77,7 @@ formLogin.addEventListener("submit", (e) => {
 
   if(verifyAdmin(usuarioAp,constrasenaAp)){
      window.location.href="admin.html";
-  }{
+  }else{
     alert("Credenciales incorrectas");
   }
 });
@@ -140,7 +140,7 @@ formUsuario.addEventListener("submit", (e) => {
    e.preventDefault();
 
    const nombreCompleto = document.getElementById("usuario-nombre").value.trim();
-   const email= document.getElementById("usuario-mail").value.trim();
+   const email= document.getElementById("usuario-email").value.trim();
    const rol = document.getElementById("usuario-rol").value;
    const estado = document.getElementById("usuario-estado").value;
 
