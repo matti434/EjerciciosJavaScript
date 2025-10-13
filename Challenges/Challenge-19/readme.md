@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-"Cuando el usuario crea una categoría, la función agregarCategorias la guarda en almacen y a continuación actualizamos el <select> del formulario de producto con cargarCategoriasEnSelect(). Esa función utiliza createElement para generar <option> y appendChild para insertarlos. En el alta de producto validamos que exista una categoría seleccionada (si no, mostramos alert), creamos la instancia Productos y la guardamos. De esta forma la relación producto→categoría se hace por categoriaId y el select siempre está sincronizado con las categorías guardadas."
+"Cuando el usuario crea una categoría, la función agregarCategorias la guarda en almacen y a continuación actualizamos el select del formulario de producto con cargarCategoriasEnSelect(). Esa función utiliza createElement para generar option y appendChild para insertarlos. En el alta de producto validamos que exista una categoría seleccionada (si no, mostramos alert), creamos la instancia Productos y la guardamos. De esta forma la relación producto→categoría se hace por categoriaId y el select siempre está sincronizado con las categorías guardadas."
 
 
 ### faltante 12/10/2025
@@ -204,3 +204,10 @@ Clases Admin,Gestion,Categoria,Productos y usuario
 app.js tiene todo el funcionamiento de la pagina
 Faltante en app.js cambiar entre formularios al hacer click y formulario de usuario.
 Pensar como usar auth.js y storege.js. Por ultimo agregar verificaciones.
+
+### Corregir ?
+
+creo que deberia pasar el contenido de admin.js a auth.js
+auth = autenticacion
+
+que hice y que voy a hacer - cree index.html, que tiene echos los formularios, creamos sus clases y gestion.js que recopila los datos guerda y trae segun se necesite. En app.js creamos todos los eventos y enviamos los datos de los formularios. Ahora lo que vamos a hacer es que auth.js tenga solo la validacion de inicio de sesion de admin y cuando este sea correcto devolvera un true en el evento de app.js donde se cambiara al admin.html donde este tendra un script src de admin.js. Y este tendra los eventos para visualizar, editar y eliminar.
