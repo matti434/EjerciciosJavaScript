@@ -20,16 +20,28 @@ admin.html → Panel administrativo (acceso restringido)
 
  CRUD completo de Categorías
 
-1. primero empezamos por administracion
-2. creamos la clase administrador con usuario y contraseña ya definidos y en privado.
-3. Por que no uso Try Catch ?
 
-- La validacion es simple ya que estoy compranado strings
-- No hay operaciones que puedan fallar.
-- mas directo.
-  Cuando deberia usar Try Catch ?
-- Operacion con LocalStorage
-- Llamadas a APIs
+### Lógica del sistema
+
+1. Clase Administrador
+
+Tiene usuario y contraseña definidos de forma privada.
+
+Se usa para el acceso al panel de administración.
+
+Por qué no uso try...catch:
+
+  - La validación es simple (comparación de strings).
+  - No hay operaciones que puedan fallar.
+  - Más directo.
+
+Cuándo usar try...catch:
+
+ - Operaciones con LocalStorage.
+ - Llamadas a APIs.
+ - Cualquier código que pueda lanzar errores inesperados.
+
+
 
 Voy a crear la clase gestion para poder guardar los datos de manera segura
 
