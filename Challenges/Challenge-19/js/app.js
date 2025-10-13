@@ -33,6 +33,8 @@ formCategoria.addEventListener("submit" ,(e) =>{
     
     const categoriaIntance = new Categoria(nombre,descripcion);
     almacen.agregarCategorias(categoriaIntance);
+
+    cargarCategoriaEnSelect();
     alert("Categoría agregada con éxito");
 
     formCategoria.reset();
@@ -54,39 +56,22 @@ formProduct.addEventListener("submit" ,(e) =>{
 });
 
 const formProducto= document.getElementById("form-productos");
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarCategoriaEnSelect();
+});
+
 formProducto.addEventListener("submit" ,(e) =>{
     e.preventDefault();
     
     const nombre = document.getElementById("producto-nombre").value;
     const precio = document.getElementById("producto-precio").value;
     const descripcion = document.getElementById("producto-descripcion").value;
-
-    cargarCategoriaEnSelect(){
-        const selectCategoria = document.getElementById("producto-categoria");
-
-          while(selectCategoria.children.length){
-            selectCategoria.removeChild(selectCategoria.lastChild);
-          }
-
-          const categoria= almacen.obtenerCategorias();
-
-          if(categoria.length === 0){
-            const mensaje = document.createElement('opcion');
-            mensaje.textContent= "No existen categorias";
-            mensaje.disabled=true;
-            selectCategoria.appendChild(mensaje);
-            return;
-          }
-
-          categoria.forEach(cat => {
-            const opcion = document.createElement('opcion');
-            opcion.value=cat.id;
-            opcion.textContent=cat.nombre;
-            selectCategoria.appendChild(opcion);
-          })
-    
-    const categoria = 
+    const categoriaId=document.getElementById("producto-categoria").value;
     const stock = document.getElementById("producto-stock").value;
+    const imagen = document.getElementById("producto-imagen").value;
+
+    
     const productIntance = new Categoria(nombre,precio,descripcion);
     almacen.agregarProductos(productIntance);
     alert("Producto agregada con éxito");
