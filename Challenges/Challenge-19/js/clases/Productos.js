@@ -15,7 +15,7 @@ export class Productos{
        this.nombre=nombre;
        this.descripcion=descripcion;
        this.precio=precio;
-       this.categoria=categoria;
+       this.categoriaId=categoriaId;
        this.imagen=imagen;
        this.stock=stock;
     }

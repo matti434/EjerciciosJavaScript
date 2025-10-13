@@ -2,37 +2,102 @@ import { Admin } from "./clases/Admin.js";
 import { Usuario } from "./clases/Usuario.js";
 import { Categoria } from "./clases/Categoria.js";
 import { Productos } from "./clases/Productos.js";
-import { Gestion } from "./clases/gestion.js";
+import { Gestion } from "./clases/Gestion.js";
 
 const adminIntance = new Admin();
-const cofre = new Gestion();
+const almacen = new Gestion();
+
+function cargarCategoriasEnSelect() {
+  const selectCategoria = document.getElementById("producto-categoria");
+
+  // Limpiar excepto la primera opción
+  while (selectCategoria.children.length > 1) {
+    selectCategoria.removeChild(selectCategoria.lastChild);
+  }
+
+  const categorias = almacen.obtenerCategorias();
+
+  if (categorias.length === 0) {
+    const mensaje = document.createElement("option"); // ← "option" no "opcion"
+    mensaje.textContent = "No existen categorías";
+    mensaje.disabled = true;
+    selectCategoria.appendChild(mensaje);
+    return;
+  }
+
+  categorias.forEach((cat) => {
+    const opcion = document.createElement("option"); // ← "option" no "opcion"
+    opcion.value = cat.id;
+    opcion.textContent = cat.nombre;
+    selectCategoria.appendChild(opcion);
+  });
+}
+
 const formLogin = document.getElementById("form-login");
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-formLogin.addEventListener('submit' ,(e) =>{
-    e.preventDefault();
+  const usuarioAp = document.getElementById("login-usuario").value;
+  const constrasenaAp = document.getElementById("login-password").value;
 
-    const usuarioAp= document.getElementById("login-usuario").value;
-    const constrasenaAp= document.getElementById("login-password").value;
+  if (adminIntance.validarAdministrador(usuarioAp, constrasenaAp)) {
+    window.location.href = "admin.html";
+  } else {
+    alert("Credenciales incorrectas");
+  }
+});
 
-    if(adminIntance.validarAdministrador(usuarioAp,constrasenaAp)){
-        window.location.href="admin.html";
-    }
-    else{
-        alert("Credenciales incorrectas");
-    }
-})
+const formCategoria = document.getElementById("form-categoria");
+formCategoria.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-const categoriaIntance = new Categoria();
+  const nombre = document.getElementById("categoria-nombre").value;
+  const descripcion = document.getElementById("categoria-descripcion").value;
 
-const formCategoria= document.getElementById("form-categoria");
+  const categoriaIntance = new Categoria(nombre, descripcion);
+  almacen.agregarCategorias(categoriaIntance);
 
-formCategoria.addEventListener("submit" ,(e) =>{
-    e.preventDefault();
+  cargarCategoriasEnSelect()
+  alert("Categoría agregada con éxito");
 
-    categoriaIntance.nombre=document.getElementById("categoria-nombre");
-    categoriaIntance.descripcion=document.getElementById("categoria-descripcion");
+  formCategoria.reset();
+});
 
-    cofre
-})
+const formProducto = document.getElementById("form-productos");
+
+document.addEventListener("DOMContentLoaded", () => {
+  cargarCategoriasEnSelect();
+});
+
+formProducto.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("producto-nombre").value;
+  const precio = document.getElementById("producto-precio").value;
+  const descripcion = document.getElementById("producto-descripcion").value;
+  const categoriaId = document.getElementById("producto-categoria").value;
+  const stock = document.getElementById("producto-stock").value;
+  const imagen = document.getElementById("producto-imagen").value;
+
+  if (!categoriaId) {
+    alert("Por favor seleccione una categoria");
+    return;
+  }
+
+  const productIntance = new Productos(
+    nombre,
+    precio,
+    descripcion,
+    categoriaId,
+    stock,
+    imagen
+  );
+  almacen.agregarProductos(productIntance);
+  alert("Producto agregada con éxito");
+  formProducto.reset();
+});
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    cargarCategoriasEnSelect();
+});

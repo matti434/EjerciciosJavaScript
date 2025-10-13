@@ -17,21 +17,21 @@ export class Gestion{
     return[...this.#usuarios];
    }
 
-   agregarProducto(producto){
+   agregarProductos(producto){
     this.#productos.push(producto);
     this.#guardarProductos();
    }
 
-   obtenerProducto(){
+   obtenerProductos(){
     return[...this.#productos];
    }
 
-   agregarCategoria(categoria){
+   agregarCategorias(categoria){
     this.#categorias.push(categoria);
-    this.#guardarCategoria();
+    this.#guardarCategorias();
    }
 
-   obtenerCategoria(){
+   obtenerCategorias(){
     return[...this.#categorias];
    }
 
@@ -46,11 +46,11 @@ export class Gestion{
     }
 
     #guardarProductos(){
-        this.#guardarEnStorage('producto', this.#productos);
+        this.#guardarEnStorage('productos', this.#productos);
     }
 
-    #guardarCategoria(){
-        this.#guardarEnStorage('categoria', this.#categorias);
+    #guardarCategorias(){
+        this.#guardarEnStorage('categorias', this.#categorias);
     }
 
     #cargarDesdeStorage(clave) {
