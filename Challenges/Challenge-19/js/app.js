@@ -1,12 +1,43 @@
-import { Admin } from "./Admin.js";
 import { Usuario } from "./clases/Usuario.js";
 import { Categoria } from "./clases/Categoria.js";
 import { Productos } from "./clases/Productos.js";
 import { Gestion } from "./clases/Gestion.js";
 import { verifyAdmin } from "./utils/auth.js";
 
-const adminIntance = new Admin();
 const almacen = new Gestion();
+const navLinks = document.querySelectorAll('.nav-Link[data-section]');
+const secciones = document.querySelectorAll('.content-section');
+
+function mostrarSeccion(seccionId){
+
+    // oculto todas las secciones
+    secciones.forEach(secciones => {
+        secciones.classList.add('d-none');
+    })
+
+    // romuevo el active de todos los links
+    navLinks.forEach(link => {
+        link.classList.remove('active')
+    })
+
+    // muestro la seccion seleccionada
+    const seccionActiva = document.querySelector(`seccion-${seccionId}`);
+    seccionActiva.classList.remove('d-none');
+
+    // activo el link clikeado
+    const linkActivado = document.querySelector(`[data-section="${seccionId}"]`);
+    linkActivado.classList.add('active');
+}
+
+navLinks.forEach(link =>{
+    link.addEventListener('click',(e) => {
+        e.preventDefault();
+
+        const seccionId= link.getAttribute('data-section');
+        mostrarSeccion(seccionId);
+    });
+});
+
 
 function cargarCategoriasEnSelect() {
   const selectCategoria = document.getElementById("producto-categoria");
@@ -75,10 +106,6 @@ formCategoria.addEventListener("submit", (e) => {
 */
 const formProducto = document.getElementById("form-productos");
 
-document.addEventListener("DOMContentLoaded", () => {
-  cargarCategoriasEnSelect();
-});
-
 formProducto.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -107,12 +134,6 @@ formProducto.addEventListener("submit", (e) => {
   formProducto.reset();
 });
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    cargarCategoriasEnSelect();
-});
-
-
 const formUsuario =  document.getElementById("form-usuario");
 
 formUsuario.addEventListener("submit", (e) => {
@@ -129,3 +150,10 @@ formUsuario.addEventListener("submit", (e) => {
    formUsuario.reset();
   
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarCategoriasEnSelect();
+    mostrarSeccion('login');
+});
+
+

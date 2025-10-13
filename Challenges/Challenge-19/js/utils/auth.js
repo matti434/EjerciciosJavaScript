@@ -6,3 +6,4 @@ export const verifyAdmin= () => {
        return usuario === usuarioCorrecta && contrasena === contrasenaCorrecta;
     }
 }
+

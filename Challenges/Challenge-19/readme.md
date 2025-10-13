@@ -222,3 +222,10 @@ Lo que pasa:La función se ejecuta inmediatamente
 Crea un scope privado donde viven usuarioCorrecto y contrasenaCorrecta
 Solo retorna la función de verificación
 Las variables originales quedan encerradas (closure) - no son accesibles desde fuera
+
+// link.getAttribute('data-section') devuelve → "usuario"
+const seccionId = "usuario";
+
+// Busca el elemento con data-section="usuario"
+const linkActivo = document.querySelector(`[data-section="${seccionId}"]`);
+// Encuentra: <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
