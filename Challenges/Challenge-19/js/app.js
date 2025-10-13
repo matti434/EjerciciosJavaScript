@@ -112,3 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarCategoriasEnSelect();
 });
 
+
+const formUsuario =  document.getElementById("form-usuario");
+
+formUsuario.addEventListener("submit", (e) => {
+   e.preventDefault();
+
+   const nombreCompleto = document.getElementById("usuario.nombre").value.trim();
+   const email= document.getElementById("usuario-mail").value.trim();
+   const rol = document.getElementById("usuario-rol").value;
+   const estado = document.getElementById("usuario-estado").value;
+
+   const usuarioIntance = new Usuario(nombreCompleto,email,rol,estado);
+   almacen.agregarUsuario(usuarioIntance);
+
+   formUsuario.reset();
+  
+});
