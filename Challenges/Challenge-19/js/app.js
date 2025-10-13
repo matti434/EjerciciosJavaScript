@@ -63,21 +63,6 @@ formCategoria.addEventListener("submit", (e) => {
   formCategoria.reset();
 });
 
-const formProduct = document.getElementById("form-productos");
-formProduct.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const nombre = document.getElementById("producto-nombre").value;
-  const precio = document.getElementById("producto-precio").value;
-  const descripcion = document.getElementById("producto-descripcion").value;
-
-  const productIntance = new Categoria(nombre, precio, descripcion);
-  almacen.agregarProductos(productIntance);
-  alert("Producto agregada con éxito");
-
-  formCategoria.reset();
-});
-
 const formProducto = document.getElementById("form-productos");
 
 document.addEventListener("DOMContentLoaded", () => {
