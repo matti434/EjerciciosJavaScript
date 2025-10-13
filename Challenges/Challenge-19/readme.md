@@ -154,3 +154,14 @@ Deberia crear en categoria una funcion donde voy a ver las opciones.
 Si categoria esta vacia muestra un select con el mensaje
 sino deberia traer lo que esta guardado en categoria con el metodo obtenerCategoria y crear nuevas opciones
 
+el flujo que deberia seguir
+1 pagina carga, cargarCategoriaEnSelect() , select muestra la pagina.
+2 Usuario agrega categoría , cargarCategoriasEnSelect() , Select se actualiza
+3 Usuario crea producto , Usa categoría seleccionada
+
+```
+// Cargar categorías cuando la página se carga
+document.addEventListener('DOMContentLoaded', () => {
+    cargarCategoriasEnSelect();
+});
+```
