@@ -81,7 +81,7 @@ formProduct.addEventListener("submit", (e) => {
 const formProducto = document.getElementById("form-productos");
 
 document.addEventListener("DOMContentLoaded", () => {
-  cargarCategoriaEnSelect();
+  cargarCategoriasEnSelect();
 });
 
 formProducto.addEventListener("submit", (e) => {
