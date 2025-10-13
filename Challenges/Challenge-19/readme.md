@@ -1,19 +1,24 @@
-## Idea principal
+### Estructura general de la aplicación
 
-hacer de index.html la pagina principal
+La app se compone de dos páginas principales:
 
-Este contendra
+ index.html → Página principal
 
-1. Sección Login (inicialmente visible)
-2. Sección Registro Usuario (oculta)
-3. Sección Ingreso Producto (oculta)
-4. Sección Ingreso Categoría (oculta)
+ Sección Login (visible al inicio)
 
-y admin.html (panel administrativo-acceso restringido)
+ Sección Registro Usuario (oculta)
 
-- Lista completa de usuarios (CRUD)
-- Lista completa de productos (CRUD)
-- Lista completa de categorías (CRUD)
+ Sección Ingreso Producto (oculta)
+
+ Sección Ingreso Categoría (oculta)
+
+admin.html → Panel administrativo (acceso restringido)
+
+ CRUD completo de Usuarios
+
+ CRUD completo de Productos
+
+ CRUD completo de Categorías
 
 1. primero empezamos por administracion
 2. creamos la clase administrador con usuario y contraseña ya definidos y en privado.
