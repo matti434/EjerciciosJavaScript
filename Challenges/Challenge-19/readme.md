@@ -178,3 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 "Cuando el usuario crea una categoría, la función agregarCategorias la guarda en almacen y a continuación actualizamos el <select> del formulario de producto con cargarCategoriasEnSelect(). Esa función utiliza createElement para generar <option> y appendChild para insertarlos. En el alta de producto validamos que exista una categoría seleccionada (si no, mostramos alert), creamos la instancia Productos y la guardamos. De esta forma la relación producto→categoría se hace por categoriaId y el select siempre está sincronizado con las categorías guardadas."
+
+
+### faltante 12/10/2025
+
+Creado hasta el momento
+Clases Admin,Gestion,Categoria,Productos y usuario
+app.js tiene todo el funcionamiento de la pagina
+Faltante en app.js cambiar entre formularios al hacer click y formulario de usuario.
+Pensar como usar auth.js y storege.js. Por ultimo agregar verificaciones.
