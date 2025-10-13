@@ -49,9 +49,6 @@ formLogin.addEventListener("submit", (e) => {
   }{
     alert("Credenciales incorrectas");
   }
-
-
-  
 });
 
 /*
