@@ -1,4 +1,9 @@
-export const verifyAdmin= (usuario,contrasena) => {
-    const credentials = {usuario: "admin",contrasena:"admin123"};
-    return usuario=== credentials.usuario && contrasena===credentials.contrasena;
-}
+export const verifyAdmin= (() => {
+    const usuarioCorrecta = "admin";
+    const contrasenaCorrecta = "admin123";
+
+    return ( usuario, contrasena) =>{
+       return usuario === usuarioCorrecta && contrasena === contrasenaCorrecta;
+    };
+})();
+

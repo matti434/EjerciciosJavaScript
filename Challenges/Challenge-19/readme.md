@@ -211,3 +211,38 @@ creo que deberia pasar el contenido de admin.js a auth.js
 auth = autenticacion
 
 que hice y que voy a hacer - cree index.html, que tiene echos los formularios, creamos sus clases y gestion.js que recopila los datos guerda y trae segun se necesite. En app.js creamos todos los eventos y enviamos los datos de los formularios. Ahora lo que vamos a hacer es que auth.js tenga solo la validacion de inicio de sesion de admin y cuando este sea correcto devolvera un true en el evento de app.js donde se cambiara al admin.html donde este tendra un script src de admin.js. Y este tendra los eventos para visualizar, editar y eliminar.
+
+Me fije y la autenticacion es bastante facil,entoces voy a usar este metodo para que sea mas seguro
+
+IIFE (Immediately Invoked Function Expression):
+
+(() => { ... })()  // ← Se ejecuta inmediatamente
+
+Lo que pasa:La función se ejecuta inmediatamente
+Crea un scope privado donde viven usuarioCorrecto y contrasenaCorrecta
+Solo retorna la función de verificación
+Las variables originales quedan encerradas (closure) - no son accesibles desde fuera
+
+// link.getAttribute('data-section') devuelve → "usuario"
+const seccionId = "usuario";
+
+// Busca el elemento con data-section="usuario"
+const linkActivo = document.querySelector(`[data-section="${seccionId}"]`);
+// Encuentra: <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
+
+ENTONCES ¿PARA QUÉ USAR CLOSURE O # PRIVADAS?
+Razones válidas:
+✅ Mejores prácticas - Código más limpio y mantenible
+
+✅ Encapsulación - Evita modificación accidental
+
+✅ Dificulta (no imposibilita) el acceso para usuarios no técnicos
+
+✅ Prepara para cuando tengas backend
+
+Razones NO válidas:
+❌ Seguridad real - No existe en el frontend
+
+❌ Ocultar credenciales - Imposible en JavaScript del cliente
+
+Entiendo que no hay una forma segura de esconder las credenciales. Ya que necesitamos otras cosas para que no se muestren, ahora es facil entrar ya que abrimos el devTools y buscamos el archivo auth.js. En protectos reales iria en el backend y usan appis.
