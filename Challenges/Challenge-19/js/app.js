@@ -38,4 +38,62 @@ formCategoria.addEventListener("submit" ,(e) =>{
     formCategoria.reset();
 });
 
+const formProduct= document.getElementById("form-productos");
+formProduct.addEventListener("submit" ,(e) =>{
+    e.preventDefault();
+    
+    const nombre = document.getElementById("producto-nombre").value;
+    const precio = document.getElementById("producto-precio").value;
+    const descripcion = document.getElementById("producto-descripcion").value;
+    
+    const productIntance = new Categoria(nombre,precio,descripcion);
+    almacen.agregarProductos(productIntance);
+    alert("Producto agregada con éxito");
+
+    formCategoria.reset();
+});
+
+const formProducto= document.getElementById("form-productos");
+formProducto.addEventListener("submit" ,(e) =>{
+    e.preventDefault();
+    
+    const nombre = document.getElementById("producto-nombre").value;
+    const precio = document.getElementById("producto-precio").value;
+    const descripcion = document.getElementById("producto-descripcion").value;
+
+    cargarCategoriaEnSelect(){
+        const selectCategoria = document.getElementById("producto-categoria");
+
+          while(selectCategoria.children.length){
+            selectCategoria.removeChild(selectCategoria.lastChild);
+          }
+
+          const categoria= almacen.obtenerCategorias();
+
+          if(categoria.length === 0){
+            const mensaje = document.createElement('opcion');
+            mensaje.textContent= "No existen categorias";
+            mensaje.disabled=true;
+            selectCategoria.appendChild(mensaje);
+            return;
+          }
+
+          categoria.forEach(cat => {
+            const opcion = document.createElement('opcion');
+            opcion.value=cat.id;
+            opcion.textContent=cat.nombre;
+            selectCategoria.appendChild(opcion);
+          })
+    
+    const categoria = 
+    const stock = document.getElementById("producto-stock").value;
+    const productIntance = new Categoria(nombre,precio,descripcion);
+    almacen.agregarProductos(productIntance);
+    alert("Producto agregada con éxito");
+
+    formCategoria.reset();
+});
+
+
+
 

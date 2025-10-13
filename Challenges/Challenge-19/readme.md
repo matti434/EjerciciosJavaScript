@@ -149,3 +149,8 @@ this.#usuarios = this.#cargarDesdeStorage('usuarios');
 3. Crea nueva Categoria → new Categoria("Tecnología", "Productos electrónicos")
 4. Agrega al almacén → almacen.agregarCategoria(categoriaCompleta)
 5. Se guarda en LocalStorage automáticamente
+
+Deberia crear en categoria una funcion donde voy a ver las opciones.
+Si categoria esta vacia muestra un select con el mensaje
+sino deberia traer lo que esta guardado en categoria con el metodo obtenerCategoria y crear nuevas opciones
+
