@@ -1,8 +1,9 @@
-import { Admin } from "./clases/Admin.js";
+import { Admin } from "./Admin.js";
 import { Usuario } from "./clases/Usuario.js";
 import { Categoria } from "./clases/Categoria.js";
 import { Productos } from "./clases/Productos.js";
 import { Gestion } from "./clases/Gestion.js";
+import { verifyAdmin } from "./utils/auth.js";
 
 const adminIntance = new Admin();
 const almacen = new Gestion();
@@ -18,7 +19,7 @@ function cargarCategoriasEnSelect() {
   const categorias = almacen.obtenerCategorias();
 
   if (categorias.length === 0) {
-    const mensaje = document.createElement("option"); // ← "option" no "opcion"
+    const mensaje = document.createElement("option");
     mensaje.textContent = "No existen categorías";
     mensaje.disabled = true;
     selectCategoria.appendChild(mensaje);
@@ -26,13 +27,16 @@ function cargarCategoriasEnSelect() {
   }
 
   categorias.forEach((cat) => {
-    const opcion = document.createElement("option"); // ← "option" no "opcion"
+    const opcion = document.createElement("option");
     opcion.value = cat.id;
     opcion.textContent = cat.nombre;
     selectCategoria.appendChild(opcion);
   });
 }
 
+/*
+ login
+*/
 const formLogin = document.getElementById("form-login");
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -40,13 +44,19 @@ formLogin.addEventListener("submit", (e) => {
   const usuarioAp = document.getElementById("login-usuario").value;
   const constrasenaAp = document.getElementById("login-password").value;
 
-  if (adminIntance.validarAdministrador(usuarioAp, constrasenaAp)) {
-    window.location.href = "admin.html";
-  } else {
+  if(verifyAdmin(usuarioAp,constrasenaAp)){
+     window.location.href="admin.html";
+  }{
     alert("Credenciales incorrectas");
   }
+
+
+  
 });
 
+/*
+ categoria
+*/
 const formCategoria = document.getElementById("form-categoria");
 formCategoria.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -63,6 +73,9 @@ formCategoria.addEventListener("submit", (e) => {
   formCategoria.reset();
 });
 
+/*
+ producto
+*/
 const formProducto = document.getElementById("form-productos");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -101,3 +114,4 @@ formProducto.addEventListener("submit", (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     cargarCategoriasEnSelect();
 });
+
