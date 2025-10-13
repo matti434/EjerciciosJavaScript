@@ -57,7 +57,7 @@ formCategoria.addEventListener("submit", (e) => {
   const categoriaIntance = new Categoria(nombre, descripcion);
   almacen.agregarCategorias(categoriaIntance);
 
-  cargarCategoriaEnSelect();
+  cargarCategoriasEnSelect()
   alert("Categoría agregada con éxito");
 
   formCategoria.reset();
