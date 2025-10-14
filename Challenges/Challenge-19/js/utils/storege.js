@@ -6,3 +6,4 @@ export const cargarDesdeStorage = (clave) => {
     const datos = localStorage.getItem(clave);
     return datos ? JSON.parse(datos) : [];
 }
+
