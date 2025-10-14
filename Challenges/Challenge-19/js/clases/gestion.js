@@ -1,4 +1,5 @@
 import { guardarEnStorage, cargarDesdeStorage } from "../utils/storage.js";
+
 export class Gestion {
   #usuarios = [];
   #productos = [];
@@ -36,9 +37,9 @@ export class Gestion {
   }
 
   #cargarDatos() {
-    this.#usuarios = cargarDesdeStorage("usuarios");
-    this.#productos = cargarDesdeStorage("productos");
-    this.#categorias = cargarDesdeStorage("categorias");
+    this.#usuarios = cargarDesdeStorage("usuarios") || [];
+    this.#productos = cargarDesdeStorage("productos") || [];
+    this.#categorias = cargarDesdeStorage("categorias") || [];
   }
 
   #guardarUsuarios() {
@@ -56,17 +57,18 @@ export class Gestion {
   obtenerUsuarioPorId(id) {
     return this.#usuarios.find((usuario) => usuario.id == id);
   }
+
   obtenerProductoPorId(id) {
-    return this.#productos.find((productos) => productos.id == id);
+    return this.#productos.find((producto) => producto.id == id);
   }
+
   obtenerCategoriaPorId(id) {
-    return this.#categorias.find((categorias) => categorias.id == id);
+    return this.#categorias.find((categoria) => categoria.id == id);
   }
 
   eliminarUsuario(id) {
     this.#usuarios = this.#usuarios.filter((usuario) => usuario.id != id);
     this.#guardarUsuarios();
-    // Esto mantiene todos los usuarios excepto el que queremos eliminar
   }
 
   eliminarProducto(id) {
@@ -81,8 +83,6 @@ export class Gestion {
     this.#guardarCategorias();
   }
 
-  // edicion
-
   editarUsuario(id, nuevosDatos) {
     const usuarioIndex = this.#usuarios.findIndex(
       (usuario) => usuario.id == id
@@ -93,7 +93,9 @@ export class Gestion {
         ...nuevosDatos,
       };
       this.#guardarUsuarios();
+      return true;
     }
+    return false;
   }
 
   editarProducto(id, nuevosDatos) {
@@ -106,7 +108,9 @@ export class Gestion {
         ...nuevosDatos,
       };
       this.#guardarProductos();
+      return true;
     }
+    return false;
   }
 
   editarCategoria(id, nuevosDatos) {
@@ -119,6 +123,8 @@ export class Gestion {
         ...nuevosDatos,
       };
       this.#guardarCategorias();
+      return true;
     }
+    return false;
   }
 }
