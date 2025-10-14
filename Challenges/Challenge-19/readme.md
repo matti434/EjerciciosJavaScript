@@ -249,3 +249,13 @@ Entiendo que no hay una forma segura de esconder las credenciales. Ya que necesi
 
 
 Usamos el metodo helper para volver mas rapido crear elementos en html
+
+Cómo funciona:
+```
+crearElemento(tag, className = '', textContent = '') {
+    const element = document.createElement(tag);     // 1. Crear elemento
+    if (className) element.className = className;    // 2. Agregar clase (si existe)
+    if (textContent) element.textContent = textContent; // 3. Agregar texto (si existe)
+    return element;  // 4. Devolver el elemento listo
+}
+```
