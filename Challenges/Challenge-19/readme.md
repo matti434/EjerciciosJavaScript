@@ -246,3 +246,6 @@ Razones NO válidas:
 ❌ Ocultar credenciales - Imposible en JavaScript del cliente
 
 Entiendo que no hay una forma segura de esconder las credenciales. Ya que necesitamos otras cosas para que no se muestren, ahora es facil entrar ya que abrimos el devTools y buscamos el archivo auth.js. En protectos reales iria en el backend y usan appis.
+
+
+Usamos el metodo helper para volver mas rapido crear elementos en html

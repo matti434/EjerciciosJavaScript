@@ -1,4 +1,4 @@
-import { guardarEnStorage, cargarDesdeStorage } from "../utils/storage";
+import { guardarEnStorage, cargarDesdeStorage } from "../utils/storage.js";
 export class Gestion {
   #usuarios = [];
   #productos = [];
