@@ -52,4 +52,17 @@ export class Gestion {
   #guardarCategorias() {
     guardarEnStorage("categorias", this.#categorias);
   }
+
+
+  obtenerUsuarioPorId(id){
+    return this.#usuarios.find(usuario => usuario.id == id);
+  }
+  obtenerProductoPorId(id){
+    return this.#productos.find(productos => productos.id == id);
+  }
+  obtenerCategoriaPorId(id){
+    return this.#categorias.find(categorias => categorias.id == id);
+  }
+
+  
 }
