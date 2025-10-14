@@ -126,8 +126,8 @@ formProducto.addEventListener("submit", (e) => {
     precio,
     descripcion,
     categoriaId,
+    imagen,
     stock,
-    imagen
   );
   almacen.agregarProductos(productIntance);
   alert("Producto agregada con éxito");

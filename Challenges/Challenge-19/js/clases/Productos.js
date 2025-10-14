@@ -10,11 +10,11 @@ Stock
 
 export class Productos{
     
-    constructor(nombre,descripcion,precio,categoria,imagen,stock){
+    constructor(nombre,descripcion,precio,categoriaId,imagen,stock){
        this.id=Date.now() + Math.random();
        this.nombre=nombre;
-       this.descripcion=descripcion;
        this.precio=precio;
+       this.descripcion=descripcion;
        this.categoriaId=categoriaId;
        this.imagen=imagen;
        this.stock=stock;
