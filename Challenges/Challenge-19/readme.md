@@ -2,24 +2,23 @@
 
 La app se compone de dos páginas principales:
 
- index.html → Página principal
+index.html → Página principal
 
- Sección Login (visible al inicio)
+Sección Login (visible al inicio)
 
- Sección Registro Usuario (oculta)
+Sección Registro Usuario (oculta)
 
- Sección Ingreso Producto (oculta)
+Sección Ingreso Producto (oculta)
 
- Sección Ingreso Categoría (oculta)
+Sección Ingreso Categoría (oculta)
 
 admin.html → Panel administrativo (acceso restringido)
 
- CRUD completo de Usuarios
+CRUD completo de Usuarios
 
- CRUD completo de Productos
+CRUD completo de Productos
 
- CRUD completo de Categorías
-
+CRUD completo de Categorías
 
 ### Lógica del sistema
 
@@ -31,17 +30,15 @@ Se usa para el acceso al panel de administración.
 
 Por qué no uso try...catch:
 
-  - La validación es simple (comparación de strings).
-  - No hay operaciones que puedan fallar.
-  - Más directo.
+- La validación es simple (comparación de strings).
+- No hay operaciones que puedan fallar.
+- Más directo.
 
 Cuándo usar try...catch:
 
- - Operaciones con LocalStorage.
- - Llamadas a APIs.
- - Cualquier código que pueda lanzar errores inesperados.
-
-
+- Operaciones con LocalStorage.
+- Llamadas a APIs.
+- Cualquier código que pueda lanzar errores inesperados.
 
 Voy a crear la clase gestion para poder guardar los datos de manera segura
 
@@ -196,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 "Cuando el usuario crea una categoría, la función agregarCategorias la guarda en almacen y a continuación actualizamos el select del formulario de producto con cargarCategoriasEnSelect(). Esa función utiliza createElement para generar option y appendChild para insertarlos. En el alta de producto validamos que exista una categoría seleccionada (si no, mostramos alert), creamos la instancia Productos y la guardamos. De esta forma la relación producto→categoría se hace por categoriaId y el select siempre está sincronizado con las categorías guardadas."
 
-
 ### faltante 12/10/2025
 
 Creado hasta el momento
@@ -216,7 +212,7 @@ Me fije y la autenticacion es bastante facil,entoces voy a usar este metodo para
 
 IIFE (Immediately Invoked Function Expression):
 
-(() => { ... })()  // ← Se ejecuta inmediatamente
+(() => { ... })() // ← Se ejecuta inmediatamente
 
 Lo que pasa:La función se ejecuta inmediatamente
 Crea un scope privado donde viven usuarioCorrecto y contrasenaCorrecta
@@ -247,10 +243,10 @@ Razones NO válidas:
 
 Entiendo que no hay una forma segura de esconder las credenciales. Ya que necesitamos otras cosas para que no se muestren, ahora es facil entrar ya que abrimos el devTools y buscamos el archivo auth.js. En protectos reales iria en el backend y usan appis.
 
-
 Usamos el metodo helper para volver mas rapido crear elementos en html
 
 Cómo funciona:
+
 ```
 crearElemento(tag, className = '', textContent = '') {
     const element = document.createElement(tag);     // 1. Crear elemento
@@ -258,4 +254,35 @@ crearElemento(tag, className = '', textContent = '') {
     if (textContent) element.textContent = textContent; // 3. Agregar texto (si existe)
     return element;  // 4. Devolver el elemento listo
 }
+
+lo que esta haciendo es crear una nueva this.#categoria con todas los objetos categoria menos el que eliminamos
+ eliminarUsuario(id){
+    this.#usuarios = this.#usuarios.filter(usuario => usuario.id !=id);
+    this.#guardarUsuarios();
+    // Esto mantiene todos los usuarios excepto el que queremos eliminar
+  }
 ```
+
+```
+editarUsuario(id,nuevosDatos){
+const usuarioIndex= this.#usuarios.findIndex(usuario => usuario.id == id);
+if(usuarioIndex !== -1){
+this.#usuarios[usuarioIndex] = {
+...this.#usuarios[usuarioIndex],... nuevosDatos
+};
+
+}
+```
+
+Primero busca en que indixe se encuentra el id
+¿Qué significa -1?
+
+findIndex devuelve -1 cuando NO encuentra el elemento
+
+findIndex devuelve 0, 1, 2, ... cuando SÍ encuentra el elemento
+
+Es como preguntar: "¿Encontré al usuario?"
+
+usuarioIndex !== -1 = "SÍ, encontré al usuario"
+
+usuarioIndex === -1 = "NO, no encontré al usuario
