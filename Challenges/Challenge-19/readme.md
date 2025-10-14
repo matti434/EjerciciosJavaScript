@@ -256,26 +256,46 @@ crearElemento(tag, className = '', textContent = '') {
     if (textContent) element.textContent = textContent; // 3. Agregar texto (si existe)
     return element;  // 4. Devolver el elemento listo
 }
+```
 
-lo que esta haciendo es crear una nueva this.#categoria con todas los objetos categoria menos el que eliminamos
+
+## Ultimso usos
+
+Agregamos estos metodos a gestion
+
+1-EliminarUsuario
+2-EditarUsuario
+
+
+1- 
+```
  eliminarUsuario(id){
     this.#usuarios = this.#usuarios.filter(usuario => usuario.id !=id);
     this.#guardarUsuarios();
     // Esto mantiene todos los usuarios excepto el que queremos eliminar
   }
 ```
+Recordemos que el metodo filter funciona creando un nuevo array con todos los elementos que pasan una prueba.por ende lo que esta haciendo es buscar en todo el array de this.#categoria
+busca el id especifico y al resto que no sea ese crea un array nuevo
 
+
+2-
 ```
-editarUsuario(id,nuevosDatos){
-const usuarioIndex= this.#usuarios.findIndex(usuario => usuario.id == id);
-if(usuarioIndex !== -1){
-this.#usuarios[usuarioIndex] = {
-...this.#usuarios[usuarioIndex],... nuevosDatos
-};
-
+editarUsuario(id, nuevosDatos) {
+  const usuarioIndex = this.#usuarios.findIndex(
+    (usuario) => usuario.id == id
+  );
+  if (usuarioIndex !== -1) {
+    this.#usuarios[usuarioIndex] = {
+      ...this.#usuarios[usuarioIndex],
+      ...nuevosDatos,
+    };
+    this.#guardarUsuarios();
+    return true;
+  }
+  return false;
 }
 ```
-
 Primero busca en que indixe se encuentra el id
 ¿Qué significa -1?
 
@@ -288,3 +308,14 @@ Es como preguntar: "¿Encontré al usuario?"
 usuarioIndex !== -1 = "SÍ, encontré al usuario"
 
 usuarioIndex === -1 = "NO, no encontré al usuario
+
+El operador de propagación (...) hace esto:
+Copia todas las propiedades del objeto original
+Sobrescribe las propiedades que coinciden con las del segundo objeto
+Mantiene las propiedades que no están en el segundo objeto
+
+```
+
+if (nuevoNombre && nuevoEmail) {this.gestion.editarUsuario(id, {nombre: nuevoNombre, email: nuevoEmail, }); aqui manda id y nuevosDatos necesarios en la funcion
+
+```
