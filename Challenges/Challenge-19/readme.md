@@ -221,12 +221,14 @@ Las variables originales quedan encerradas (closure) - no son accesibles desde f
 
 // link.getAttribute('data-section') devuelve → "usuario"
 const seccionId = "usuario";
-
+```
 // Busca el elemento con data-section="usuario"
 const linkActivo = document.querySelector(`[data-section="${seccionId}"]`);
 // Encuentra: <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
+```
 
-ENTONCES ¿PARA QUÉ USAR CLOSURE O # PRIVADAS?
+
+#### ENTONCES ¿PARA QUÉ USAR CLOSURE O # PRIVADAS?
 Razones válidas:
 ✅ Mejores prácticas - Código más limpio y mantenible
 
