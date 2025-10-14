@@ -221,14 +221,15 @@ Las variables originales quedan encerradas (closure) - no son accesibles desde f
 
 // link.getAttribute('data-section') devuelve → "usuario"
 const seccionId = "usuario";
+
 ```
 // Busca el elemento con data-section="usuario"
 const linkActivo = document.querySelector(`[data-section="${seccionId}"]`);
 // Encuentra: <a class="nav-link" data-section="usuario">👤 Registrar Usuario</a>
 ```
 
-
 #### ENTONCES ¿PARA QUÉ USAR CLOSURE O # PRIVADAS?
+
 Razones válidas:
 ✅ Mejores prácticas - Código más limpio y mantenible
 
@@ -258,7 +259,6 @@ crearElemento(tag, className = '', textContent = '') {
 }
 ```
 
-
 ## Ultimso usos
 
 Agregamos estos metodos a gestion
@@ -266,8 +266,8 @@ Agregamos estos metodos a gestion
 1-EliminarUsuario
 2-EditarUsuario
 
+1-
 
-1- 
 ```
  eliminarUsuario(id){
     this.#usuarios = this.#usuarios.filter(usuario => usuario.id !=id);
@@ -275,11 +275,12 @@ Agregamos estos metodos a gestion
     // Esto mantiene todos los usuarios excepto el que queremos eliminar
   }
 ```
+
 Recordemos que el metodo filter funciona creando un nuevo array con todos los elementos que pasan una prueba.por ende lo que esta haciendo es buscar en todo el array de this.#categoria
 busca el id especifico y al resto que no sea ese crea un array nuevo
 
-
 2-
+
 ```
 editarUsuario(id, nuevosDatos) {
   const usuarioIndex = this.#usuarios.findIndex(
@@ -296,6 +297,7 @@ editarUsuario(id, nuevosDatos) {
   return false;
 }
 ```
+
 Primero busca en que indixe se encuentra el id
 ¿Qué significa -1?
 
