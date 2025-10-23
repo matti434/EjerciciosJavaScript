@@ -3,7 +3,7 @@
         response: 200,
         descripcion: 'Esta info es importante'
     }
-    response(resp)
+    //response(resp)
     reject('Fallo')
  })
 
