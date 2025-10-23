@@ -1,3 +1,4 @@
+### AsyncAwait va de la mano con las promesas una cosa no remplaza la otra (AsyncAwait es una promesa como Fetch)
 
 ```js
 promesa1.then((res) => {

@@ -27,3 +27,14 @@ let promesa3 = new Promise((response) => {
     response(resp);
   }, 2500);
 });
+
+async function  ejecutarPromesas() {
+    let respuestaPromesa1 = await promesa1
+    console.log(respuestaPromesa1);
+    let respuestaPromesa2 = await promesa2
+    console.log(respuestaPromesa2);
+    let respuestaPromesa3 = await promesa3
+    console.log(respuestaPromesa3);   
+}
+
+ejecutarPromesas();
