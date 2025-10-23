@@ -22,6 +22,9 @@ promesa1.then((res) => {
   primero va la Promesa 1 que dura : 3 segundos
   segundo va la Promesa 2 que dura : 5 segundos
   tercero va la Promesa 3 que dura : 2500
+  **Recordemos que este tipo estructua esta mal, llamada piramide de la muerte**
+
+
 
 ```js
   let promesa1 = new Promise((response) => {
